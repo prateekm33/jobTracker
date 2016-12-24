@@ -1,0 +1,22 @@
+#home-container {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  margin-top: 3em;
+
+  & > * {
+    margin-bottom: 5%;
+  }
+}
+
+#list-title {
+  font-size: 1.5em;
+  margin-bottom: 25px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+
+// Jobs View Container
+@import 'jobsView';

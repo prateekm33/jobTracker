@@ -1,0 +1,178 @@
+$max-width: 749px;
+$small-device-width: 450px;
+
+// basic styles 
+#jobs-view-container {
+  width: 100%;
+  font-size: 0.86em;
+  display: flex;
+  flex-flow: column nowrap;
+  min-width: 400px;
+}
+
+.job-container, .table-job-container {
+  transition: all .3s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.07);
+  }
+}
+
+#page-controls {
+  display: flex;
+  justify-content: space-around;
+  font-weight: bold;
+
+  & > .glyphicon:hover {
+    cursor: pointer;
+    transform: scale(1.4);
+  }
+}
+
+#page-controls:before {
+  content: "";
+  position: absolute;
+  left: 25%;
+  bottom: -10px;
+  height: 1px;
+  width: 50%;
+  border-bottom: 1px dotted black;
+}
+
+// small screen specific styles
+@media(max-width: $max-width), (max-device-width: $small-device-width) {
+
+  #page-controls {
+    width: 80%;
+    font-size: 1.6em;
+  }
+
+  #jobs-view-container {
+    align-items: center;
+
+    table {
+      display: none;
+    }
+
+    #components-view {
+      width: 100%;
+    }
+  }
+
+  #list-legend {
+    display: none;
+  }
+
+  .job-container {
+    flex-flow: column nowrap;
+    position: relative;
+    margin-bottom: 10%;
+    display: flex;
+    text-align: center;
+    width: 100%;
+    padding: 5%;
+
+    & .company-detail {
+      margin: 3%;
+      font-size: 1.3em;
+      font-weight: bold;
+    }
+
+    & .role-detail {
+      margin: 3%;
+      margin-bottom: 5%;
+    }
+
+    & .date-detail {
+      top: 5%;
+      right: 1%;
+      position: absolute;
+      font-size: 0.95em;
+    }
+
+    & .status-detail {
+      top: 5%;
+      left: 1%;
+      position: absolute;
+      font-size: 0.95em;
+    }
+
+    & .contact-detail {
+      bottom: 5%;
+      right: 1%;
+      position: absolute;
+      font-size: 0.95em;
+    }
+  }
+}
+
+
+// large screen specific styles
+@media(min-width: 750px) and (min-device-width: $small-device-width + 1) {
+  #components-view {
+    display: none;
+  }
+
+  #jobs-view-container {
+
+
+    table {
+      width: 100%;
+      border-collapse: initial;
+      border-spacing: 0 0.5em;
+
+      tr {
+        height: 50px;
+      }
+
+      tr:nth-of-type(2n) {
+        background-color: rgba(0,0,0,0.2);
+      }
+
+
+      td, th {
+        text-align: center;
+      }
+
+      th {
+        border-bottom: 2px solid rgba(0,0,0,0.8);
+        font-weight: bolder;
+      }
+
+      td {
+        border-bottom: 2px solid rgba(0,0,0,0.3);
+      }
+
+    }
+
+    #page-controls {
+      width: 12%;
+      position: fixed;
+      top: 180px;
+      right: 2%;
+    }
+
+  }
+}
+
+
+
+// over-write generic grey table background
+#jobs-view-container {
+  .applied, table tr.applied {
+    background-color: antiquewhite;
+  }
+  .phone-screen {
+    background-color: lightblue;
+  }
+  .on-site {
+    background-color: lightyellow;
+  }
+  .offer {
+    background-color: lightgreen;
+  }
+  .rejected {
+    background-color: darksalmon;
+  }
+}

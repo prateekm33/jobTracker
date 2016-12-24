@@ -1,0 +1,320 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 5, ../../../../../../../../usr/local/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../../../usr/local/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../../../usr/local/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../../../usr/local/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../../../usr/local/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../../../usr/local/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../../../usr/local/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../../../usr/local/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../../../usr/local/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 5, ../sass/_default.scss */
+body {
+  font-size: 20px;
+  width: 100%;
+  min-width: 490px;
+}
+
+@media (max-device-width: 450px) {
+  /* line 11, ../sass/_default.scss */
+  body {
+    font-size: 30px;
+  }
+}
+/* line 16, ../sass/_default.scss */
+li {
+  list-style: none;
+}
+
+/* line 21, ../sass/_default.scss */
+#main-nav {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  background-color: lightblue;
+  width: 100%;
+  height: 2.3em;
+  font-size: 1.5em;
+  align-items: center;
+  padding: 2%;
+  position: fixed;
+  top: 0;
+  z-index: 200;
+  /* TODO -- bottom box-shadow */
+}
+/* line 38, ../sass/_default.scss */
+#main-nav ul#profile-dropdown:hover {
+  cursor: pointer;
+}
+/* line 42, ../sass/_default.scss */
+#main-nav ul#profile-dropdown > * {
+  display: none;
+}
+
+/* line 50, ../sass/_default.scss */
+#secondary-app-container {
+  margin: 5% 15%;
+  margin-top: 5em;
+}
+
+/* line 55, ../sass/_default.scss */
+#footer {
+  text-align: center;
+  height: 2.3em;
+  background-color: cadetblue;
+  width: 100%;
+  z-index: 200;
+}
+
+/* line 1, ../sass/_home.scss */
+#home-container {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  margin-top: 3em;
+}
+/* line 7, ../sass/_home.scss */
+#home-container > * {
+  margin-bottom: 5%;
+}
+
+/* line 12, ../sass/_home.scss */
+#list-title {
+  font-size: 1.5em;
+  margin-bottom: 25px;
+}
+/* line 15, ../sass/_home.scss */
+#list-title:hover {
+  cursor: pointer;
+}
+
+/* line 5, ../sass/_jobsView.scss */
+#jobs-view-container {
+  width: 100%;
+  font-size: 0.86em;
+  display: flex;
+  flex-flow: column nowrap;
+  min-width: 400px;
+}
+
+/* line 13, ../sass/_jobsView.scss */
+.job-container, .table-job-container {
+  transition: all .3s ease-in-out;
+}
+/* line 16, ../sass/_jobsView.scss */
+.job-container:hover, .table-job-container:hover {
+  cursor: pointer;
+  transform: scale(1.07);
+}
+
+/* line 22, ../sass/_jobsView.scss */
+#page-controls {
+  display: flex;
+  justify-content: space-around;
+  font-weight: bold;
+}
+/* line 27, ../sass/_jobsView.scss */
+#page-controls > .glyphicon:hover {
+  cursor: pointer;
+  transform: scale(1.4);
+}
+
+/* line 33, ../sass/_jobsView.scss */
+#page-controls:before {
+  content: "";
+  position: absolute;
+  left: 25%;
+  bottom: -10px;
+  height: 1px;
+  width: 50%;
+  border-bottom: 1px dotted black;
+}
+
+@media (max-width: 749px), (max-device-width: 450px) {
+  /* line 46, ../sass/_jobsView.scss */
+  #page-controls {
+    width: 80%;
+    font-size: 1.6em;
+  }
+
+  /* line 51, ../sass/_jobsView.scss */
+  #jobs-view-container {
+    align-items: center;
+  }
+  /* line 54, ../sass/_jobsView.scss */
+  #jobs-view-container table {
+    display: none;
+  }
+  /* line 58, ../sass/_jobsView.scss */
+  #jobs-view-container #components-view {
+    width: 100%;
+  }
+
+  /* line 63, ../sass/_jobsView.scss */
+  #list-legend {
+    display: none;
+  }
+
+  /* line 67, ../sass/_jobsView.scss */
+  .job-container {
+    flex-flow: column nowrap;
+    position: relative;
+    margin-bottom: 10%;
+    display: flex;
+    text-align: center;
+    width: 100%;
+    padding: 5%;
+  }
+  /* line 76, ../sass/_jobsView.scss */
+  .job-container .company-detail {
+    margin: 3%;
+    font-size: 1.3em;
+    font-weight: bold;
+  }
+  /* line 82, ../sass/_jobsView.scss */
+  .job-container .role-detail {
+    margin: 3%;
+    margin-bottom: 5%;
+  }
+  /* line 87, ../sass/_jobsView.scss */
+  .job-container .date-detail {
+    top: 5%;
+    right: 1%;
+    position: absolute;
+    font-size: 0.95em;
+  }
+  /* line 94, ../sass/_jobsView.scss */
+  .job-container .status-detail {
+    top: 5%;
+    left: 1%;
+    position: absolute;
+    font-size: 0.95em;
+  }
+  /* line 101, ../sass/_jobsView.scss */
+  .job-container .contact-detail {
+    bottom: 5%;
+    right: 1%;
+    position: absolute;
+    font-size: 0.95em;
+  }
+}
+@media (min-width: 750px) and (min-device-width: 451px) {
+  /* line 113, ../sass/_jobsView.scss */
+  #components-view {
+    display: none;
+  }
+
+  /* line 120, ../sass/_jobsView.scss */
+  #jobs-view-container table {
+    width: 100%;
+    border-collapse: initial;
+    border-spacing: 0 0.5em;
+  }
+  /* line 125, ../sass/_jobsView.scss */
+  #jobs-view-container table tr {
+    height: 50px;
+  }
+  /* line 129, ../sass/_jobsView.scss */
+  #jobs-view-container table tr:nth-of-type(2n) {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  /* line 134, ../sass/_jobsView.scss */
+  #jobs-view-container table td, #jobs-view-container table th {
+    text-align: center;
+  }
+  /* line 138, ../sass/_jobsView.scss */
+  #jobs-view-container table th {
+    border-bottom: 2px solid rgba(0, 0, 0, 0.8);
+    font-weight: bolder;
+  }
+  /* line 143, ../sass/_jobsView.scss */
+  #jobs-view-container table td {
+    border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+  }
+  /* line 149, ../sass/_jobsView.scss */
+  #jobs-view-container #page-controls {
+    width: 12%;
+    position: fixed;
+    top: 180px;
+    right: 2%;
+  }
+}
+/* line 163, ../sass/_jobsView.scss */
+#jobs-view-container .applied, #jobs-view-container table tr.applied {
+  background-color: antiquewhite;
+}
+/* line 166, ../sass/_jobsView.scss */
+#jobs-view-container .phone-screen {
+  background-color: lightblue;
+}
+/* line 169, ../sass/_jobsView.scss */
+#jobs-view-container .on-site {
+  background-color: lightyellow;
+}
+/* line 172, ../sass/_jobsView.scss */
+#jobs-view-container .offer {
+  background-color: lightgreen;
+}
+/* line 175, ../sass/_jobsView.scss */
+#jobs-view-container .rejected {
+  background-color: darksalmon;
+}
