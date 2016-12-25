@@ -1,12 +1,18 @@
+$max-width: 749px;
+$min-width: 750px;
+$small-device-width: 450px;
+
 #home-container {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
   margin-top: 3em;
+  position: relative;
 
   & > * {
     margin-bottom: 5%;
   }
+
 }
 
 #list-title {
@@ -17,6 +23,45 @@
   }
 }
 
+#small-screen-sort-by-options {
+  display: none;
+}
 
+// small screen styles
+@media (max-width: $max-width), (max-device-width: $small-device-width) {
+  #small-screen-sort-by-options {
+    display: flex;
+    flex-flow: row nowrap;
+    font-size: 0.7em;
+    position: absolute;
+    right: 0;
+    top: 1.5em;
+
+    * {
+      margin-left: 0.4em;
+    }
+
+    .dropdown-component {
+      z-index: 200;
+
+      ul.dropdown-list {
+        width: 200px;
+      }
+    }
+  }
+}
+
+@media (min-width: $min-width) {
+  #list-title {
+    position: fixed;
+    z-index: 400;
+    width: 100%;
+    text-align: center;
+    height: 3em;
+    background: white;
+    padding-top: 1.15em;
+    top: 2.3em;
+  }
+}
 // Jobs View Container
 @import 'jobsView';

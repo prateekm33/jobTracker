@@ -48,8 +48,9 @@ li {
 
 // Content Container
 #secondary-app-container {
-  margin: 5% 15%;
+  margin: 5% 10%;
   margin-top: 5em;
+  min-height: 100vh;
 }
 
 #footer {
@@ -60,6 +61,42 @@ li {
   z-index: 200;
 }
 
+.dropdown-component {
+  position: relative;
+
+  .default-dropdown-option:hover {
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  ul.dropdown-list {
+    position: absolute;
+    top: 0.5em;
+    right: -2em;
+    margin-top: 1em;
+    background-color: white;
+    border: 2px solid black;
+    padding: 1em;
+
+    li {
+      margin-bottom: 0.5em;
+      text-align: end;
+      padding-right: 1em;
+      &:hover{
+        cursor: pointer;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.display-none {
+  display: none;
+}
+
+.hidden {
+  visibility: hidden;
+}
 
 // Home Component styles
 @import 'home'

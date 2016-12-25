@@ -1,4 +1,5 @@
 $max-width: 749px;
+$min-width: 750px;
 $small-device-width: 450px;
 
 // basic styles 
@@ -23,6 +24,7 @@ $small-device-width: 450px;
   display: flex;
   justify-content: space-around;
   font-weight: bold;
+  position: relative;
 
   & > .glyphicon:hover {
     cursor: pointer;
@@ -72,72 +74,98 @@ $small-device-width: 450px;
     text-align: center;
     width: 100%;
     padding: 5%;
+    border-radius: 10px;
+    border: 2px dotted rgba(0,0,0,0.3);
 
     & .company-detail {
       margin: 3%;
-      font-size: 1.3em;
+      font-size: 1.5em;
       font-weight: bold;
     }
 
     & .role-detail {
       margin: 3%;
       margin-bottom: 5%;
+      font-size: 1.3em;
+      font-weight: bold;
     }
 
     & .date-detail {
-      top: 5%;
-      right: 1%;
+      top: 10%;
+      right: 5%;
       position: absolute;
       font-size: 0.95em;
     }
 
     & .status-detail {
-      top: 5%;
-      left: 1%;
-      position: absolute;
       font-size: 0.95em;
+      font-weight: bold;
     }
 
     & .contact-detail {
-      bottom: 5%;
-      right: 1%;
-      position: absolute;
-      font-size: 0.95em;
+      display: none;
     }
   }
 }
 
 
 // large screen specific styles
-@media(min-width: 750px) and (min-device-width: $small-device-width + 1) {
+@media(min-width: $min-width) and (min-device-width: $small-device-width + 1) {
   #components-view {
     display: none;
   }
 
   #jobs-view-container {
+    margin-top: 3em;
 
 
-    table {
-      width: 100%;
+    #jobs-list-table {
+      width: 99%;
       border-collapse: initial;
       border-spacing: 0 0.5em;
+      font-size: 0.85em;
+
 
       tr {
         height: 50px;
       }
 
-      tr:nth-of-type(2n) {
-        background-color: rgba(0,0,0,0.2);
-      }
-
-
       td, th {
         text-align: center;
+        font-weight: bold;
       }
 
       th {
         border-bottom: 2px solid rgba(0,0,0,0.8);
         font-weight: bolder;
+        position: relative;
+        
+        .outside-table-header-container {
+          display: flex;
+          justify-content: space-around;
+        }
+  
+        .table-header-container {
+          display: flex;
+          flex-flow: row nowrap;
+          align-items: center;
+        }
+        .sort-icon-container {
+          display: flex;
+          flex-flow: column nowrap;
+          font-size: 0.6em;
+          margin-left: 5px;
+          color: darkgrey;
+          & * {
+            z-index: -100;
+          }
+
+          &:hover {
+            color: black;
+            cursor: pointer;
+          }
+        }
+
       }
 
       td {
@@ -147,10 +175,9 @@ $small-device-width: 450px;
     }
 
     #page-controls {
-      width: 12%;
       position: fixed;
-      top: 180px;
-      right: 2%;
+      top: 178px;
+      right: 1.5%;
     }
 
   }
@@ -161,18 +188,33 @@ $small-device-width: 450px;
 // over-write generic grey table background
 #jobs-view-container {
   .applied, table tr.applied {
-    background-color: antiquewhite;
+    background-color: rgba(228,251,233,0.1);
   }
   .phone-screen {
-    background-color: lightblue;
+    background-color: #C9F7D4;
   }
   .on-site {
-    background-color: lightyellow;
+    background-color: #85ED9F;
   }
   .offer {
-    background-color: lightgreen;
+    background-color: #5DE77F;
   }
   .rejected {
-    background-color: darksalmon;
+    background-color: rgba(253,106,106,0.6);
   }
 }
+
+
+/*
+#D6F6D9
+#AEEEB4
+#78E382
+#43D950
+
+
+#E4FBE9
+#AEF3BF
+#85ED9F
+#42E36A
+
+*/

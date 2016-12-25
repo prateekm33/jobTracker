@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux';
 
+import actions from '../../redux/actions';
+
 class JobsView extends React.Component {
   constructor(props) {
     super(props);
@@ -14,7 +16,6 @@ class JobsView extends React.Component {
     this.handlePageChange = this.handlePageChange.bind(this);
     this.handleWindowResize = this.handleWindowResize.bind(this);
     this.updateDisplayNum = _.throttle(this.updateDisplayNum.bind(this));
-
 
     window.addEventListener('resize', this.handleWindowResize);
   }
@@ -38,7 +39,7 @@ class JobsView extends React.Component {
 
   handleJobClicked(evt, job) {
     const target = evt.target;
-    console.log(target, job)
+    console.log('TODO-- EDIT PAGE: ', target, job)
   }
 
   handlePageChange(evt) {
@@ -70,18 +71,11 @@ class JobsView extends React.Component {
     }
 
     // TODO -- add row #s
+              
 
     return (
       <table id='jobs-list-table' ref={el => this.tableEl = el}>
-        <thead>
-          <tr className='row-header'>
-            <th className='company-data-cell'>Company</th>
-            <th className='role-data-cell'>Role/Job Title</th>
-            <th className='contact-data-cell'>Contact</th>
-            <th className='status-data-cell'>Status</th>
-            <th className='date-data-cell'>Date Applied</th>
-          </tr>
-        </thead>
+        {this.props.renderTableHeader()}
         <tbody>
           {
             render20.call(this, this.props.jobsList, this.state.startIdx)
@@ -130,6 +124,7 @@ class JobsView extends React.Component {
 
 
 
+
 function Job(props) {
   // TODO - date display should be human readable
     // ie: '2 weeks ago' 'about a month ago' etc
@@ -144,7 +139,7 @@ function Job(props) {
         <div className={'company-detail'}>{props.job.company}</div>
         <div className={'role-detail'}>{props.job.role}</div>
         <div className={'contact-detail'}>{props.job.contact}</div>
-        <div className={'status-detail'}>{props.job.status}</div>
+        <div className={'status-detail'}>{props.job.status.toUpperCase()}</div>
         <div className={'date-detail'}>{props.job.date_applied}</div>
       </div>
     )
@@ -154,7 +149,7 @@ function Job(props) {
         <td className={'company-data-cell'}>{props.job.company}</td>
         <td className={'role-data-cell'}>{props.job.role}</td>
         <td className={'contact-data-cell'}>{props.job.contact}</td>
-        <td className={'status-data-cell'}>{props.job.status}</td>
+        <td className={'status-data-cell'}>{props.job.status.toUpperCase()}</td>
         <td className={'date-data-cell'}>{props.job.date_applied}</td>
       </tr>
     )
