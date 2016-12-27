@@ -17,50 +17,50 @@ $small-device-width: 450px;
 
 #list-title {
   font-size: 1.5em;
-  margin-bottom: 25px;
+  width: 5em;
+
   &:hover {
     cursor: pointer;
   }
 }
 
-#small-screen-sort-by-options {
-  display: none;
-}
-
-// small screen styles
-@media (max-width: $max-width), (max-device-width: $small-device-width) {
-  #small-screen-sort-by-options {
-    display: flex;
-    flex-flow: row nowrap;
-    font-size: 0.7em;
-    position: absolute;
-    right: 0;
-    top: 1.5em;
-
-    * {
-      margin-left: 0.4em;
-    }
-
-    .dropdown-component {
-      z-index: 200;
-
-      ul.dropdown-list {
-        width: 200px;
-      }
-    }
-  }
-}
-
+// large screen styles
 @media (min-width: $min-width) {
-  #list-title {
+  #list-title-container {
     position: fixed;
     z-index: 400;
     width: 100%;
     text-align: center;
-    height: 3em;
     background: white;
-    padding-top: 1.15em;
-    top: 2.3em;
+    padding: 1.15em;
+    top: 3.3em;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+
+  #table-header-copy {
+    position: fixed;
+    top: 10em;
+    font-size: 0.75em;
+    width: 79%;
+    left: 6.5em;
+
+    .company-data-cell {
+      width: 121px
+    }
+    .role-data-cell {
+      width: 139px;
+    }
+    .contact-data-cell {
+      width: 224px;
+    }
+    .status-data-cell {
+      width: 157px;
+    }
+    .date-data-cell {
+      width: 133px;
+    }
   }
 }
 // Jobs View Container

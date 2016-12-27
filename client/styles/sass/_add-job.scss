@@ -1,0 +1,96 @@
+form#job-extended {
+  min-width: 400px;
+
+  & > *, & > * > div {
+    margin-bottom: 1em;
+  }
+
+  div.job-req { display: none; }
+
+  label { 
+    float: left;
+    padding-bottom: 3%;
+    color: darkgrey;
+  }
+
+  button.form-done {
+    align-self: flex-end;
+  }
+
+  button#add-job {
+    margin-top: 2em;
+    align-self: center;
+  }
+}
+
+.form-line-component {
+  width: 100%;
+  padding: 0 2%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+}
+
+
+.added-job {
+  border: 1px solid darkgrey;
+  box-shadow: 0 1px 8px 0 rgba(197, 141, 141, 0.2), 0 6px 10px -2px rgba(0, 0, 0, 0.19);
+  padding: 5%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 5%;
+
+  span.remove-added-job {
+    visibility: hidden;
+    position: absolute;
+    right: -3%;
+    top: -10%;
+    font-size: 1.5em;
+    background-color: white;
+  }
+
+  a:hover {
+    font-size: 1.05em;
+    font-weight: bold;
+  }
+
+  &:hover {
+    box-shadow: 0 1px 8px 0 rgb(46, 44, 232), 0 6px 10px -2px rgba(0, 134, 253, 0.19);
+    cursor: pointer;
+  }
+
+  .job-status {
+    display: flex;
+    flex-flow: row nowrap;
+    position: relative;
+    span.glyphicon-menu-down {
+      font-size: 0.75em;
+      color: rgba(99,99,99, 0.7);
+      padding: 8%;
+      top: -20%;
+      font-weight: bold;
+
+      &:hover {
+        color: rgba(14, 118, 142, 0.88);
+        transform: scale(1.3)
+      }
+    }
+  }
+
+}
+
+
+@media (max-width: $max-width) {
+
+  .form-line {
+    display: flex;
+    flex-flow: row nowrap;
+  }
+
+  .form-line-component {
+    padding: 0 1%;
+  }
+
+}

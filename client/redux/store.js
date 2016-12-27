@@ -11,7 +11,10 @@ const finalCreateStore = compose(
 import { jobs } from './mockData.js'
 
 const defaultState = {
-  jobsList: jobs
+  jobsList: jobs,
+  editJob: false,
+  jobToEdit: {},
+  sortBy: ''
 }
 
 export default function configureStore(initialState = defaultState) {

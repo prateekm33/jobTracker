@@ -9,6 +9,7 @@ $small-device-width: 450px;
   display: flex;
   flex-flow: column nowrap;
   min-width: 400px;
+  position: relative;
 }
 
 .job-container, .table-job-container {
@@ -25,6 +26,10 @@ $small-device-width: 450px;
   justify-content: space-around;
   font-weight: bold;
   position: relative;
+
+  * {
+    padding: 0 1em;
+  }
 
   & > .glyphicon:hover {
     cursor: pointer;
@@ -44,6 +49,48 @@ $small-device-width: 450px;
 
 // small screen specific styles
 @media(max-width: $max-width), (max-device-width: $small-device-width) {
+  #small-screen-order-direction {
+    display: flex;
+    flex-flow: row nowrap;
+    position: absolute;
+    left: 0;
+    top: -1.5em;
+    justify-content: space-around;
+
+    #sort-desc, #sort-asc {
+      color: darkgrey;
+      &.icon-active:hover {
+        color: black;
+        cursor: pointer;
+      }
+
+      &.black {
+        color: black;
+      }
+    }
+  }
+
+
+  #small-screen-sort-by-options {
+    display: flex;
+    flex-flow: row nowrap;
+    font-size: 0.7em;
+    position: absolute;
+    right: 0;
+    top: -1.5em;
+
+    * {
+      margin-left: 0.4em;
+    }
+
+    .dropdown-component {
+      z-index: 200;
+
+      ul.dropdown-list {
+        width: 200px;
+      }
+    }
+  }
 
   #page-controls {
     width: 80%;
@@ -111,73 +158,93 @@ $small-device-width: 450px;
 
 // large screen specific styles
 @media(min-width: $min-width) and (min-device-width: $small-device-width + 1) {
+
+  #small-screen-sort-by-options, #small-screen-order-direction {
+    display: none;
+  }
   #components-view {
     display: none;
   }
 
-  #jobs-view-container {
-    margin-top: 3em;
-
-
-    #jobs-list-table {
-      width: 99%;
-      border-collapse: initial;
-      border-spacing: 0 0.5em;
-      font-size: 0.85em;
-
-
-      tr {
-        height: 50px;
-      }
-
-      td, th {
-        text-align: center;
-        font-weight: bold;
-      }
-
-      th {
-        border-bottom: 2px solid rgba(0,0,0,0.8);
-        font-weight: bolder;
-        position: relative;
-        
-        .outside-table-header-container {
-          display: flex;
-          justify-content: space-around;
-        }
-  
-        .table-header-container {
-          display: flex;
-          flex-flow: row nowrap;
-          align-items: center;
-        }
-        .sort-icon-container {
-          display: flex;
-          flex-flow: column nowrap;
-          font-size: 0.6em;
-          margin-left: 5px;
-          color: darkgrey;
-          & * {
-            z-index: -100;
-          }
-
-          &:hover {
-            color: black;
-            cursor: pointer;
-          }
-        }
-
-      }
-
-      td {
-        border-bottom: 2px solid rgba(0,0,0,0.3);
-      }
-
+  th {
+    border-bottom: 2px solid rgba(0,0,0,0.8);
+    font-weight: bolder;
+    position: relative;
+    
+    .outside-table-header-container {
+      display: flex;
+      justify-content: space-around;
     }
+
+    .table-header-container {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+    }
+    .sort-icon-container {
+      display: flex;
+      flex-flow: column nowrap;
+      font-size: 0.6em;
+      margin-left: 5px;
+      color: darkgrey;
+      & * {
+        z-index: -100;
+      }
+
+      &:hover {
+        color: black;
+        cursor: pointer;
+      }
+    }
+
+  }
+
+  table {
+    width: 99%;
+    border-collapse: initial;
+    border-spacing: 0 0.5em;
+    font-size: 0.85em;
+
+
+    tr {
+      height: 50px;
+    }
+
+    td, th {
+      text-align: center;
+      font-weight: bold;
+    }
+
+    td {
+      border-bottom: 2px solid rgba(0,0,0,0.3);
+    }
+
+  }
+
+  #jobs-list-table thead {
+    display: none
+  }
+  #jobs-list-table {
+    position: relative;
+    top: 50px;
+  }
+
+  #copy-table {
+    position: fixed;
+    z-index: 100;
+    background: white;
+  }
+
+
+  #jobs-view-container {
+    margin-top: 2em;
 
     #page-controls {
       position: fixed;
-      top: 178px;
-      right: 1.5%;
+      top: 8.3em;
+      right: 10.5%;
+      font-size: 0.8em;
+      z-index: 400;
     }
 
   }

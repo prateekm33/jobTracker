@@ -20,8 +20,7 @@ function insertionSortBy(arr, option) {
   }
 
   arr.forEach(job => {
-    const curr = statuses[job[option].toLowerCase()] || job[option].toLowerCase();
-    console.log(curr)
+    const curr = (typeof job[option] === 'string') && (statuses[job[option].toLowerCase()] || job[option].toLowerCase()) || job[option];
 
     max = max || curr;
     if (curr > max) {
@@ -31,7 +30,7 @@ function insertionSortBy(arr, option) {
     }
 
     for (let i = 0; i < sorted.length; i++) {
-      let compare = statuses[sorted[i][option].toLowerCase()] || sorted[i][option].toLowerCase();
+      let compare = typeof sorted[i][option] === 'string' && (statuses[sorted[i][option].toLowerCase()] || sorted[i][option].toLowerCase()) || sorted[i][option];
       if (compare > curr) {
         sorted.splice(i, 0, job)
         return;

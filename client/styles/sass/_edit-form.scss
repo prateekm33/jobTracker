@@ -1,0 +1,30 @@
+$max-width: 740px;
+
+#edit-job-container {
+  position: fixed;
+  max-width: 50vw;
+  min-width: 500px;
+  height: 75vh;
+  padding: 2em;
+  background: white;
+  border: 1px solid blue;
+  font-size: 0.8em;
+  display: flex;
+  flex-flow: column nowrap;
+  overflow: auto;
+  margin: 0 14.5%;
+  z-index: 400;
+
+  #add-job {
+    display: none;
+  } 
+
+  #done-button:hover {
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    color: white;
+    font-weight: bold;
+  }
+}
+
+@import 'add-job';
