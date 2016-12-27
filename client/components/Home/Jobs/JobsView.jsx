@@ -65,6 +65,76 @@ class JobsView extends React.Component {
     this.setState({displayNum: displayNum});
   }
 
+  handleDropDownClick(evt) {
+    // for components view
+    const target = evt.target;
+    const ul = this.dropDownEl.querySelector('ul');
+    const tagName = target.tagName.toLowerCase();
+
+    if ( tagName === 'div') {
+      // toggle
+      ul.classList.toggle('display-none');
+
+    } else if (tagName === 'li') {
+      const option = target.innerText.split(' ').join('_').trim();
+      ul.classList.toggle('display-none');
+      if (option === this.state.sortBy) return;
+
+      if (this.state.sortBy === null) {
+        this.smallViewAscSortIcon.classList.add('black');
+        this.smallViewAscSortIcon.classList.add('icon-active');
+        this.smallViewAscSortIcon.previousElementSibling.classList.add('icon-active');
+        this.setState({ isDesc: false });
+      }
+
+      this.setState({
+        defaultDropDown: option,
+        sortBy: option
+      });
+      let isDesc = false;
+      this.props.dispatch(actions.sortBy(option, isDesc));
+    }
+
+  }
+
+  handleSortOptionClicked(evt) {
+    // for table view
+
+    const target = evt.target;
+    if (target.id.indexOf('sort-by') === -1) {
+      return;
+    }
+    const option = target.id.split('sort-by-')[1];
+
+    let isDesc = this.state.sortBy === option;
+    this.setState({isDesc: isDesc});
+    this.setState({sortBy: option});
+
+    this.props.dispatch(actions.sortBy(option, isDesc));
+  }
+
+
+  handleSortOrder(evt) {
+    if (this.state.sortBy === null) return;
+
+    const target = evt.target;
+    const option = this.state.sortBy;
+
+    let isDesc;
+    if (this.state.isDesc === null || this.state.isDesc) {
+      isDesc = false;
+      this.smallViewAscSortIcon.classList.add('black');
+      this.smallViewAscSortIcon.previousElementSibling.classList.remove('black');
+    } else if (!this.state.isDesc) {
+      isDesc = true;
+      this.smallViewAscSortIcon.classList.remove('black');
+      this.smallViewAscSortIcon.previousElementSibling.classList.add('black');
+    }
+
+    this.setState({ isDesc: isDesc });
+    this.props.dispatch(actions.sortBy(option, isDesc));
+  }
+
 
   handlePageChange(evt) {
     const target = evt.target;
@@ -82,6 +152,13 @@ class JobsView extends React.Component {
       this.setState({startIdx: newIdx});
 
     }
+  }
+
+  handleJobClicked(evt, job, idx) {
+    const target = evt.target;
+    console.log('TODO-- EDIT PAGE: ', target, job);
+
+    this.props.dispatch(actions.editJob(job, idx))
   }
 
   renderTableHeader(id) {
@@ -182,96 +259,12 @@ class JobsView extends React.Component {
     )
   }
 
-  handleJobClicked(evt, job, idx) {
-    const target = evt.target;
-    console.log('TODO-- EDIT PAGE: ', target, job);
-
-    this.props.dispatch(actions.editJob(job, idx))
-  }
-
   renderCopyTable() {
     return (
       <table id='copy-table' ref={el => this.copyTable = el}>
         { this.renderTableHeader('copy') }
       </table>
     )
-  }
-
-  handleDropDownClick(evt) {
-    // for components view
-
-    const target = evt.target;
-    /*
-      clicks will :
-        1) toggle dropdown
-          when parent container is selected
-        2) change dropdown option
-          when li element is selected
-    */
-    const ul = this.dropDownEl.querySelector('ul');
-    const tagName = target.tagName.toLowerCase();
-    if ( tagName === 'div') {
-      // toggle
-      ul.classList.toggle('display-none');
-
-    } else if (tagName === 'li') {
-      const option = target.innerText.split(' ').join('_').trim();
-      ul.classList.toggle('display-none');
-      if (option === this.state.sortBy) return;
-
-      if (this.state.sortBy === null) {
-        this.smallViewAscSortIcon.classList.add('black');
-        this.smallViewAscSortIcon.classList.add('icon-active');
-        this.smallViewAscSortIcon.previousElementSibling.classList.add('icon-active');
-        this.setState({ isDesc: false });
-      }
-
-      this.setState({
-        defaultDropDown: option,
-        sortBy: option
-      });
-      let isDesc = false;
-      this.props.dispatch(actions.sortBy(option, isDesc));
-    }
-
-  }
-
-  handleSortOptionClicked(evt) {
-    // for table view
-
-    const target = evt.target;
-    if (target.id.indexOf('sort-by') === -1) {
-      return;
-    }
-    const option = target.id.split('sort-by-')[1];
-
-    let isDesc = this.state.sortBy === option;
-    this.setState({isDesc: isDesc});
-    this.setState({sortBy: option});
-
-    this.props.dispatch(actions.sortBy(option, isDesc));
-  }
-
-
-  handleSortOrder(evt) {
-    if (this.state.sortBy === null) return;
-
-    const target = evt.target;
-    const option = this.state.sortBy;
-
-    let isDesc;
-    if (this.state.isDesc === null || this.state.isDesc) {
-      isDesc = false;
-      this.smallViewAscSortIcon.classList.add('black');
-      this.smallViewAscSortIcon.previousElementSibling.classList.remove('black');
-    } else if (!this.state.isDesc) {
-      isDesc = true;
-      this.smallViewAscSortIcon.classList.remove('black');
-      this.smallViewAscSortIcon.previousElementSibling.classList.add('black');
-    }
-
-    this.setState({ isDesc: isDesc });
-    this.props.dispatch(actions.sortBy(option, isDesc));
   }
 
   render() {

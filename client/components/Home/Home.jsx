@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import actions from '../../redux/actions'
 
 import JobsView from './Jobs/JobsView';
+import AddJob from './Jobs/AddJob';
 
 import { SortIcons } from '../Utils'
 
@@ -32,6 +33,7 @@ class Home extends React.Component {
           <div id='list-title' onClick={this.handleTitleClick.bind(this)}>
             {this.state.title}</div>
         </div>
+        <AddJob />
         <JobsView />
       </div>
     )
