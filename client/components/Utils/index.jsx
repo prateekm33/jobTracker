@@ -15,15 +15,17 @@ export const DropDown = (props) => {
   const items = props.items; 
   const tagID = props.tagID;
 
-
   return (
     <div onClick={props.clickHandler} id={tagID} className='dropdown-component' ref={props.refFn}>
       <div className='default-dropdown-option'>{props.defaultOption}</div>
       <ul className='dropdown-list display-none'>
         {
-          items.map((item, idx) => (
-            <li key={idx}> {item.toUpperCase()} </li>
-          ))
+          items.map((item, idx) => {
+            if (typeof item === 'string') item = item.toUpperCase();
+            return (
+              <li key={idx}> {item} </li>
+            )
+          })
         }
       </ul>
     </div>

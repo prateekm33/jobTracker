@@ -1,8 +1,10 @@
 import React from 'react';
 
+import { DropDown } from './Utils';
+
 export default class Nav extends React.Component {
   constructor() {
-    super()
+    super();
   }
 
   logout(evt) {
@@ -30,9 +32,12 @@ export default class Nav extends React.Component {
     return (
       <nav id='main-nav'>
         <li><a href='/home'>JobTracker</a></li>
-        <li><ul id='profile-dropdown' onClick={this.toggleDropdown.bind(this)}> SETTINGS
-          <li><a href='/profile'>Profile</a></li>
-          <li><a onClick={this.logout.bind(this)}>Logout</a></li>
+        <li>
+         <ul id='profile-dropdown' onClick={this.toggleDropdown.bind(this)}> SETTINGS
+          <div>
+            <li><a href='/profile'>Profile</a></li>
+            <li><a onClick={this.logout.bind(this)}>Logout</a></li>
+          </div>
         </ul></li>
       </nav>
     )
