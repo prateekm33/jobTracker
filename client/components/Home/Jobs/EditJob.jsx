@@ -21,6 +21,9 @@ class EditJob extends React.Component {
   goToNext() {}
 
   handleFormComplete(evt) {
+    // TODO -- add in some animation for when the job is complete
+      // make the edited job stand out more after completion
+
     evt.preventDefault();
 
     const job = this.props.job;

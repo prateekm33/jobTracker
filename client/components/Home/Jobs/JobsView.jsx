@@ -69,15 +69,18 @@ class JobsView extends React.Component {
   handlePageChange(evt) {
     const target = evt.target;
     const displayNum = this.state.displayNum;
+    const top = this.mainContainer.getBoundingClientRect().top;
+    document.body.scrollTop = 0;
 
     if (target.id === 'prev-page') {
       let newIdx = this.state.startIdx - displayNum;
       if (newIdx < 0) newIdx = 0;
-      this.setState({startIdx: newIdx})
+      this.setState({startIdx: newIdx});
     } else if (target.id === 'next-page') {
       let newIdx = this.state.startIdx + displayNum;
       if (newIdx >= this.props.jobsList.length) newIdx = this.state.startIdx;
-      this.setState({startIdx: newIdx})
+      this.setState({startIdx: newIdx});
+
     }
   }
 
@@ -242,7 +245,7 @@ class JobsView extends React.Component {
     }
     const option = target.id.split('sort-by-')[1];
 
-    let isDesc = this.state.sortBy !== option;
+    let isDesc = this.state.sortBy === option;
     this.setState({isDesc: isDesc});
     this.setState({sortBy: option});
 
@@ -269,28 +272,11 @@ class JobsView extends React.Component {
 
     this.setState({ isDesc: isDesc });
     this.props.dispatch(actions.sortBy(option, isDesc));
-
-    // if (target.id === 'sort-desc') {
-    //   if (this.state.isDesc) return;
-    //   handleOrder.call(this, true, target, target.nextElementSibling);
-    // } else if (target.id === 'sort-asc') {
-    //   if (!this.state.isDesc) return;
-    //   handleOrder.call(this, false, target, target.previousElementSibling);
-    // }
-
-
-    // function handleOrder(isDesc, el, hideEl) {
-    //   this.props.dispatch(actions.sortBy(option, true));
-    //   this.setState({isDesc: isDesc});
-    //   el.style.color = 'black';
-    //   hideEl.style.color = 'darkgrey';
-    // }
-
   }
 
   render() {
     return (
-      <div id='jobs-view-container'>
+      <div ref={el => this.mainContainer = el } id='jobs-view-container'>
           { this.renderCopyTable() }
           { this.renderTable() }
           { this.renderComponentsView() }
