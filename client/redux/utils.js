@@ -1,3 +1,10 @@
+export const addJob = (jobs, action) => {
+  const job = action.job;
+  const temp = jobs.map(el => el);
+  temp.push(job);
+  return temp;
+}
+
 export const sortBy = (jobs, action) => {
   const option = action.option;
   const temp = jobs.map(el => el);

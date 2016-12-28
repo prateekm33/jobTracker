@@ -21,6 +21,13 @@ const actions = {
     return {
       type: types.closeEditJobForm
     }
+  },
+
+  addJob(job) {
+    return {
+      type: types.addJob,
+      job
+    }
   }
 }
 

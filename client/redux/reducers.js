@@ -10,6 +10,8 @@ export const reducer = combineReducers({
     switch (action.type) {
       case types.sortBy:
         return utils.sortBy(jobs, action);
+      case types.addJob:
+        return utils.addJob(jobs, action);
       default:
         return jobs;
     }

@@ -13,7 +13,7 @@ import { jobs } from './mockData.js'
 const defaultState = {
   jobsList: jobs,
   editJob: false,
-  jobToEdit: {},
+  jobToEdit: null,
   sortBy: ''
 }
 

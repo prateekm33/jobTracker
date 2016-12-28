@@ -543,8 +543,116 @@ li {
 #42E36A
 
 */
-/* line 4, ../sass/_edit-form.scss */
-#edit-job-container {
+/* line 1, ../sass/_addJob.scss */
+#add-job-component {
+  position: fixed;
+  top: 6.3em;
+  left: 10.5%;
+  font-size: 0.8em;
+  z-index: 400;
+}
+
+/* line 1, ../sass/_jobForm.scss */
+form#job-extended {
+  min-width: 400px;
+}
+/* line 4, ../sass/_jobForm.scss */
+form#job-extended > *, form#job-extended > * > div {
+  margin-bottom: 1em;
+}
+/* line 8, ../sass/_jobForm.scss */
+form#job-extended div.job-req {
+  display: none;
+}
+/* line 10, ../sass/_jobForm.scss */
+form#job-extended label {
+  float: left;
+  padding-bottom: 3%;
+  color: darkgrey;
+}
+/* line 16, ../sass/_jobForm.scss */
+form#job-extended button.form-done {
+  align-self: flex-end;
+}
+/* line 20, ../sass/_jobForm.scss */
+form#job-extended button#add-job {
+  margin-top: 2em;
+  align-self: center;
+}
+
+/* line 26, ../sass/_jobForm.scss */
+.form-line-component {
+  width: 100%;
+  padding: 0 2%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+}
+
+/* line 35, ../sass/_jobForm.scss */
+.added-job {
+  border: 1px solid darkgrey;
+  box-shadow: 0 1px 8px 0 rgba(197, 141, 141, 0.2), 0 6px 10px -2px rgba(0, 0, 0, 0.19);
+  padding: 5%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 5%;
+}
+/* line 45, ../sass/_jobForm.scss */
+.added-job span.remove-added-job {
+  visibility: hidden;
+  position: absolute;
+  right: -3%;
+  top: -10%;
+  font-size: 1.5em;
+  background-color: white;
+}
+/* line 54, ../sass/_jobForm.scss */
+.added-job a:hover {
+  font-size: 1.05em;
+  font-weight: bold;
+}
+/* line 59, ../sass/_jobForm.scss */
+.added-job:hover {
+  box-shadow: 0 1px 8px 0 #2e2ce8, 0 6px 10px -2px rgba(0, 134, 253, 0.19);
+  cursor: pointer;
+}
+/* line 64, ../sass/_jobForm.scss */
+.added-job .job-status {
+  display: flex;
+  flex-flow: row nowrap;
+  position: relative;
+}
+/* line 68, ../sass/_jobForm.scss */
+.added-job .job-status span.glyphicon-menu-down {
+  font-size: 0.75em;
+  color: rgba(99, 99, 99, 0.7);
+  padding: 8%;
+  top: -20%;
+  font-weight: bold;
+}
+/* line 75, ../sass/_jobForm.scss */
+.added-job .job-status span.glyphicon-menu-down:hover {
+  color: rgba(14, 118, 142, 0.88);
+  transform: scale(1.3);
+}
+
+@media (max-width: 740px) {
+  /* line 87, ../sass/_jobForm.scss */
+  .form-line {
+    display: flex;
+    flex-flow: row nowrap;
+  }
+
+  /* line 92, ../sass/_jobForm.scss */
+  .form-line-component {
+    padding: 0 1%;
+  }
+}
+/* line 125, ../sass/_default.scss */
+.form-container {
   position: fixed;
   max-width: 85vw;
   min-width: 500px;
@@ -560,130 +668,27 @@ li {
   z-index: 400;
   left: 7.5%;
 }
-/* line 20, ../sass/_edit-form.scss */
-#edit-job-container #add-job {
-  display: none;
-}
-/* line 24, ../sass/_edit-form.scss */
-#edit-job-container #done-button:hover {
+/* line 141, ../sass/_default.scss */
+.form-container #done-button:hover {
   background-color: #337ab7;
   border-color: #2e6da4;
   color: white;
   font-weight: bold;
 }
 
-/* line 1, ../sass/_add-job.scss */
-form#job-extended {
-  min-width: 400px;
-}
-/* line 4, ../sass/_add-job.scss */
-form#job-extended > *, form#job-extended > * > div {
-  margin-bottom: 1em;
-}
-/* line 8, ../sass/_add-job.scss */
-form#job-extended div.job-req {
-  display: none;
-}
-/* line 10, ../sass/_add-job.scss */
-form#job-extended label {
-  float: left;
-  padding-bottom: 3%;
-  color: darkgrey;
-}
-/* line 16, ../sass/_add-job.scss */
-form#job-extended button.form-done {
-  align-self: flex-end;
-}
-/* line 20, ../sass/_add-job.scss */
-form#job-extended button#add-job {
-  margin-top: 2em;
-  align-self: center;
-}
-
-/* line 26, ../sass/_add-job.scss */
-.form-line-component {
-  width: 100%;
-  padding: 0 2%;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: flex-start;
-}
-
-/* line 35, ../sass/_add-job.scss */
-.added-job {
-  border: 1px solid darkgrey;
-  box-shadow: 0 1px 8px 0 rgba(197, 141, 141, 0.2), 0 6px 10px -2px rgba(0, 0, 0, 0.19);
-  padding: 5%;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  position: relative;
-  margin-bottom: 5%;
-}
-/* line 45, ../sass/_add-job.scss */
-.added-job span.remove-added-job {
-  visibility: hidden;
-  position: absolute;
-  right: -3%;
-  top: -10%;
-  font-size: 1.5em;
-  background-color: white;
-}
-/* line 54, ../sass/_add-job.scss */
-.added-job a:hover {
-  font-size: 1.05em;
-  font-weight: bold;
-}
-/* line 59, ../sass/_add-job.scss */
-.added-job:hover {
-  box-shadow: 0 1px 8px 0 #2e2ce8, 0 6px 10px -2px rgba(0, 134, 253, 0.19);
-  cursor: pointer;
-}
-/* line 64, ../sass/_add-job.scss */
-.added-job .job-status {
-  display: flex;
-  flex-flow: row nowrap;
-  position: relative;
-}
-/* line 68, ../sass/_add-job.scss */
-.added-job .job-status span.glyphicon-menu-down {
-  font-size: 0.75em;
-  color: rgba(99, 99, 99, 0.7);
-  padding: 8%;
-  top: -20%;
-  font-weight: bold;
-}
-/* line 75, ../sass/_add-job.scss */
-.added-job .job-status span.glyphicon-menu-down:hover {
-  color: rgba(14, 118, 142, 0.88);
-  transform: scale(1.3);
-}
-
-@media (max-width: 740px) {
-  /* line 87, ../sass/_add-job.scss */
-  .form-line {
-    display: flex;
-    flex-flow: row nowrap;
-  }
-
-  /* line 92, ../sass/_add-job.scss */
-  .form-line-component {
-    padding: 0 1%;
-  }
-}
-/* line 122, ../sass/_default.scss */
+/* line 149, ../sass/_default.scss */
 .container-title {
   font-size: 1.5em;
   align-self: center;
   font-weight: bold;
 }
 
-/* line 129, ../sass/_default.scss */
+/* line 156, ../sass/_default.scss */
 .display-none {
   display: none;
 }
 
-/* line 133, ../sass/_default.scss */
+/* line 160, ../sass/_default.scss */
 .visibility-hidden {
   visibility: hidden;
 }
