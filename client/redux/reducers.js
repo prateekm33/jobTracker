@@ -44,5 +44,14 @@ export const reducer = combineReducers({
       default:
         return job;
     }
+  },
+
+  addForm(open = false, action) {
+    switch (action.type) {
+      case types.addForm:
+        return action.open;
+      default:
+        return open;
+    }
   }
 })

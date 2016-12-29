@@ -156,8 +156,6 @@ class JobsView extends React.Component {
 
   handleJobClicked(evt, job, idx) {
     const target = evt.target;
-    console.log('TODO-- EDIT PAGE: ', target, job);
-
     this.props.dispatch(actions.editJob(job, idx))
   }
 

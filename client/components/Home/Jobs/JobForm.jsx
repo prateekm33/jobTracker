@@ -11,6 +11,7 @@ class JobForm extends React.Component {
     this.goToNext = this.goToNext.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleAddJobToList = this.handleAddJobToList.bind(this);
+    this.handleFormCancel = this.handleFormCancel.bind(this);
   }
 
   componentDidMount() {
@@ -31,9 +32,20 @@ class JobForm extends React.Component {
   handleFormSubmit() {}
   handleAddJobToList() {}
 
+  handleFormCancel(evt) {
+    evt.preventDefault();
+    const parent = this.props.getParent();
+    parent.closeForm();
+  }
+
   render() {
     return (
       <form id='job-extended' ref={el => this.formEl = el}  onKeyDown={this.listenForEnter} onSubmit={this.handleFormSubmit}>
+          <div className='form-line'>
+            <div className='form-line-component'>
+              <button onClick={this.handleFormCancel} className='form-done btn btn-default' id='cancel-button'>Cancel</button>
+            </div>
+          </div>
           <div className='form-line'>
             <div className='form-line-component'>
               <label htmlFor='company-name'>Company Name</label>

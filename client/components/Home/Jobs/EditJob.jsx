@@ -7,10 +7,19 @@ import JobForm from './JobForm';
 class EditJob extends React.Component {
   constructor(props) {
     super(props);
+    this.returnSelf = this.returnSelf.bind(this);
+    this.closeForm = this.closeForm.bind(this);
+  }
+
+  returnSelf() {
+    return this;
   }
 
   handleFormComplete(evt) {
-    // this is bound to form component 
+    /*
+     DO NOT REMOVE THIS COMMENT: 
+      this is bound to form component 
+    */
 
     evt.preventDefault();
     const job = this.props.job;
@@ -34,23 +43,31 @@ class EditJob extends React.Component {
     
     job.role = this.roleNameInputDiv.querySelector('input').value;
     job.contact = this.contactInput.value;
-    this.props.dispatch(actions.closeEditJobForm());
+    this.closeForm();
     // dispatch sort to re-sort array
     this.props.dispatch(actions.sortBy(this.props.sortBy, false))
   }
 
+  closeForm() {
+    this.props.dispatch(actions.closeEditJobForm());
+  }
+
   render() {
+    const classStr = this.props.editJob ? 'form-container' : 'form-container display-none';
     return (
-      <div ref={this.props.refFn} id='edit-job-container' className='form-container'>
+      <div ref={this.props.refFn} id='edit-job-container' className={classStr}>
         <div id='edit-form-title' className='container-title'>EDIT JOB</div>
-        <JobForm job={this.props.job} handleFormComplete={this.handleFormComplete}/>
+        <JobForm job={this.props.job} handleFormComplete={this.handleFormComplete} getParent={this.returnSelf}/>
       </div>
     )
   }
 }
 
 function mapStateToProps(state) {
-  return { job: state.jobToEdit }
+  return { 
+    job: state.jobToEdit,
+    editJob: state.editJob
+  }
 }
 
 export default connect(mapStateToProps)(EditJob);

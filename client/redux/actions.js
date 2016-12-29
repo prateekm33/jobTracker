@@ -23,6 +23,13 @@ const actions = {
     }
   },
 
+  addForm(open) {
+    return {
+      type: types.addForm,
+      open
+    }
+  },
+
   addJob(job) {
     return {
       type: types.addJob,

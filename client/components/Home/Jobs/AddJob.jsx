@@ -9,20 +9,20 @@ class AddJob extends React.Component {
   constructor(props) {
     super(props);
     this.activateForm = this.activateForm.bind(this);
+    this.closeForm = this.closeForm.bind(this);
     this.returnSelf = this.returnSelf.bind(this);
   }
 
   activateForm(evt) {
     evt.preventDefault();
-    this.toggleForm();
-  }
-
-  toggleForm() {
-    this.formEl.classList.toggle('display-none');
+    this.props.dispatch(actions.addForm(true));
   }
 
   handleFormComplete(evt) {
-    // this is bound to form component 
+    /*
+     DO NOT REMOVE THIS COMMENT: 
+      this is bound to form component 
+    */
 
     evt.preventDefault();
 
@@ -50,7 +50,7 @@ class AddJob extends React.Component {
     // TODO --- add in option for status update in jobForm
     const job = {
       company,
-      date_appled: date,
+      date_applied: date,
       role, 
       contact,
       status: 'Applied'
@@ -58,10 +58,11 @@ class AddJob extends React.Component {
 
     this.props.dispatch(actions.addJob(job));
     this.props.dispatch(actions.sortBy(this.props.sortBy, false));
+    this.closeForm();
+  }
 
-    // TODO -- CLOSE FORM
-    this.parentEl = this.props.getParent();
-    this.parentEl.toggleForm();
+  closeForm() {
+    this.props.dispatch(actions.addForm(false));
   }
 
   returnSelf() {
@@ -72,12 +73,16 @@ class AddJob extends React.Component {
     return (
       <div id='add-job-component'>
         <button onClick={this.activateForm} id='open-add-form'>Add Job</button>
+  
+        {
+          this.props.addForm ? 
+            (<div id='add-job-container' className='form-container' ref={el => this.formEl = el}>
+              <div id='add-job-form-title' className='container-title'>ADD JOB</div>
+              <JobForm job={null} handleFormComplete={this.handleFormComplete} getParent={this.returnSelf}/>
+            </div>) :
+            null
+        }
 
-        <div id='add-job-container' className='display-none form-container'
-          ref={el => this.formEl = el}>
-          <div id='add-job-form-title' className='container-title'>ADD JOB</div>
-          <JobForm job={null} getParent={this.returnSelf} handleFormComplete={this.handleFormComplete}/>
-        </div>  
       </div>
     )
   }
@@ -85,7 +90,8 @@ class AddJob extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    sortBy: state.sortBy
+    sortBy: state.sortBy,
+    addForm: state.addForm
   }
 }
 
