@@ -43,6 +43,13 @@ const actions = {
       job,
       idx
     }
+  },
+
+  authForm(open, id) {
+    return {
+      type: id === 'sign-in-button' ? types.signInForm : types.logOutForm,
+      open,
+    }
   }
 }
 

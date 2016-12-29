@@ -16,7 +16,10 @@ const defaultState = {
   jobToEdit: null,
   sortBy: '',
   addForm: false,
-  editJobIdx: -1
+  editJobIdx: -1,
+  authenticated: false,
+  signInForm: false,
+  logOutForm: false
 }
 
 export default function configureStore(initialState = defaultState) {

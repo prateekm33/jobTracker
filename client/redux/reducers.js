@@ -20,7 +20,7 @@ export const reducer = combineReducers({
   },
 
   sortBy(option = null, action) {
-    switch(action.type) {
+    switch (action.type) {
       case types.sortBy:
         return action.option.toLowerCase();
       default:
@@ -29,7 +29,7 @@ export const reducer = combineReducers({
   },
 
   editJob(formActive = false, action) {
-    switch(action.type) {
+    switch (action.type) {
       case types.editJob:
         return true;
       case types.closeEditJobForm:
@@ -40,7 +40,7 @@ export const reducer = combineReducers({
   },
 
   editJobIdx(idx = -1, action) {
-    switch(action.type) {
+    switch (action.type) {
       case types.editJob:
         return action.idx;
       default:
@@ -49,7 +49,7 @@ export const reducer = combineReducers({
   },
 
   jobToEdit(job = {}, action) {
-    switch(action.type) {
+    switch (action.type) {
       case types.editJob:
         return action.job;
       default:
@@ -60,6 +60,31 @@ export const reducer = combineReducers({
   addForm(open = false, action) {
     switch (action.type) {
       case types.addForm:
+        return action.open;
+      default:
+        return open;
+    }
+  },
+
+  authenticated(auth = false, action) {
+    switch (action.type) {
+      default: 
+        return auth;
+    }
+  },
+
+  signInForm(open = false, action) {
+    switch (action.type) {
+      case types.signInForm:
+        return action.open;
+      default:
+        return open;
+    }
+  },
+
+  logOutForm(open = false, action) {
+    switch (action.type) {
+      case types.logOutForm:
         return action.open;
       default:
         return open;
