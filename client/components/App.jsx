@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Dashboard from './Dashboard'
-import Nav from './Nav';
+import Nav from './Nav/Nav';
 
 class App extends React.Component {
   constructor(props) {
@@ -39,7 +39,7 @@ class App extends React.Component {
         onClick={this.handleTopLvlContentClicks}
         ref={el => {this.contentContainer = el }}>
         <Nav />
-        <Dashboard />
+        { this.props.authenticated && <Dashboard /> }
         <div id='secondary-app-container'>
           {
             // secondary-app-container
