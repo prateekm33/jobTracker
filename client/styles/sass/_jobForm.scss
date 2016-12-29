@@ -32,22 +32,6 @@ form#job-extended {
   }
 }
 
-.form-line-component {
-  width: 100%;
-  padding: 0 2%;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: flex-start;
-
-  #delete-done-button-container {
-    margin-top: 2em;
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    width: 100%;
-  }
-}
-
 
 .added-job {
   border: 1px solid darkgrey;

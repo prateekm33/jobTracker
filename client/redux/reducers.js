@@ -73,18 +73,18 @@ export const reducer = combineReducers({
     }
   },
 
-  signInForm(open = false, action) {
+  signUpForm(open = false, action) {
     switch (action.type) {
-      case types.signInForm:
+      case types.signUpForm:
         return action.open;
       default:
         return open;
     }
   },
 
-  logOutForm(open = false, action) {
+  logInForm(open = false, action) {
     switch (action.type) {
-      case types.logOutForm:
+      case types.logInForm:
         return action.open;
       default:
         return open;

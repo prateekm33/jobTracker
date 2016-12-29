@@ -21,66 +21,6 @@ button:hover {
   cursor: pointer;
 }
 
-// Nav Stylings
-#main-nav {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  background-color: #3e3d3d;
-  color: white;
-  width: 100%;
-  height: 2.3em;
-  font-size: 1.5em;
-  padding: 2%;
-  position: fixed;
-  top: 0;
-  z-index: 1000;
-  min-width: 490px;
-
-  /* TODO -- bottom box-shadow */
-
-  ul#profile-dropdown {
-    &:hover {
-      cursor: pointer;
-    }
-    
-    div {
-      background: white;
-      border-right: 2px solid rgb(211, 45, 39);
-      border-left: 2px solid rgb(211, 45, 39);
-      border-bottom: 5px solid rgb(211, 45, 39);
-      padding: 0.3em;
-      border-top: 5px solid rgb(211, 45, 39);
-      margin-top: 0.2em;
-      border-radius: 0.5em;
-    }
-    
-    & > * {
-      display: none;
-      color: white;
-    }
-
-    li {
-      font-size: 0.7em;
-      padding: 0.5em;
-
-      &:hover {
-        font-size: 0.74em;
-        cursor: pointer;
-      }
-    }
-
-  }
-}
-
-
-// Content Container
-#secondary-app-container {
-  margin: 5% 10%;
-  margin-top: 5em;
-  min-height: 100vh;
-}
-
 #footer {
   text-align: center;
   height: 2.3em;
@@ -91,6 +31,14 @@ button:hover {
   margin-top: 4em;
 }
 
+// Content Container
+#secondary-app-container {
+  margin: 5% 10%;
+  margin-top: 5em;
+  min-height: 100vh;
+}
+
+// Generic dropdown styles
 .dropdown-component {
   position: relative;
 
@@ -120,16 +68,6 @@ button:hover {
   }
 }
 
-// Home Component styles
-@import 'home';
-
-
-// Job Form Component Styles
-@import 'edit-form';
-@import 'addJob';
-@import 'jobForm';
-
-
 .form-container {
   position: fixed;
   width: 85vw;
@@ -154,6 +92,23 @@ button:hover {
   }
 }
 
+.form-line-component {
+  width: 100%;
+  padding: 0 2%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+
+  #delete-done-button-container {
+    margin-top: 2em;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+
 .container-title {
   font-size: 1.5em;
   align-self: center;
@@ -168,3 +123,15 @@ button:hover {
 .visibility-hidden {
   visibility: hidden;
 }
+
+
+@import 'nav';
+
+// Home Component styles
+@import 'home';
+
+
+// Job Form Component Styles
+@import 'edit-form';
+@import 'addJob';
+@import 'jobForm';

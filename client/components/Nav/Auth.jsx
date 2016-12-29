@@ -1,51 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 
-import actions from '../redux/actions';
+import actions from '../../redux/actions';
 
-class Auth extends React.Component {
-  constructor() {
-    super();
-    this.handleClick = this.handleClick.bind(this);
-  }
+import LogIn from './LogIn';
+import SignUp from './SignUp';
 
-  handleClick(evt) {
-    evt.preventDefault();
-    const target = evt.target;
-    const id = target.id;
+export default function Auth (props) {
+  console.log('TODO --- GOOGLE LOGIN / FB LOGIN')
+  return (
+    <div id='auth-options-container'>
+      <Link to='/signup' className='sign-up-link'>Sign Up</Link>
+      <Link to='/login' className='log-in-link'>Log In</Link>
 
-    if (id === 'sign-up-button' || id === 'log-in-button') {
-      this.props.dispatch(actions.authForm(true, id));
-    }
-  }
-
-  render() {
-    return (
-      <div id='auth-options-container' onClick={this.handleClick}>
-        <button id='sign-up-button' className="btn btn-primary">Sign Up</button>
-        <button id='log-in-button' className="btn btn-default">Log In</button>
-
-
-        {
-          this.props.logOutForm && 
-          <form id='log-out-form'>
-          </form>
-        }
-        {
-          this.props.signInForm && 
-          <form id='sign-in-form'>
-          </form>
-        }
-      </div> 
-    )
-  }
+      {
+        props.logInForm && <LogIn />
+      }
+      {
+        props.signUpForm && <SignUp />
+      }
+    </div> 
+  )
 }
-
-function mapStateToProps(state) {
-  return { 
-    logOutForm: state.logOutForm,
-    signInForm: state.signInForm
-  }
-}
-
-export default connect(mapStateToProps)(Auth);

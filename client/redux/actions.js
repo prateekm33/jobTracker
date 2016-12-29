@@ -47,8 +47,8 @@ const actions = {
 
   authForm(open, id) {
     return {
-      type: id === 'sign-in-button' ? types.signInForm : types.logOutForm,
-      open,
+      type: id === 'sign-up-button' ? types.signUpForm : types.logInForm,
+      open
     }
   }
 }

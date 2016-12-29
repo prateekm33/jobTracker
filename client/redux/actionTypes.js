@@ -5,8 +5,8 @@ const types = {
   addJob: 'ADD_JOB',
   addForm: 'ADD_FORM',
   deleteJob: 'DELETE_JOB',
-  signInForm: 'SIGN_IN_FORM',
-  logOutForm: 'LOG_OUT_FORM'
+  signUpForm: 'SIGN_UP_FORM',
+  logInForm: 'LOG_IN_FORM'
 }
 
 export default types;
