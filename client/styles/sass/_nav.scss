@@ -14,6 +14,13 @@
   z-index: 1000;
   min-width: 490px;
 
+  a {
+    text-decoration: none;
+    &:hover {
+      color: white;
+    }
+  }
+
   /* TODO -- bottom box-shadow */
 
   ul#profile-dropdown {
@@ -50,16 +57,27 @@
   }
 }
 
+#auth-options-container {
+  font-size: 0.67em;
+  & > * {
+    margin-left: 1.5em;
+  }
+}
 
 #log-in-form, #sign-up-form {
   display: flex;
   position: fixed;
   left: 12.5%;
   min-width: 400px;
-  top: 5em;
+  top: 10em;
   flex-flow: column nowrap;
   color: black;
   font-size: 0.8em;
+
+  .form-title {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
 
   & > * {
     margin-bottom: 1em;

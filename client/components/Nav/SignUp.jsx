@@ -11,7 +11,7 @@ export default class LogIn extends React.Component {
     <form id='sign-up-form'>
       <div className='form-line'>
         <div className='form-line-component'>
-          <div>Sign Up</div>
+          <div className='form-title'>Sign Up</div>
           <Link to='/login' className='log-in-link'>Log In</Link>
         </div>
       </div>
