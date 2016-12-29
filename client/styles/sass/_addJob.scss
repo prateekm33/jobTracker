@@ -4,4 +4,8 @@
   left: 10.5%;
   font-size: 0.8em;
   z-index: 400;
+
+  button#delete-button {
+    display: none;
+  }
 }

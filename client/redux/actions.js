@@ -35,6 +35,14 @@ const actions = {
       type: types.addJob,
       job
     }
+  },
+
+  deleteJob(job, idx) {
+    return {
+      type: types.deleteJob,
+      job,
+      idx
+    }
   }
 }
 

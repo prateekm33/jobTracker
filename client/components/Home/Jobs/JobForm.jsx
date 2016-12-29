@@ -8,10 +8,12 @@ class JobForm extends React.Component {
   constructor(props) {
     super(props);
     this.listenForEnter = this.listenForEnter.bind(this);
-    this.goToNext = this.goToNext.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleAddJobToList = this.handleAddJobToList.bind(this);
     this.handleFormCancel = this.handleFormCancel.bind(this);
+    this.handleFormEnter = this.handleFormEnter.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
+    this.handleFormComplete = this.handleFormComplete.bind(this);
   }
 
   componentDidMount() {
@@ -26,16 +28,76 @@ class JobForm extends React.Component {
     }
   }
 
-
-  goToNext() {}
-  listenForEnter() {}
   handleFormSubmit() {}
   handleAddJobToList() {}
+
+  listenForEnter(evt) {
+    const enter = 13;
+    const escape = 27;
+
+    switch (evt.keyCode) {
+      case enter: 
+        this.handleFormEnter(evt);
+      case escape: 
+        this.handleFormCancel(evt);
+      default:
+        return;
+    }
+  }
+
+  handleFormEnter(evt) {
+    console.log('TODO --- HANDLE FORM ENTER...jobForm.jsx')
+  }
 
   handleFormCancel(evt) {
     evt.preventDefault();
     const parent = this.props.getParent();
     parent.closeForm();
+  }
+
+  handleDelete(evt) {
+    evt.preventDefault();
+
+    const job = this.props.job;
+    const idx = this.props.editIdx;
+    this.props.dispatch(actions.deleteJob(job, idx));
+    this.handleFormCancel(evt);
+  }
+
+  handleFormComplete(evt) {
+    evt.preventDefault();
+
+    const company = this.companyNameInput.value;
+    if (!company.trim()) {
+      console.log('invalid company name --- TODO')
+      return;
+    }
+
+    let date = this.dateInput.value.split('-');
+    if (date.length <= 2) {
+      console.log('invalid date ---> TODO')
+      return;
+    }
+
+    if (date[2][0] === '0') {
+      date[2] = date[2][1];
+    }
+    date = date.join('-');
+    date = new Date(date);
+
+    const role = this.roleNameInputDiv.querySelector('input').value;
+    const contact = this.contactInput.value;
+
+    // TODO --- add in option for status update in jobForm
+    const job = {
+      company,
+      date_applied: date,
+      role, 
+      contact,
+      status: 'Applied'
+    }
+
+    this.props.parentSubmitHandler(job);
   }
 
   render() {
@@ -65,28 +127,23 @@ class JobForm extends React.Component {
           <div className='form-line'
             ref={el => this.roleNameInputDiv = el}>
             <div className='form-line-component'>
-              <label htmlFor='job-name'>New Role</label>
-              <div className='input-group'>
-                <input id='job-name' className='form-control' type='text' placeholder='Role'
-                  onKeyDown={this.listenForEnter}/>
-                <span className='glyphicon glyphicon-chevron-right input-group-addon'
-                  onClick={this.goToNext}></span>
-              </div>
+              <label htmlFor='job-name'>Role / Job Name</label>
+              <input id='job-name' className='form-control' type='text' placeholder='Role'/>
             </div>
           </div>
-          <div className='form-line job-req'
+          <div className='form-line'
             ref={el => this.jobReqInputDiv = el}>
             <div className='form-line-component'>
               <label htmlFor='job-req'>Job Listing</label>
-              <div className='input-group '>
-                <input id='job-req' className='form-control job-req' type='text' placeholder='Job Listing' />
-                <span className='glyphicon glyphicon-plus input-group-addon' onClick={this.handleAddJobToList}></span>
-              </div>
+              <input id='job-req' className='form-control job-req' type='text' placeholder='Job Listing' />
             </div>
           </div>
           <div className='form-line'>
             <div className='form-line-component'>
-              <button onClick={this.props.handleFormComplete.bind(this)} className='form-done btn btn-primary' id='done-button'>Done</button>
+              <div id='delete-done-button-container'>
+                <button onClick={this.handleFormComplete} className='form-done btn btn-primary' id='done-button'>Done</button>
+                <button onClick={this.handleDelete} className='form-done btn btn-danger' id='delete-button'>Delete</button>
+              </div>
             </div>
           </div>
         </form>
@@ -96,7 +153,9 @@ class JobForm extends React.Component {
 
 
 function mapStateToProps(state) {
-  return {sortBy: state.sortBy};
+  return {
+    editIdx: state.editJobIdx
+  };
 }
 
 export default connect(mapStateToProps)(JobForm);

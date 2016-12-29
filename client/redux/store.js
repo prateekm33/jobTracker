@@ -15,7 +15,8 @@ const defaultState = {
   editJob: false,
   jobToEdit: null,
   sortBy: '',
-  addForm: false
+  addForm: false,
+  editJobIdx: -1
 }
 
 export default function configureStore(initialState = defaultState) {

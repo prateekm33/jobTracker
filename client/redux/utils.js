@@ -1,3 +1,12 @@
+export const deleteJob = (jobs, action) => {
+  const job = action.job;
+  const idx = action.idx;
+  const temp = jobs.map(el => el);
+
+  temp.splice(idx, 1);
+  return temp;
+}
+
 export const addJob = (jobs, action) => {
   const job = action.job;
   const temp = jobs.map(el => el);

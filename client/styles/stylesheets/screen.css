@@ -85,7 +85,12 @@ li {
   list-style: none;
 }
 
-/* line 21, ../sass/_default.scss */
+/* line 20, ../sass/_default.scss */
+button:hover {
+  cursor: pointer;
+}
+
+/* line 25, ../sass/_default.scss */
 #main-nav {
   display: flex;
   flex-flow: row nowrap;
@@ -102,11 +107,11 @@ li {
   min-width: 490px;
   /* TODO -- bottom box-shadow */
 }
-/* line 39, ../sass/_default.scss */
+/* line 43, ../sass/_default.scss */
 #main-nav ul#profile-dropdown:hover {
   cursor: pointer;
 }
-/* line 43, ../sass/_default.scss */
+/* line 47, ../sass/_default.scss */
 #main-nav ul#profile-dropdown div {
   background: white;
   border-right: 2px solid #d32d27;
@@ -115,29 +120,29 @@ li {
   padding: 0.3em;
   border-top: 5px solid #d32d27;
 }
-/* line 52, ../sass/_default.scss */
+/* line 56, ../sass/_default.scss */
 #main-nav ul#profile-dropdown > * {
   display: none;
   color: white;
 }
-/* line 57, ../sass/_default.scss */
+/* line 61, ../sass/_default.scss */
 #main-nav ul#profile-dropdown li {
   font-size: 0.7em;
   padding: 0.5em;
 }
-/* line 61, ../sass/_default.scss */
+/* line 65, ../sass/_default.scss */
 #main-nav ul#profile-dropdown li:hover {
   font-size: 0.74em;
 }
 
-/* line 71, ../sass/_default.scss */
+/* line 75, ../sass/_default.scss */
 #secondary-app-container {
   margin: 5% 10%;
   margin-top: 5em;
   min-height: 100vh;
 }
 
-/* line 77, ../sass/_default.scss */
+/* line 81, ../sass/_default.scss */
 #footer {
   text-align: center;
   height: 2.3em;
@@ -147,16 +152,16 @@ li {
   margin-top: 4em;
 }
 
-/* line 86, ../sass/_default.scss */
+/* line 90, ../sass/_default.scss */
 .dropdown-component {
   position: relative;
 }
-/* line 89, ../sass/_default.scss */
+/* line 93, ../sass/_default.scss */
 .dropdown-component .default-dropdown-option:hover {
   cursor: pointer;
   font-weight: bold;
 }
-/* line 94, ../sass/_default.scss */
+/* line 98, ../sass/_default.scss */
 .dropdown-component ul.dropdown-list {
   position: absolute;
   top: 0.5em;
@@ -166,13 +171,13 @@ li {
   border: 2px solid black;
   padding: 1em;
 }
-/* line 103, ../sass/_default.scss */
+/* line 107, ../sass/_default.scss */
 .dropdown-component ul.dropdown-list li {
   margin-bottom: 0.5em;
   text-align: end;
   padding-right: 1em;
 }
-/* line 107, ../sass/_default.scss */
+/* line 111, ../sass/_default.scss */
 .dropdown-component ul.dropdown-list li:hover {
   cursor: pointer;
   font-weight: bold;
@@ -551,6 +556,10 @@ li {
   font-size: 0.8em;
   z-index: 400;
 }
+/* line 8, ../sass/_addJob.scss */
+#add-job-component button#delete-button {
+  display: none;
+}
 
 /* line 1, ../sass/_jobForm.scss */
 form#job-extended {
@@ -579,8 +588,17 @@ form#job-extended button#add-job {
   margin-top: 2em;
   align-self: center;
 }
+/* line 25, ../sass/_jobForm.scss */
+form#job-extended input {
+  padding: 1.2em;
+  font-size: 1.3em;
+}
+/* line 30, ../sass/_jobForm.scss */
+form#job-extended label {
+  font-size: 1.2em;
+}
 
-/* line 26, ../sass/_jobForm.scss */
+/* line 35, ../sass/_jobForm.scss */
 .form-line-component {
   width: 100%;
   padding: 0 2%;
@@ -588,8 +606,16 @@ form#job-extended button#add-job {
   flex-flow: column nowrap;
   align-items: flex-start;
 }
+/* line 42, ../sass/_jobForm.scss */
+.form-line-component #delete-done-button-container {
+  margin-top: 2em;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  width: 100%;
+}
 
-/* line 35, ../sass/_jobForm.scss */
+/* line 52, ../sass/_jobForm.scss */
 .added-job {
   border: 1px solid darkgrey;
   box-shadow: 0 1px 8px 0 rgba(197, 141, 141, 0.2), 0 6px 10px -2px rgba(0, 0, 0, 0.19);
@@ -600,7 +626,7 @@ form#job-extended button#add-job {
   position: relative;
   margin-bottom: 5%;
 }
-/* line 45, ../sass/_jobForm.scss */
+/* line 62, ../sass/_jobForm.scss */
 .added-job span.remove-added-job {
   visibility: hidden;
   position: absolute;
@@ -609,23 +635,23 @@ form#job-extended button#add-job {
   font-size: 1.5em;
   background-color: white;
 }
-/* line 54, ../sass/_jobForm.scss */
+/* line 71, ../sass/_jobForm.scss */
 .added-job a:hover {
   font-size: 1.05em;
   font-weight: bold;
 }
-/* line 59, ../sass/_jobForm.scss */
+/* line 76, ../sass/_jobForm.scss */
 .added-job:hover {
   box-shadow: 0 1px 8px 0 #2e2ce8, 0 6px 10px -2px rgba(0, 134, 253, 0.19);
   cursor: pointer;
 }
-/* line 64, ../sass/_jobForm.scss */
+/* line 81, ../sass/_jobForm.scss */
 .added-job .job-status {
   display: flex;
   flex-flow: row nowrap;
   position: relative;
 }
-/* line 68, ../sass/_jobForm.scss */
+/* line 85, ../sass/_jobForm.scss */
 .added-job .job-status span.glyphicon-menu-down {
   font-size: 0.75em;
   color: rgba(99, 99, 99, 0.7);
@@ -633,29 +659,28 @@ form#job-extended button#add-job {
   top: -20%;
   font-weight: bold;
 }
-/* line 75, ../sass/_jobForm.scss */
+/* line 92, ../sass/_jobForm.scss */
 .added-job .job-status span.glyphicon-menu-down:hover {
   color: rgba(14, 118, 142, 0.88);
   transform: scale(1.3);
 }
 
 @media (max-width: 740px) {
-  /* line 87, ../sass/_jobForm.scss */
+  /* line 103, ../sass/_jobForm.scss */
   .form-line {
     display: flex;
     flex-flow: row nowrap;
   }
 
-  /* line 92, ../sass/_jobForm.scss */
+  /* line 108, ../sass/_jobForm.scss */
   .form-line-component {
     padding: 0 1%;
   }
 }
-/* line 125, ../sass/_default.scss */
+/* line 129, ../sass/_default.scss */
 .form-container {
   position: fixed;
-  max-width: 85vw;
-  min-width: 500px;
+  width: 85vw;
   max-height: 75vh;
   padding: 2em;
   background: white;
@@ -665,10 +690,11 @@ form#job-extended button#add-job {
   flex-flow: column nowrap;
   overflow: auto;
   top: 25%;
+  bottom: 10%;
   z-index: 400;
   left: 7.5%;
 }
-/* line 141, ../sass/_default.scss */
+/* line 145, ../sass/_default.scss */
 .form-container #done-button:hover {
   background-color: #337ab7;
   border-color: #2e6da4;
@@ -676,19 +702,19 @@ form#job-extended button#add-job {
   font-weight: bold;
 }
 
-/* line 149, ../sass/_default.scss */
+/* line 153, ../sass/_default.scss */
 .container-title {
   font-size: 1.5em;
   align-self: center;
   font-weight: bold;
 }
 
-/* line 156, ../sass/_default.scss */
+/* line 160, ../sass/_default.scss */
 .display-none {
   display: none;
 }
 
-/* line 160, ../sass/_default.scss */
+/* line 164, ../sass/_default.scss */
 .visibility-hidden {
   visibility: hidden;
 }

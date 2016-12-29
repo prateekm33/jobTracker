@@ -17,6 +17,10 @@ li {
   list-style: none;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 // Nav Stylings
 #main-nav {
   display: flex;
@@ -124,8 +128,7 @@ li {
 
 .form-container {
   position: fixed;
-  max-width: 85vw;
-  min-width: 500px;
+  width: 85vw;
   max-height: 75vh;
   padding: 2em;
   background: white;
@@ -135,6 +138,7 @@ li {
   flex-flow: column nowrap;
   overflow: auto;
   top: 25%;
+  bottom: 10%;
   z-index: 400;
   left: 7.5%;
 

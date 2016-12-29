@@ -12,6 +12,8 @@ export const reducer = combineReducers({
         return utils.sortBy(jobs, action);
       case types.addJob:
         return utils.addJob(jobs, action);
+      case types.deleteJob:
+        return utils.deleteJob(jobs, action);
       default:
         return jobs;
     }
@@ -34,6 +36,15 @@ export const reducer = combineReducers({
         return false;
       default:
         return formActive;
+    }
+  },
+
+  editJobIdx(idx = -1, action) {
+    switch(action.type) {
+      case types.editJob:
+        return action.idx;
+      default:
+        return idx;
     }
   },
 

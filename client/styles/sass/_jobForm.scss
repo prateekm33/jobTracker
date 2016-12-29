@@ -21,6 +21,15 @@ form#job-extended {
     margin-top: 2em;
     align-self: center;
   }
+
+  input {
+    padding: 1.2em;
+    font-size: 1.3em;
+  }
+
+  label {
+    font-size: 1.2em;
+  }
 }
 
 .form-line-component {
@@ -29,6 +38,14 @@ form#job-extended {
   display: flex;
   flex-flow: column nowrap;
   align-items: flex-start;
+
+  #delete-done-button-container {
+    margin-top: 2em;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    width: 100%;
+  }
 }
 
 
@@ -78,7 +95,6 @@ form#job-extended {
       }
     }
   }
-
 }
 
 
