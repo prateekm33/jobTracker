@@ -48,6 +48,15 @@ $small-device-width: 450px;
 }
 
 // small screen specific styles
+@media (min-device-width: $small-device-width + 1) {
+  #sort-desc, #sort-asc {
+    &.icon-active:hover {
+      color: black;
+      cursor: pointer;
+    }
+  }
+}
+
 @media(max-width: $max-width), (max-device-width: $small-device-width) {
   #small-screen-order-direction {
     display: flex;
@@ -59,10 +68,6 @@ $small-device-width: 450px;
 
     #sort-desc, #sort-asc {
       color: darkgrey;
-      &.icon-active:hover {
-        color: black;
-        cursor: pointer;
-      }
 
       &.black {
         color: black;

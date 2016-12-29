@@ -16,8 +16,7 @@ class JobsView extends React.Component {
       displayNum: 20,
       sortBy: null,
       defaultDropDown: 'Choose an option',
-      sortByOptions: ['Company', 'Role', 'Contact', 'Status', 'Date Applied'],
-      isDesc: null
+      sortByOptions: ['Company', 'Role', 'Contact', 'Status', 'Date Applied']
     }
 
     this.handleJobClicked = this.handleJobClicked.bind(this);
@@ -80,12 +79,10 @@ class JobsView extends React.Component {
       ul.classList.toggle('display-none');
       if (option === this.state.sortBy) return;
 
-      if (this.state.sortBy === null) {
-        this.smallViewAscSortIcon.classList.add('black');
-        this.smallViewAscSortIcon.classList.add('icon-active');
-        this.smallViewAscSortIcon.previousElementSibling.classList.add('icon-active');
-        this.setState({ isDesc: false });
-      }
+      this.smallViewAscSortIcon.classList.add('black');
+      this.smallViewAscSortIcon.classList.add('icon-active');
+      this.smallViewAscSortIcon.previousElementSibling.classList.add('icon-active');
+      this.smallViewAscSortIcon.previousElementSibling.classList.remove('black');
 
       this.setState({
         defaultDropDown: option,
@@ -107,7 +104,6 @@ class JobsView extends React.Component {
     const option = target.id.split('sort-by-')[1];
 
     let isDesc = this.state.sortBy === option;
-    this.setState({isDesc: isDesc});
     this.setState({sortBy: option});
 
     this.props.dispatch(actions.sortBy(option, isDesc));
@@ -117,22 +113,13 @@ class JobsView extends React.Component {
   handleSortOrder(evt) {
     if (this.state.sortBy === null) return;
 
-    const target = evt.target;
+    this.smallViewAscSortIcon.classList.toggle('black');
+    this.smallViewAscSortIcon.previousElementSibling.classList.toggle('black');
+
     const option = this.state.sortBy;
-
-    let isDesc;
-    if (this.state.isDesc === null || this.state.isDesc) {
-      isDesc = false;
-      this.smallViewAscSortIcon.classList.add('black');
-      this.smallViewAscSortIcon.previousElementSibling.classList.remove('black');
-    } else if (!this.state.isDesc) {
-      isDesc = true;
-      this.smallViewAscSortIcon.classList.remove('black');
-      this.smallViewAscSortIcon.previousElementSibling.classList.add('black');
-    }
-
-    this.setState({ isDesc: isDesc });
-    this.props.dispatch(actions.sortBy(option, isDesc));
+    const reverse = true;
+    this.props.dispatch(actions.sortBy(option, reverse));
+    return;
   }
 
 

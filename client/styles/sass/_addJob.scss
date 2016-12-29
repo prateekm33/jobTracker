@@ -1,3 +1,7 @@
+$max-width: 749px;
+$min-width: 750px;
+$small-device-width: 450px;
+
 #add-job-component {
   position: fixed;
   top: 6.3em;
@@ -7,5 +11,13 @@
 
   button#delete-button {
     display: none;
+  }
+}
+
+@media (max-width: $max-width), (max-device-width: $small-device-width) {
+  #add-job-component {
+    position: absolute;
+    top: -0.6em;
+    left: 0;
   }
 }
