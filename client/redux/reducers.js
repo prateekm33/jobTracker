@@ -1,96 +1,13 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux'
-import types from './actionTypes';
+import types from './_actions/actionTypes';
 
 import * as utils from './utils';
+import jobReducers from './_reducers/jobReducers';
+import authReducers from './_reducers/authReducers';
 
-
-export const reducer = combineReducers({
-
-  routing: routerReducer,
-
-  jobsList(jobs = [], action) {
-    switch (action.type) {
-      case types.sortBy:
-        return utils.sortBy(jobs, action);
-      case types.addJob:
-        return utils.addJob(jobs, action);
-      case types.deleteJob:
-        return utils.deleteJob(jobs, action);
-      default:
-        return jobs;
-    }
-  },
-
-  sortBy(option = null, action) {
-    switch (action.type) {
-      case types.sortBy:
-        return action.option.toLowerCase();
-      default:
-        return option;
-    }
-  },
-
-  editJob(formActive = false, action) {
-    switch (action.type) {
-      case types.editJob:
-        return true;
-      case types.closeEditJobForm:
-        return false;
-      default:
-        return formActive;
-    }
-  },
-
-  editJobIdx(idx = -1, action) {
-    switch (action.type) {
-      case types.editJob:
-        return action.idx;
-      default:
-        return idx;
-    }
-  },
-
-  jobToEdit(job = {}, action) {
-    switch (action.type) {
-      case types.editJob:
-        return action.job;
-      default:
-        return job;
-    }
-  },
-
-  addForm(open = false, action) {
-    switch (action.type) {
-      case types.addForm:
-        return action.open;
-      default:
-        return open;
-    }
-  },
-
-  authenticated(auth = false, action) {
-    switch (action.type) {
-      default: 
-        return auth;
-    }
-  },
-
-  signUpForm(open = false, action) {
-    switch (action.type) {
-      case types.signUpForm:
-        return action.open;
-      default:
-        return open;
-    }
-  },
-
-  logInForm(open = false, action) {
-    switch (action.type) {
-      case types.logInForm:
-        return action.open;
-      default:
-        return open;
-    }
-  }
-})
+export const reducer = combineReducers(Object.assign({}, 
+  { routing : routerReducer }, 
+  jobReducers,
+  authReducers
+));

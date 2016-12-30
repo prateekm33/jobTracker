@@ -23,7 +23,11 @@ const defaultState = {
   editJobIdx: -1,
   authenticated: false,
   signUpForm: false,
-  logInForm: false
+  logInForm: false,
+  user: null,
+  logInError: false,
+  makingAccount: false,
+  logOutError: false
 }
 
 export default function configureStore(initialState = defaultState) {

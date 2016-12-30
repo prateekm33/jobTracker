@@ -20,5 +20,10 @@ authRouter.route('/login')
     authController.validateUser
   )
 
+authRouter.route('/logout')
+  .post((req, res) => {
+    console.log('TODO --- HANDLE LOG OUT OF USER...', req.body.email);
+    res.status(200).end();
+  })
 
 module.exports = authRouter;

@@ -10,7 +10,11 @@ const types = {
   validatingUser: 'VALIDATING_USER',
   makingAccount: 'MAKING_ACCOUNT',
   userLoggedIn: 'USER_LOGGED_IN',
-  invalidCreds: 'INVALID_CREDS'
+  invalidCreds: 'INVALID_CREDS',
+  errorMakingAccount: 'ERROR_MAKING_ACCOUNT',
+  loggingOut: 'LOGGING_OUT',
+  logOutError: 'LOG_OUT_ERROR',
+  userLoggedOut: 'USER_LOGGED_OUT'
 }
 
 export default types;

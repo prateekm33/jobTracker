@@ -18,6 +18,17 @@ class LogIn extends React.Component {
     document.body.scrollTop = 0;
   }
 
+  componentDidUpdate() {
+    const invalid = this.props.invalidCreds;
+    if (invalid) {
+      this.handleInvalidCreds();
+    }
+  }
+
+  handleInvalidCreds() {
+    console.log('TODO ---- UI FOR INVALID CREDENTIALS')
+  }
+
   handleSubmit(evt) {
     evt.preventDefault();
     console.log('TODO---submitting..');
@@ -58,6 +69,8 @@ class LogIn extends React.Component {
   }
 }
 
-function mapStateToProps(state) { return state; }
+function mapStateToProps(state) { 
+  return { invalidCreds: state.logInError };
+}
 
 export default connect(mapStateToProps)(LogIn)

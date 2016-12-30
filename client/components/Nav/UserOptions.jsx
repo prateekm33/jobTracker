@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import actions from '../../redux/actions';
 
 class UserOptions extends React.Component {
   constructor() {
@@ -25,7 +27,7 @@ class UserOptions extends React.Component {
 
   logout(evt) {
     evt.preventDefault();
-
+    this.props.dispatch(actions.logOutUser());
   }
 
   render() {
@@ -40,5 +42,8 @@ class UserOptions extends React.Component {
   }
 }
 
+function mapStateToProps(state) {
+  return state;
+}
 
-export default UserOptions;
+export default connect(mapStateToProps)(UserOptions);

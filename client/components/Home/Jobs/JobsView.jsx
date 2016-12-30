@@ -34,6 +34,10 @@ class JobsView extends React.Component {
     this.setState({displayNum: window.getComputedStyle(this.tableEl).displayNum === 'none' ? 5 : 20});
   }
 
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleWindowResize)
+  }
+
   componentDidUpdate() {
     const copy = this.tableHeader_copy;
     const tableBody = this.tableEl.querySelector('tbody');
