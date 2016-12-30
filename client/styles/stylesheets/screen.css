@@ -264,34 +264,44 @@ button:hover {
 }
 
 /* line 67, ../sass/_nav.scss */
+#auth-user-input-container {
+  display: flex;
+  flex-flow: column nowrap;
+}
+/* line 70, ../sass/_nav.scss */
+#auth-user-input-container > * {
+  margin-bottom: 1em;
+}
+
+/* line 75, ../sass/_nav.scss */
 #log-in-form, #sign-up-form {
   display: flex;
-  position: fixed;
-  left: 12.5%;
+  left: 4em;
   min-width: 400px;
+  max-width: 50%;
   top: 10em;
   flex-flow: column nowrap;
   color: black;
   font-size: 0.8em;
 }
-/* line 77, ../sass/_nav.scss */
+/* line 85, ../sass/_nav.scss */
 #log-in-form .form-title, #sign-up-form .form-title {
   font-size: 1.2em;
   font-weight: bold;
 }
-/* line 82, ../sass/_nav.scss */
+/* line 90, ../sass/_nav.scss */
 #log-in-form > *, #sign-up-form > * {
   margin-bottom: 1em;
 }
-/* line 86, ../sass/_nav.scss */
+/* line 94, ../sass/_nav.scss */
 #log-in-form .auth-button, #sign-up-form .auth-button {
   align-self: flex-end;
 }
-/* line 90, ../sass/_nav.scss */
+/* line 98, ../sass/_nav.scss */
 #log-in-form input, #sign-up-form input {
   width: 100%;
 }
-/* line 94, ../sass/_nav.scss */
+/* line 102, ../sass/_nav.scss */
 #log-in-form .form-line-component, #sign-up-form .form-line-component {
   display: flex;
   flex-flow: row nowrap;

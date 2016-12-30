@@ -1,10 +1,13 @@
 import { combineReducers } from 'redux';
+import { routerReducer } from 'react-router-redux'
 import types from './actionTypes';
 
 import * as utils from './utils';
 
 
 export const reducer = combineReducers({
+
+  routing: routerReducer,
 
   jobsList(jobs = [], action) {
     switch (action.type) {

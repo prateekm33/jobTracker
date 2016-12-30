@@ -64,11 +64,19 @@
   }
 }
 
+#auth-user-input-container {
+  display: flex;
+  flex-flow: column nowrap;
+  & > * {
+    margin-bottom: 1em;
+  }
+}
+
 #log-in-form, #sign-up-form {
   display: flex;
-  position: fixed;
-  left: 12.5%;
+  left: 4em;
   min-width: 400px;
+  max-width: 50%;
   top: 10em;
   flex-flow: column nowrap;
   color: black;
