@@ -15,7 +15,7 @@ const finalCreateStore = compose(
 import { jobs } from './mockData.js'
 
 const defaultState = {
-  jobsList: jobs,
+  jobsList: [],
   editJob: false,
   jobToEdit: null,
   sortBy: '',
@@ -30,6 +30,8 @@ const defaultState = {
   logOutError: false
 }
 
-export default function configureStore(initialState = defaultState) {
+export function configureStore(initialState = defaultState) {
   return finalCreateStore(reducer, initialState);
 }
+
+export const store = configureStore();

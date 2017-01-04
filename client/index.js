@@ -7,9 +7,8 @@ import * as _ from 'underscore';
 window._ = _;
 import { Provider } from 'react-redux';
 import { syncHistoryWithStore } from 'react-router-redux'
-import configureStore from './redux/store';
+import {store} from './redux/store';
 
-const store = configureStore();
 const history = syncHistoryWithStore(browserHistory, store);
 import routes from './routes';
 

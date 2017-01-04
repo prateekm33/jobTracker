@@ -1,11 +1,14 @@
 import types from '../_actions/actionTypes';
+import * as utils from '../utils';
 
 const jobReducers = {
   jobsList(jobs = [], action) {
     switch (action.type) {
+      case types.fetchedJobs:
+        return action.jobs;
       case types.sortBy:
         return utils.sortBy(jobs, action);
-      case types.addJob:
+      case types.addToList:
         return utils.addJob(jobs, action);
       case types.deleteJob:
         return utils.deleteJob(jobs, action);

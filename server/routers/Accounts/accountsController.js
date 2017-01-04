@@ -11,5 +11,26 @@ module.exports = {
 
   getAccount(req, res) {
 
+  },
+
+  getJobs(req, res) {
+    const user = req.params.user;
+    User.findOne({email: user})
+      .then(user => {
+        if (user) {
+          res.send(user.jobs);
+        } else {
+          res.status(400).end();
+        }
+      })
+  },
+
+  addJob(req, res) {
+    const job = req.body.job;
+    const user = req.params.user;
+    User.update({email: user}, { $pushAll: {jobs: job} }).
+      then((r, e) => {
+        res.end();
+      })
   }
 }

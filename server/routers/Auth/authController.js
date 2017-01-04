@@ -1,13 +1,22 @@
+const passport = require('../../config/passport.js');
+const {User} = require('../../config/schema.js');
+
 module.exports = {
 
-  validateUser(req, res) {
-    // check if user exists in DB
-      // check to see if password matches pw from DB
-    // res.end(400) if either of above are false
-    // else return res.end(200)
-    console.log('TODO--- validate user', req.body)
-    res.end();
+  validateRequest(req, res, next) {
+    const user = req.session.user;
+    if (!user) return res.json(null);
+    
+    User.findOne({email: user.email, password: user.password})
+      .then(u => { res.json(u.email); })
   },
 
-
+  logInUser(req, res, next) {
+    if (req.user) {
+      req.session.user = req.user;
+      res.status(200).end();
+    } else {
+      res.status(401).end();
+    }
+  }
 }

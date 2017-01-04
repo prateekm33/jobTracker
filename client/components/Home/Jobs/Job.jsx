@@ -6,7 +6,7 @@ function Job(props) {
   const view = props.view;
   const classStatus = props.job.status.split(' ').join('-').toLowerCase();
 
-  const date_applied = props.job.date_applied.toLocaleDateString();
+  const date_applied = new Date(props.job.date_applied).toLocaleDateString();
 
   if (view === 'small') {
     return (

@@ -2,7 +2,7 @@ const types = {
   sortBy: 'SORT_BY',
   editJob: 'EDIT_JOB',
   closeEditJobForm: 'CLOSE_EDIT_JOB_FORM',
-  addJob: 'ADD_JOB',
+  addToList: 'ADD_TO_LIST',
   addForm: 'ADD_FORM',
   deleteJob: 'DELETE_JOB',
   signUpForm: 'SIGN_UP_FORM',
@@ -14,7 +14,12 @@ const types = {
   errorMakingAccount: 'ERROR_MAKING_ACCOUNT',
   loggingOut: 'LOGGING_OUT',
   logOutError: 'LOG_OUT_ERROR',
-  userLoggedOut: 'USER_LOGGED_OUT'
+  userLoggedOut: 'USER_LOGGED_OUT',
+  fetchingJobs: 'FETCHING_JOBS',
+  fetchedJobs: 'FETCHED_JOBS',
+  saveJob: 'SAVE_JOB',
+  savingJob :'SAVING_JOB',
+  savedJob: 'SAVED_JOB'
 }
 
 export default types;

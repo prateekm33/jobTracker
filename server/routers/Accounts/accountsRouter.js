@@ -7,5 +7,8 @@ accountsRouter.route('/')
   .put()
   .delete()
 
+accountsRouter.route('/jobs/:user')
+  .get(accountsController.getJobs)
+  .post(accountsController.addJob);
 
 module.exports = accountsRouter;

@@ -41,18 +41,21 @@ class JobsView extends React.Component {
   componentDidUpdate() {
     const copy = this.tableHeader_copy;
     const tableBody = this.tableEl.querySelector('tbody');
-    const firstRow_tds = Array.prototype.slice.call(tableBody.querySelector('tr').querySelectorAll('td'));
+    const row = tableBody.querySelector('tr');
+    if (row) {
+      const firstRow_tds = Array.prototype.slice.call(row.querySelectorAll('td'));
 
-    const tableWidth = window.getComputedStyle(this.tableEl).width;
-    this.copyTable.style.width = tableWidth;
+      const tableWidth = window.getComputedStyle(this.tableEl).width;
+      this.copyTable.style.width = tableWidth;
 
-    const copy_ths = Array.prototype.slice.call(copy.querySelectorAll('th'));
+      const copy_ths = Array.prototype.slice.call(copy.querySelectorAll('th'));
 
 
-    firstRow_tds.forEach( (col,idx) => {
-      const width = window.getComputedStyle(col).width;
-      copy_ths[idx].width = width;
-    })
+      firstRow_tds.forEach( (col,idx) => {
+        const width = window.getComputedStyle(col).width;
+        copy_ths[idx].width = width;
+      })
+    }
   }
 
   handleWindowResize(evt) {

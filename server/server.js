@@ -1,22 +1,25 @@
 const express = require('express');
 const app = express();
 const session = require('express-session');
+const morganLogger = require('morgan');
 const bodyParser = require('body-parser');
-
-// configure passport
-const passport = require('./config/passport.js');
+// const MongoStore = require('connect-mongo')(session);
+const passport = require('./config/passport');
 
 // config db
 const db = require('./config/database').db;
+app.use(session({ 
+  resave: false,
+  saveUninitialized: true,
+  secret: 'blah blah blah'
+}));
 
 app.use(express.static(__dirname + '/../client'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
-app.use(session({ 
-  resave: true,
-  saveUninitialized: true,
-  secret: 'blah blah blah'
-}));
+app.use(morganLogger('tiny'));
+
+// configure passport
 app.use(passport.initialize());
 app.use(passport.session());
 

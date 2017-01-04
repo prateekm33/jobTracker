@@ -1,4 +1,4 @@
-const { authRouter, accountsRouter } = require('./routers');
+const { authRouter, accountsRouter, profileRouter } = require('./routers');
 
 function mountRoutes(app) {
 

@@ -20,6 +20,10 @@ class Home extends React.Component {
     console.log('TODO: make title editable...');
   }
 
+  componentWillMount() {
+    this.props.dispatch(actions.fetchJobs());
+  }
+
   render() {
     return (
       <div id='home-container'>

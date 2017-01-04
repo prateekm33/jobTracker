@@ -1,5 +1,5 @@
 import types from './actionTypes';
-import { push } from 'react-router-redux';
+import { replace } from 'react-router-redux';
 
 const authActions = {
   authForm(open, id) {
@@ -20,11 +20,12 @@ const authActions = {
         body: JSON.stringify({email: user}),
         headers: {
           "Content-Type": "application/json"
-        }
+        },
+        credentials: 'include'
       }).then(r => {
         if (r.status === 200) {
           dispatch(actions.userLoggedOut());
-          dispatch(push('/'));
+          dispatch(replace('/'));
         } else {
           console.log('error ??? ', r, user)
           dispatch(actions.logOutError());
@@ -63,18 +64,19 @@ const authActions = {
         body: JSON.stringify(creds),
         headers: {
           "Content-Type": "application/json"
-        }
+        },
+        credentials: 'include'
       }).then(r => {
         if (r.status === 200) {
           dispatch(actions.userLoggedIn(creds.email));
-          dispatch(push('/home'))
-        } else if (r.status === 400) {
+          dispatch(replace('/home'))
+        } else if (r.status === 401) {
           dispatch(actions.invalidCreds());
         }
       })
         .catch(e => { 
           console.log('error: ', e);
-          // dispatch(actions.asynErrorCaught());
+          // dispatch(actions.asyncErrorCaught());
         });
 
     }
@@ -110,11 +112,12 @@ const authActions = {
         body: JSON.stringify(user),
         headers: {
           "Content-Type": "application/json"
-        }
+        },
+        credentials: 'include'
       }).then(r => {
         console.log('RESPONSE FROM /POST ACCOUNTS: ', r);
         if (r.status === 201) {
-          dispatch(push('/home'));
+          dispatch(replace('/home'));
           dispatch(actions.userLoggedIn(user.email));
         } else {
           dispatch(actions.errorMakingAccount(user));
@@ -122,7 +125,7 @@ const authActions = {
       })
         .catch(e => { 
           console.log('ERROR: ', e);
-          dispatch(actions.asynErrorCaught(e));
+          dispatch(actions.asyncErrorCaught(e));
         });
     }
   },
