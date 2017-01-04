@@ -14,7 +14,7 @@ const jobActions = {
       })
         .then(r => r.json())
         .then(r => {
-          dispatch(actions.fetchedJobs(r))
+          dispatch(actions.fetchedJobs(r));
         })
         .catch(e => {
           dispatch(actions.asyncErrorCaught(e));
@@ -82,36 +82,26 @@ const jobActions = {
   saveJob(job) {
     const actions = this;
     return function(dispatch, getState) {
-      dispatch(actions.savingJob(job));
+      dispatch(actions.savingJobs([job]));
+
       const user = getState().user;
       fetch('/accounts/jobs/' + user, {
         method: 'POST',
-        body: JSON.stringify({job: [job]}),
+        body: JSON.stringify({jobs: [job]}),
         headers: {
           "Content-Type": "application/json"
         },
         credentials: 'include'
       })
         .then(r => {
-          dispatch(actions.savedJob(job));
+          if (r.status !== 200) {
+            dispatch(actions.errorSavingJobs([job], r))
+          }
+          else dispatch(actions.savedJobs([job]));
         })
         .catch(e => {
           dispatch(actions.asyncErrorCaught(e));
         })
-    }
-  },
-
-  savingJob(job) {
-    return {
-      type: types.savingJob,
-      job
-    }
-  },
-
-  savedJob(job) {
-    return {
-      type: types.savedJob,
-      job
     }
   },
 
@@ -120,6 +110,58 @@ const jobActions = {
       type: types.deleteJob,
       job,
       idx
+    }
+  },
+
+  saveAllJobs(jobs) {
+    const actions = this;
+
+    return function(dispatch, getState) {
+      dispatch(actions.savingJobs(jobs));
+
+      const user = getState().user;
+      fetch('/accounts/jobs/' + user, {
+        method: 'put',
+        body: JSON.stringify({jobs}),
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        credentials: 'include'
+      })
+        .then(r => {
+          if (r.status === 200) {
+            dispatch(actions.savedJobs(jobs));
+          }
+          else {
+            console.log('error updating jobs...');
+            dispatch(actions.errorSavingAllJobs(jobs, r));
+          }
+        })
+        .catch(e => { 
+          dispatch(actions.asyncErrorCaught(e));
+        })
+    }
+  },
+
+  savingJobs(jobs) {
+    return {
+      type: types.savingJobs,
+      jobs
+    }
+  },
+
+  savedJobs(jobs) {
+    return {
+      type: types.savedJobs,
+      jobs
+    }
+  },
+
+  errorSavingAllJobs(jobs, r) {
+    return {
+      type: types.errorSavingAllJobs,
+      jobs,
+      response: r
     }
   }
 }

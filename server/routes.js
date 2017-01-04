@@ -1,7 +1,6 @@
 const { authRouter, accountsRouter, profileRouter } = require('./routers');
 
 function mountRoutes(app) {
-
   app.use('/auth', authRouter);
 
   app.use('/accounts', accountsRouter);

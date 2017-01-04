@@ -1,14 +1,19 @@
+// base route: /accounts
+
 const accountsRouter = require('express').Router();
 const accountsController = require('./accountsController');
+const { validateRequest } = require('../Utils');
 
-accountsRouter.route('/')
-  .get()
+
+accountsRouter.route('/:user')
+  .get(validateRequest, accountsController.getAccount)
   .post(accountsController.addAccount)
-  .put()
-  .delete()
+  .put(validateRequest, accountsController.updateAccount)
+  .delete(validateRequest, accountsController.deleteAccount)
 
 accountsRouter.route('/jobs/:user')
-  .get(accountsController.getJobs)
-  .post(accountsController.addJob);
+  .get(validateRequest, accountsController.getJobs)
+  .post(validateRequest, accountsController.addJobs)
+  .put(validateRequest, accountsController.updateJobs)
 
 module.exports = accountsRouter;

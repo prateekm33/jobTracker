@@ -28,6 +28,7 @@ class UserOptions extends React.Component {
   logout(evt) {
     evt.preventDefault();
     this.props.dispatch(actions.logOutUser());
+    this.props.dispatch(actions.saveJobs(this.props.jobs));
   }
 
   render() {
@@ -43,7 +44,7 @@ class UserOptions extends React.Component {
 }
 
 function mapStateToProps(state) {
-  return state;
+  return {jobs: state.jobsList } ;
 }
 
 export default connect(mapStateToProps)(UserOptions);

@@ -18,19 +18,25 @@ function handleNoUserFor(path, user, replace, done) {
       return handleTransitionForIndex(user, replace, done);
     case '/home':
       return handleTransitionForHome(user, replace, done);
+
+    case '/login':
+    case '/signup':
+      return handleTransitionForAuthPages(user, replace, done);
+
+      
     default:
       done(user);
   }
 }
 
 function handleTransitionForIndex(user, replace, done) {
-  console.log('authenticating for index route...')
+  console.log('Authenticating INDEX route')
   if (user) replace('/home');
   done();
 }
 
 function handleTransitionForHome(user, replace, done) {
-  console.log('Authenticated HOME component');
+  console.log('Authenticating HOME component');
   if (!user) {
     replace('/login')
   } else {
@@ -39,3 +45,12 @@ function handleTransitionForHome(user, replace, done) {
   done(user);
 }
 
+function handleTransitionForAuthPages(user, replace, done) {
+  console.log('Authenticating LOGIN component');
+
+  if (user) {
+    replace('/home');
+    store.dispatch(actions.userLoggedIn(user));
+  }
+  done(user);
+}

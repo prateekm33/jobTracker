@@ -27,11 +27,10 @@ const authActions = {
           dispatch(actions.userLoggedOut());
           dispatch(replace('/'));
         } else {
-          console.log('error ??? ', r, user)
           dispatch(actions.logOutError());
         }
       }).catch(e => {
-        dispatch(actions.asynErrorCaught(e));
+        dispatch(actions.asyncErrorCaught(e));
       });
     }
   },

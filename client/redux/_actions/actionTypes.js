@@ -18,8 +18,9 @@ const types = {
   fetchingJobs: 'FETCHING_JOBS',
   fetchedJobs: 'FETCHED_JOBS',
   saveJob: 'SAVE_JOB',
-  savingJob :'SAVING_JOB',
-  savedJob: 'SAVED_JOB'
+  savingJobs :'SAVING_JOBS',
+  savedJobs: 'SAVED_JOBS',
+  errorSavingJobs: 'ERROR_SAVING_JOBS'
 }
 
 export default types;

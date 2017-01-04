@@ -31,6 +31,12 @@ class App extends React.Component {
         ul.classList.toggle('display-none', true);
       }
     });
+
+    const profileDropdown = document.querySelector('ul#profile-dropdown');
+    const children = profileDropdown && Array.prototype.slice.call(profileDropdown.children) || [];
+    if (target.id !== 'profile-dropdown') {
+      children.forEach(child => { child.style.display = 'none' });
+    }
   }
 
   render() {

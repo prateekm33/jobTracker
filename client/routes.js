@@ -14,8 +14,8 @@ module.exports = (
   <Route path='/' component={ App }>
     <IndexRoute component={ LandingPage } onEnter={authenticateUser} />
     <Route path='/home' onEnter={authenticateUser} component={ Home } />
-    <Route path='/signup' component={ SignUp } />
-    <Route path='/login' component={ LogIn } />
+    <Route path='/signup' onEnter={authenticateUser} component={ SignUp } />
+    <Route path='/login' onEnter={authenticateUser} component={ LogIn } />
     <Redirect from='*' to='/home' />
   </Route>
 )
