@@ -13,6 +13,8 @@ class JobForm extends React.Component {
     this.handleFormCancel = this.handleFormCancel.bind(this);
     this.handleFormEnter = this.handleFormEnter.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.verifyDelete = this.verifyDelete.bind(this);
+    this.handleDeleteCancel = this.handleDeleteCancel.bind(this);
     this.handleFormComplete = this.handleFormComplete.bind(this);
     this.handleStatusDropDown = this.handleStatusDropDown.bind(this);
     this.handleStatusDropDownClick = this.handleStatusDropDownClick.bind(this);
@@ -59,6 +61,13 @@ class JobForm extends React.Component {
     parent.closeForm();
   }
 
+  verifyDelete(evt) {
+    evt.preventDefault();
+    const div = this.formEl.querySelector('#verify-delete');
+    div.classList.remove('display-none');
+    div.style.display = 'flex';
+  }
+
   handleDelete(evt) {
     evt.preventDefault();
 
@@ -66,6 +75,14 @@ class JobForm extends React.Component {
     const idx = this.props.editIdx;
     this.props.dispatch(actions.deleteJob(job, idx));
     this.handleFormCancel(evt);
+  }
+
+  handleDeleteCancel(evt) {
+    evt.preventDefault();
+
+    const div = this.formEl.querySelector('#verify-delete');
+    div.classList.add('display-none');
+    div.style.display = '';
   }
 
   handleFormComplete(evt) {
@@ -112,22 +129,6 @@ class JobForm extends React.Component {
     }
   }
 
-  app() {
-    // <div onClick={this.handleStatusDropDown} className="form-line-component" id="status-div">
-    //           <label>Status</label>
-    //           <button type="button" className="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    //             Action
-    //           </button>
-    //           <div ref={el => this.statusDDMenu = el} className="dropdown-menu">
-    //             <a className="dropdown-item" href="#">Action</a>
-    //             <a className="dropdown-item" href="#">Another action</a>
-    //             <a className="dropdown-item" href="#">Something else here</a>
-    //             <div className="dropdown-divider"></div>
-    //             <a className="dropdown-item" href="#">Separated link</a>
-    //           </div>
-    //         </div>
-  }
-
   handleStatusDropDownClick(evt) {
     evt.preventDefault();
 
@@ -143,6 +144,16 @@ class JobForm extends React.Component {
   render() {
     return (
       <form id='job-extended' ref={el => this.formEl = el}  onKeyDown={this.listenForEnter}>
+          
+          <div id='verify-delete' className='display-none'>
+            <div>Are you sure?</div>
+            <div className='buttons-container'>
+              <button onClick={this.handleDelete} className='form-done btn btn-danger' id='delete-button'>Delete</button>
+              <button onClick={this.handleDeleteCancel} className='form-done btn btn-default' id='cancel-button'>Cancel</button>
+            </div>
+          </div>
+
+
           <div className='form-line'>
             <div className='form-line-component'>
               <button onClick={this.handleFormCancel} className='form-done btn btn-default' id='cancel-button'>Cancel</button>
@@ -195,7 +206,7 @@ class JobForm extends React.Component {
             <div className='form-line-component'>
               <div id='delete-done-button-container'>
                 <button onClick={this.handleFormComplete} className='form-done btn btn-primary' id='done-button'>Done</button>
-                <button onClick={this.handleDelete} className='form-done btn btn-danger' id='delete-button'>Delete</button>
+                <button onClick={this.verifyDelete} className='form-done btn btn-danger' id='delete-button'>Delete</button>
               </div>
             </div>
           </div>

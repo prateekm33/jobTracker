@@ -206,6 +206,15 @@ button:hover {
   visibility: hidden;
 }
 
+/* line 135, ../sass/_default.scss */
+.buttons-container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 2em;
+}
+
 /* line 2, ../sass/_nav.scss */
 #main-nav {
   display: flex;
@@ -828,27 +837,50 @@ form#job-extended input {
   font-size: 1.3em;
 }
 
-/* line 34, ../sass/_jobForm.scss */
+/* line 32, ../sass/_jobForm.scss */
+#verify-delete {
+  position: fixed;
+  background-color: white;
+  border: 2px solid red;
+  padding: 1em;
+  flex-flow: column nowrap;
+  left: 0;
+  right: 0;
+  margin-right: auto;
+  margin-left: auto;
+  width: 25em;
+  align-items: center;
+  font-size: 1.2em;
+  font-weight: bold;
+  border-radius: 1em;
+  background: #fad7d7;
+}
+/* line 48, ../sass/_jobForm.scss */
+#verify-delete > * {
+  margin-bottom: 2em;
+}
+
+/* line 54, ../sass/_jobForm.scss */
 .form-line-component#status-div {
   width: 20%;
   position: relative;
 }
-/* line 38, ../sass/_jobForm.scss */
+/* line 58, ../sass/_jobForm.scss */
 .form-line-component#status-div button {
   width: 100%;
   height: 100%;
   align-self: center;
 }
-/* line 44, ../sass/_jobForm.scss */
+/* line 64, ../sass/_jobForm.scss */
 .form-line-component#status-div .dropdown-menu {
   left: -3em;
 }
-/* line 47, ../sass/_jobForm.scss */
+/* line 67, ../sass/_jobForm.scss */
 .form-line-component#status-div .dropdown-menu li {
   margin: 1em;
 }
 
-/* line 53, ../sass/_jobForm.scss */
+/* line 73, ../sass/_jobForm.scss */
 .added-job {
   border: 1px solid darkgrey;
   box-shadow: 0 1px 8px 0 rgba(197, 141, 141, 0.2), 0 6px 10px -2px rgba(0, 0, 0, 0.19);
@@ -859,7 +891,7 @@ form#job-extended input {
   position: relative;
   margin-bottom: 5%;
 }
-/* line 63, ../sass/_jobForm.scss */
+/* line 83, ../sass/_jobForm.scss */
 .added-job span.remove-added-job {
   visibility: hidden;
   position: absolute;
@@ -868,23 +900,23 @@ form#job-extended input {
   font-size: 1.5em;
   background-color: white;
 }
-/* line 72, ../sass/_jobForm.scss */
+/* line 92, ../sass/_jobForm.scss */
 .added-job a:hover {
   font-size: 1.05em;
   font-weight: bold;
 }
-/* line 77, ../sass/_jobForm.scss */
+/* line 97, ../sass/_jobForm.scss */
 .added-job:hover {
   box-shadow: 0 1px 8px 0 #2e2ce8, 0 6px 10px -2px rgba(0, 134, 253, 0.19);
   cursor: pointer;
 }
-/* line 82, ../sass/_jobForm.scss */
+/* line 102, ../sass/_jobForm.scss */
 .added-job .job-status {
   display: flex;
   flex-flow: row nowrap;
   position: relative;
 }
-/* line 86, ../sass/_jobForm.scss */
+/* line 106, ../sass/_jobForm.scss */
 .added-job .job-status span.glyphicon-menu-down {
   font-size: 0.75em;
   color: rgba(99, 99, 99, 0.7);
@@ -892,20 +924,20 @@ form#job-extended input {
   top: -20%;
   font-weight: bold;
 }
-/* line 93, ../sass/_jobForm.scss */
+/* line 113, ../sass/_jobForm.scss */
 .added-job .job-status span.glyphicon-menu-down:hover {
   color: rgba(14, 118, 142, 0.88);
   transform: scale(1.3);
 }
 
 @media (max-width: 749px) {
-  /* line 104, ../sass/_jobForm.scss */
+  /* line 124, ../sass/_jobForm.scss */
   .form-line {
     display: flex;
     flex-flow: row nowrap;
   }
 
-  /* line 109, ../sass/_jobForm.scss */
+  /* line 129, ../sass/_jobForm.scss */
   .form-line-component {
     padding: 0 1%;
   }

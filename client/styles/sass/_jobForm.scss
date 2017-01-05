@@ -29,6 +29,26 @@ form#job-extended {
   }
 }
 
+#verify-delete {
+  position: fixed;
+  background-color: white;
+  border: 2px solid red;
+  padding: 1em;
+  flex-flow: column nowrap;
+  left: 0;
+  right: 0;
+  margin-right: auto;
+  margin-left: auto;
+  width: 25em;
+  align-items: center;
+  font-size: 1.2em;
+  font-weight: bold;
+  border-radius: 1em;
+  background: rgb(250, 215, 215);
+  & > * {
+    margin-bottom: 2em;
+  }
+}
 
 
 .form-line-component#status-div {
