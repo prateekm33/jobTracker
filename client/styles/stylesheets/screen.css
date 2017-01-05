@@ -67,7 +67,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-/* line 5, ../sass/_default.scss */
+/* line 6, ../sass/_default.scss */
 body {
   font-size: 20px;
   width: 100%;
@@ -75,22 +75,22 @@ body {
 }
 
 @media (max-device-width: 450px) {
-  /* line 11, ../sass/_default.scss */
+  /* line 12, ../sass/_default.scss */
   body {
     font-size: 30px;
   }
 }
-/* line 16, ../sass/_default.scss */
+/* line 17, ../sass/_default.scss */
 li {
   list-style: none;
 }
 
-/* line 20, ../sass/_default.scss */
+/* line 21, ../sass/_default.scss */
 button:hover {
   cursor: pointer;
 }
 
-/* line 24, ../sass/_default.scss */
+/* line 25, ../sass/_default.scss */
 #footer {
   text-align: center;
   height: 2.3em;
@@ -101,23 +101,23 @@ button:hover {
   margin-top: 4em;
 }
 
-/* line 35, ../sass/_default.scss */
+/* line 36, ../sass/_default.scss */
 #secondary-app-container {
   margin: 5% 10%;
   margin-top: 5em;
   min-height: 100vh;
 }
 
-/* line 42, ../sass/_default.scss */
+/* line 43, ../sass/_default.scss */
 .dropdown-component {
   position: relative;
 }
-/* line 45, ../sass/_default.scss */
+/* line 46, ../sass/_default.scss */
 .dropdown-component .default-dropdown-option:hover {
   cursor: pointer;
   font-weight: bold;
 }
-/* line 50, ../sass/_default.scss */
+/* line 51, ../sass/_default.scss */
 .dropdown-component ul.dropdown-list {
   position: absolute;
   top: 0.5em;
@@ -125,13 +125,12 @@ button:hover {
   margin-top: 1em;
   background-color: white;
   border: 2px solid black;
-  padding: 1em;
 }
 /* line 59, ../sass/_default.scss */
 .dropdown-component ul.dropdown-list li {
-  margin-bottom: 0.5em;
   text-align: end;
-  padding-right: 1em;
+  padding: 1em;
+  outline: 1px solid rgba(0, 0, 0, 0.5);
 }
 /* line 63, ../sass/_default.scss */
 .dropdown-component ul.dropdown-list li:hover {
@@ -142,7 +141,7 @@ button:hover {
 /* line 71, ../sass/_default.scss */
 .form-container {
   position: fixed;
-  width: 85vw;
+  max-width: 700px;
   max-height: 75vh;
   padding: 2em;
   background: white;
@@ -153,10 +152,13 @@ button:hover {
   overflow: auto;
   top: 25%;
   bottom: 10%;
-  z-index: 400;
-  left: 7.5%;
+  z-index: 500;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
 }
-/* line 87, ../sass/_default.scss */
+/* line 90, ../sass/_default.scss */
 .form-container #done-button:hover {
   background-color: #337ab7;
   border-color: #2e6da4;
@@ -164,7 +166,13 @@ button:hover {
   font-weight: bold;
 }
 
-/* line 95, ../sass/_default.scss */
+/* line 98, ../sass/_default.scss */
+.form-line {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+/* line 103, ../sass/_default.scss */
 .form-line-component {
   width: 100%;
   padding: 0 2%;
@@ -172,7 +180,7 @@ button:hover {
   flex-flow: column nowrap;
   align-items: flex-start;
 }
-/* line 102, ../sass/_default.scss */
+/* line 110, ../sass/_default.scss */
 .form-line-component #delete-done-button-container {
   margin-top: 2em;
   display: flex;
@@ -181,19 +189,19 @@ button:hover {
   width: 100%;
 }
 
-/* line 112, ../sass/_default.scss */
+/* line 120, ../sass/_default.scss */
 .container-title {
   font-size: 1.5em;
   align-self: center;
   font-weight: bold;
 }
 
-/* line 119, ../sass/_default.scss */
+/* line 127, ../sass/_default.scss */
 .display-none {
   display: none;
 }
 
-/* line 123, ../sass/_default.scss */
+/* line 131, ../sass/_default.scss */
 .visibility-hidden {
   visibility: hidden;
 }
@@ -216,18 +224,22 @@ button:hover {
   /* TODO -- bottom box-shadow */
 }
 /* line 17, ../sass/_nav.scss */
+#main-nav .sign-up-link {
+  color: white;
+}
+/* line 21, ../sass/_nav.scss */
 #main-nav a {
   text-decoration: none;
 }
-/* line 19, ../sass/_nav.scss */
+/* line 23, ../sass/_nav.scss */
 #main-nav a:hover {
   color: white;
 }
-/* line 27, ../sass/_nav.scss */
+/* line 31, ../sass/_nav.scss */
 #main-nav ul#profile-dropdown:hover {
   cursor: pointer;
 }
-/* line 31, ../sass/_nav.scss */
+/* line 35, ../sass/_nav.scss */
 #main-nav ul#profile-dropdown div {
   background: white;
   border-right: 2px solid #d32d27;
@@ -238,76 +250,150 @@ button:hover {
   margin-top: 0.2em;
   border-radius: 0.5em;
 }
-/* line 42, ../sass/_nav.scss */
+/* line 46, ../sass/_nav.scss */
 #main-nav ul#profile-dropdown > * {
   display: none;
   color: white;
 }
-/* line 47, ../sass/_nav.scss */
+/* line 51, ../sass/_nav.scss */
 #main-nav ul#profile-dropdown li {
   font-size: 0.7em;
   padding: 0.5em;
 }
-/* line 51, ../sass/_nav.scss */
+/* line 55, ../sass/_nav.scss */
 #main-nav ul#profile-dropdown li:hover {
   font-size: 0.74em;
   cursor: pointer;
 }
 
-/* line 60, ../sass/_nav.scss */
-#auth-options-container {
-  font-size: 0.67em;
-}
-/* line 62, ../sass/_nav.scss */
-#auth-options-container > * {
-  margin-left: 1.5em;
-}
-
-/* line 67, ../sass/_nav.scss */
-#auth-user-input-container {
+/* line 65, ../sass/_nav.scss */
+#main-logo-li {
   display: flex;
-  flex-flow: column nowrap;
+  font-weight: bolder;
+  font-size: 1.5em;
 }
 /* line 70, ../sass/_nav.scss */
-#auth-user-input-container > * {
-  margin-bottom: 1em;
+#main-logo-li a {
+  color: white;
+  align-self: center;
 }
 
-/* line 75, ../sass/_nav.scss */
+/* line 76, ../sass/_nav.scss */
+.sign-up-link {
+  font-weight: bold;
+}
+
+/* line 79, ../sass/_nav.scss */
+.log-in-link {
+  font-weight: bold;
+}
+
+/* line 2, ../sass/_authForms.scss */
+.auth-input-error {
+  border: 1px dotted rgba(255, 0, 0, 0.64);
+}
+
+/* line 6, ../sass/_authForms.scss */
+#flash-messages-container {
+  font-size: 0.9em;
+  font-weight: bold;
+}
+/* line 10, ../sass/_authForms.scss */
+#flash-messages-container > div {
+  margin: 1.5em;
+  padding: 1em;
+}
+/* line 15, ../sass/_authForms.scss */
+#flash-messages-container .error-flash {
+  border-radius: 0.4em;
+  background-color: rgba(255, 0, 0, 0.34);
+}
+/* line 20, ../sass/_authForms.scss */
+#flash-messages-container .success-flash {
+  border-radius: 0.4em;
+  background-color: rgba(0, 255, 92, 0.34);
+}
+
+/* line 26, ../sass/_authForms.scss */
 #log-in-form, #sign-up-form {
   display: flex;
   left: 4em;
   min-width: 400px;
-  max-width: 50%;
   top: 10em;
   flex-flow: column nowrap;
   color: black;
   font-size: 0.8em;
 }
-/* line 85, ../sass/_nav.scss */
+/* line 35, ../sass/_authForms.scss */
 #log-in-form .form-title, #sign-up-form .form-title {
   font-size: 1.2em;
   font-weight: bold;
 }
-/* line 90, ../sass/_nav.scss */
+/* line 40, ../sass/_authForms.scss */
 #log-in-form > *, #sign-up-form > * {
   margin-bottom: 1em;
 }
-/* line 94, ../sass/_nav.scss */
+/* line 44, ../sass/_authForms.scss */
 #log-in-form .auth-button, #sign-up-form .auth-button {
   align-self: flex-end;
 }
-/* line 98, ../sass/_nav.scss */
+/* line 48, ../sass/_authForms.scss */
 #log-in-form input, #sign-up-form input {
   width: 100%;
 }
-/* line 102, ../sass/_nav.scss */
+/* line 52, ../sass/_authForms.scss */
 #log-in-form .form-line-component, #sign-up-form .form-line-component {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
 }
 
+/* line 59, ../sass/_authForms.scss */
+#auth-options-container {
+  font-size: 0.67em;
+}
+/* line 61, ../sass/_authForms.scss */
+#auth-options-container > * {
+  margin-left: 1.5em;
+}
+
+/* line 66, ../sass/_authForms.scss */
+#auth-user-input-container {
+  display: flex;
+  flex-flow: column nowrap;
+}
+/* line 69, ../sass/_authForms.scss */
+#auth-user-input-container > * {
+  margin-bottom: 1em;
+}
+
+@media (max-device-width: 450px) and (max-width: 749px) {
+  /* line 76, ../sass/_authForms.scss */
+  .auth-form-container {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+}
+@media (min-device-width: 451px) and (min-width: 750px) {
+  /* line 85, ../sass/_authForms.scss */
+  .auth-form-container {
+    display: flex;
+    flex-flow: row nowrap;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+
+  /* line 91, ../sass/_authForms.scss */
+  #flash-messages-container {
+    width: 45%;
+  }
+
+  /* line 94, ../sass/_authForms.scss */
+  #log-in-form, #sign-up-form {
+    max-width: 50%;
+  }
+}
 /* line 5, ../sass/_home.scss */
 #home-container {
   display: flex;
@@ -608,31 +694,33 @@ button:hover {
   /* line 228, ../sass/_jobsView.scss */
   table td {
     border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+    min-width: 1em;
   }
 
-  /* line 234, ../sass/_jobsView.scss */
+  /* line 237, ../sass/_jobsView.scss */
   #jobs-list-table thead {
     display: none;
   }
 
-  /* line 237, ../sass/_jobsView.scss */
+  /* line 240, ../sass/_jobsView.scss */
   #jobs-list-table {
     position: relative;
     top: 50px;
   }
 
-  /* line 242, ../sass/_jobsView.scss */
+  /* line 245, ../sass/_jobsView.scss */
   #copy-table {
     position: fixed;
     z-index: 100;
     background: white;
+    width: 80%;
   }
 
-  /* line 249, ../sass/_jobsView.scss */
+  /* line 253, ../sass/_jobsView.scss */
   #jobs-view-container {
     margin-top: 2em;
   }
-  /* line 252, ../sass/_jobsView.scss */
+  /* line 256, ../sass/_jobsView.scss */
   #jobs-view-container #page-controls {
     position: fixed;
     top: 8.3em;
@@ -641,23 +729,23 @@ button:hover {
     z-index: 400;
   }
 }
-/* line 267, ../sass/_jobsView.scss */
+/* line 271, ../sass/_jobsView.scss */
 #jobs-view-container .applied, #jobs-view-container table tr.applied {
   background-color: rgba(228, 251, 233, 0.1);
 }
-/* line 270, ../sass/_jobsView.scss */
+/* line 274, ../sass/_jobsView.scss */
 #jobs-view-container .phone-screen {
   background-color: #C9F7D4;
 }
-/* line 273, ../sass/_jobsView.scss */
+/* line 277, ../sass/_jobsView.scss */
 #jobs-view-container .on-site {
   background-color: #85ED9F;
 }
-/* line 276, ../sass/_jobsView.scss */
+/* line 280, ../sass/_jobsView.scss */
 #jobs-view-container .offer {
   background-color: #5DE77F;
 }
-/* line 279, ../sass/_jobsView.scss */
+/* line 283, ../sass/_jobsView.scss */
 #jobs-view-container .rejected {
   background-color: rgba(253, 106, 106, 0.6);
 }
@@ -675,6 +763,11 @@ button:hover {
 #42E36A
 
 */
+/* line 4, ../sass/_edit-form.scss */
+#edit-job-container {
+  outline: 3px solid black;
+}
+
 /* line 5, ../sass/_addJob.scss */
 #add-job-component {
   position: fixed;
@@ -688,8 +781,13 @@ button:hover {
   display: none;
 }
 
+/* line 16, ../sass/_addJob.scss */
+#add-job-container {
+  outline: 3px solid black;
+}
+
 @media (max-width: 749px), (max-device-width: 450px) {
-  /* line 18, ../sass/_addJob.scss */
+  /* line 21, ../sass/_addJob.scss */
   #add-job-component {
     position: absolute;
     top: -0.6em;
@@ -711,29 +809,46 @@ form#job-extended div.job-req {
 /* line 10, ../sass/_jobForm.scss */
 form#job-extended label {
   float: left;
-  padding-bottom: 3%;
+  padding-bottom: 1em;
   color: darkgrey;
+  font-size: 1.2em;
 }
-/* line 16, ../sass/_jobForm.scss */
+/* line 17, ../sass/_jobForm.scss */
 form#job-extended button.form-done {
   align-self: flex-end;
 }
-/* line 20, ../sass/_jobForm.scss */
+/* line 21, ../sass/_jobForm.scss */
 form#job-extended button#add-job {
   margin-top: 2em;
   align-self: center;
 }
-/* line 25, ../sass/_jobForm.scss */
+/* line 26, ../sass/_jobForm.scss */
 form#job-extended input {
   padding: 1.2em;
   font-size: 1.3em;
 }
-/* line 30, ../sass/_jobForm.scss */
-form#job-extended label {
-  font-size: 1.2em;
+
+/* line 34, ../sass/_jobForm.scss */
+.form-line-component#status-div {
+  width: 20%;
+  position: relative;
+}
+/* line 38, ../sass/_jobForm.scss */
+.form-line-component#status-div button {
+  width: 100%;
+  height: 100%;
+  align-self: center;
+}
+/* line 44, ../sass/_jobForm.scss */
+.form-line-component#status-div .dropdown-menu {
+  left: -3em;
+}
+/* line 47, ../sass/_jobForm.scss */
+.form-line-component#status-div .dropdown-menu li {
+  margin: 1em;
 }
 
-/* line 36, ../sass/_jobForm.scss */
+/* line 53, ../sass/_jobForm.scss */
 .added-job {
   border: 1px solid darkgrey;
   box-shadow: 0 1px 8px 0 rgba(197, 141, 141, 0.2), 0 6px 10px -2px rgba(0, 0, 0, 0.19);
@@ -744,7 +859,7 @@ form#job-extended label {
   position: relative;
   margin-bottom: 5%;
 }
-/* line 46, ../sass/_jobForm.scss */
+/* line 63, ../sass/_jobForm.scss */
 .added-job span.remove-added-job {
   visibility: hidden;
   position: absolute;
@@ -753,23 +868,23 @@ form#job-extended label {
   font-size: 1.5em;
   background-color: white;
 }
-/* line 55, ../sass/_jobForm.scss */
+/* line 72, ../sass/_jobForm.scss */
 .added-job a:hover {
   font-size: 1.05em;
   font-weight: bold;
 }
-/* line 60, ../sass/_jobForm.scss */
+/* line 77, ../sass/_jobForm.scss */
 .added-job:hover {
   box-shadow: 0 1px 8px 0 #2e2ce8, 0 6px 10px -2px rgba(0, 134, 253, 0.19);
   cursor: pointer;
 }
-/* line 65, ../sass/_jobForm.scss */
+/* line 82, ../sass/_jobForm.scss */
 .added-job .job-status {
   display: flex;
   flex-flow: row nowrap;
   position: relative;
 }
-/* line 69, ../sass/_jobForm.scss */
+/* line 86, ../sass/_jobForm.scss */
 .added-job .job-status span.glyphicon-menu-down {
   font-size: 0.75em;
   color: rgba(99, 99, 99, 0.7);
@@ -777,20 +892,20 @@ form#job-extended label {
   top: -20%;
   font-weight: bold;
 }
-/* line 76, ../sass/_jobForm.scss */
+/* line 93, ../sass/_jobForm.scss */
 .added-job .job-status span.glyphicon-menu-down:hover {
   color: rgba(14, 118, 142, 0.88);
   transform: scale(1.3);
 }
 
 @media (max-width: 749px) {
-  /* line 87, ../sass/_jobForm.scss */
+  /* line 104, ../sass/_jobForm.scss */
   .form-line {
     display: flex;
     flex-flow: row nowrap;
   }
 
-  /* line 92, ../sass/_jobForm.scss */
+  /* line 109, ../sass/_jobForm.scss */
   .form-line-component {
     padding: 0 1%;
   }

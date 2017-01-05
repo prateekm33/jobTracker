@@ -11,8 +11,8 @@ export default function Auth (props) {
   console.log('TODO --- GOOGLE LOGIN / FB LOGIN')
   return (
     <div id='auth-options-container'>
-      <Link to='/signup' className='sign-up-link'>Sign Up</Link>
-      <Link to='/login' className='log-in-link'>Log In</Link>
+      <div className='btn btn-primary'><Link to='/signup' className='sign-up-link'>Sign Up</Link></div>
+      <div className='btn btn-default'><Link to='/login' className='log-in-link'>Log In</Link></div>
 
       {
         props.logInForm && <LogIn />

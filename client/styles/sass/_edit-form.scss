@@ -2,7 +2,7 @@ $max-width: 740px;
 $small-device-width: 450px;
 
 #edit-job-container {
-  
+  outline: 3px solid black;
 }
 
 @media (max-device-width: $small-device-width) {

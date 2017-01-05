@@ -12,6 +12,7 @@ function Job(props) {
     return (
       <div 
         className={'job-container ' + classStatus}
+        onContextMenu={props.captureRightClick}
         onClick={(evt) => {props.clickHandler(evt, props.job, props.idx)}}>
         <div className={'company-detail'}>{props.job.company}</div>
         <div className={'role-detail'}>{props.job.role}</div>
@@ -22,7 +23,10 @@ function Job(props) {
     )
   } else if (view === 'large') {
     return (
-      <tr className={'table-job-container ' + classStatus} onClick={(evt) => {props.clickHandler(evt, props.job, props.idx)}}>
+      <tr 
+        className={'table-job-container ' + classStatus}
+        onContextMenu={props.captureRightClick}
+        onClick={(evt) => {props.clickHandler(evt, props.job, props.idx)}}>
         <td className={'company-data-cell'}>{props.job.company}</td>
         <td className={'role-data-cell'}>{props.job.role}</td>
         <td className={'contact-data-cell'}>{props.job.contact}</td>

@@ -12,6 +12,7 @@ class AddJob extends React.Component {
     this.closeForm = this.closeForm.bind(this);
     this.returnSelf = this.returnSelf.bind(this);
     this.handleFormComplete = this.handleFormComplete.bind(this);
+    this.listenForEscape = this.listenForEscape.bind(this);
   }
 
   returnSelf() {
@@ -35,6 +36,15 @@ class AddJob extends React.Component {
     this.buttonEl.disabled = false;
   }
 
+  listenForEscape(evt) {
+    // 27 = escape
+    if (evt.keyCode === 27) this.closeForm();
+  }
+  componentDidUpdate() {
+    if (this.formEl) this.formEl.focus();
+  }
+
+
   render() {
     return (
       <div id='add-job-component'>
@@ -42,7 +52,8 @@ class AddJob extends React.Component {
   
         {
           this.props.addForm ? 
-            (<div id='add-job-container' className='form-container' ref={el => this.formEl = el}>
+            (<div tabIndex="0" onKeyDown={this.listenForEscape}
+                id='add-job-container' className='form-container' ref={el => this.formEl = el}>
               <div id='add-job-form-title' className='container-title'>ADD JOB</div>
               <JobForm job={null} 
                 getParent={this.returnSelf}

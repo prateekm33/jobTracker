@@ -20,7 +20,11 @@ const types = {
   saveJob: 'SAVE_JOB',
   savingJobs :'SAVING_JOBS',
   savedJobs: 'SAVED_JOBS',
-  errorSavingJobs: 'ERROR_SAVING_JOBS'
+  errorSavingJobs: 'ERROR_SAVING_JOBS',
+
+  addFlash: 'ADD_FLASH',
+  removeFlash: 'REMOVE_FLASH',
+  clearFlash: 'CLEAR_FLASH'
 }
 
 export default types;

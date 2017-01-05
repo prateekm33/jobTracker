@@ -2,18 +2,20 @@ import React from 'react';
 import { connect } from 'react-redux';
 import actions from '../../../redux/actions';
 
+import { DropDown } from '../../Utils'
+
 // TODO --- add in form for status input
 
 class JobForm extends React.Component {
   constructor(props) {
     super(props);
     this.listenForEnter = this.listenForEnter.bind(this);
-    this.handleFormSubmit = this.handleFormSubmit.bind(this);
-    this.handleAddJobToList = this.handleAddJobToList.bind(this);
     this.handleFormCancel = this.handleFormCancel.bind(this);
     this.handleFormEnter = this.handleFormEnter.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleFormComplete = this.handleFormComplete.bind(this);
+    this.handleStatusDropDown = this.handleStatusDropDown.bind(this);
+    this.handleStatusDropDownClick = this.handleStatusDropDownClick.bind(this);
   }
 
   componentDidMount() {
@@ -21,15 +23,17 @@ class JobForm extends React.Component {
 
     if (job) {
       this.companyNameInput.value = job.company;
-      this.dateInput.value = job.date_applied.toISOString().split('T')[0];
+      let date = job.date_applied;
+      if (typeof date === 'object') {
+        date = date.toISOString();
+      }
+      console.log('date: ', date)
+      this.dateInput.value = date.split('T')[0];
       this.roleNameInputDiv.querySelector('input').value = job.role;
       this.contactInput.value = job.contact;
       this.jobReqInputDiv.querySelector('input').value = job.url || '';
     }
   }
-
-  handleFormSubmit() {}
-  handleAddJobToList() {}
 
   listenForEnter(evt) {
     const enter = 13;
@@ -37,16 +41,16 @@ class JobForm extends React.Component {
 
     switch (evt.keyCode) {
       case enter: 
-        this.handleFormEnter(evt);
+        return this.handleFormEnter(evt);
       case escape: 
-        this.handleFormCancel(evt);
+        return this.handleFormCancel(evt);
       default:
         return;
     }
   }
 
   handleFormEnter(evt) {
-    console.log('TODO --- HANDLE FORM ENTER...jobForm.jsx')
+    this.handleFormComplete(evt);
   }
 
   handleFormCancel(evt) {
@@ -96,13 +100,49 @@ class JobForm extends React.Component {
       contact,
       status: 'Applied'
     }
-
+    console.log('form complete')
     this.props.parentSubmitHandler(job);
+  }
+
+  handleStatusDropDown(evt) {
+    evt.preventDefault();
+
+    if (evt.target.tagName === 'BUTTON') {
+      this.statusDDMenu.classList.toggle('dropdown-menu');
+    }
+  }
+
+  app() {
+    // <div onClick={this.handleStatusDropDown} className="form-line-component" id="status-div">
+    //           <label>Status</label>
+    //           <button type="button" className="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    //             Action
+    //           </button>
+    //           <div ref={el => this.statusDDMenu = el} className="dropdown-menu">
+    //             <a className="dropdown-item" href="#">Action</a>
+    //             <a className="dropdown-item" href="#">Another action</a>
+    //             <a className="dropdown-item" href="#">Something else here</a>
+    //             <div className="dropdown-divider"></div>
+    //             <a className="dropdown-item" href="#">Separated link</a>
+    //           </div>
+    //         </div>
+  }
+
+  handleStatusDropDownClick(evt) {
+    evt.preventDefault();
+
+    const target = evt.target;
+    const tag = target.tagName.toLowerCase();
+    if (tag === 'button') {
+      let display = window.getComputedStyle(this.statusDropDownDiv).display
+      display = display === 'none' ? 'block' : 'none';
+      this.statusDropDownDiv.style.display = display;
+    }
   }
 
   render() {
     return (
-      <form id='job-extended' ref={el => this.formEl = el}  onKeyDown={this.listenForEnter} onSubmit={this.handleFormSubmit}>
+      <form id='job-extended' ref={el => this.formEl = el}  onKeyDown={this.listenForEnter}>
           <div className='form-line'>
             <div className='form-line-component'>
               <button onClick={this.handleFormCancel} className='form-done btn btn-default' id='cancel-button'>Cancel</button>
@@ -122,6 +162,19 @@ class JobForm extends React.Component {
             <div className='form-line-component'>
               <label htmlFor='contact-email'>Contact Email</label>
               <input id='contact-email' ref={el=>this.contactInput = el} className='form-control'  type='email' placeholder='Contact Email'/>
+            </div>
+            <div className='form-line-component btn-group' id='status-div'>
+              <label>Status</label>
+              <button onClick={this.handleStatusDropDownClick} type="button" className="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {this.props.job.status}
+              </button>
+              <div ref={el => {this.statusDropDownDiv = el}} className="dropdown-menu">
+                {
+                  ['APPLIED', 'PHONE SCREEN', 'ON-SITE', 'OFFER', 'REJECTED'].map((o, idx) => (
+                    <li className='dropdown-item' key={idx}>{o}</li>
+                  ))
+                }
+              </div>
             </div>
           </div>
           <div className='form-line'

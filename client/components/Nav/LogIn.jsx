@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import actions from '../../redux/actions';
 
 import { validateAuthForm } from '../Utils'
+import Flash from '../Flash';
 import AuthUserInput from './AuthUserInput';
 
 class LogIn extends React.Component {
@@ -25,6 +26,10 @@ class LogIn extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    this.props.dispatch(actions.clearFlash());
+  }
+
   handleInvalidCreds() {
     console.log('TODO ---- UI FOR INVALID CREDENTIALS')
   }
@@ -33,7 +38,9 @@ class LogIn extends React.Component {
     evt.preventDefault();
     console.log('TODO---submitting..');
 
-    if (!validateAuthForm(this.formEl)) {
+    const { formValid, error } = validateAuthForm(this.formEl);
+
+    if (!formValid) {
       // form still invalid
       return;
     }
@@ -51,20 +58,24 @@ class LogIn extends React.Component {
 
   render() {
     return (
-    <form ref={el => this.formEl = el} id='log-in-form' onSubmit={this.handleSubmit}>
-      <div className='form-line'>
-        <div className='form-line-component'>
-          <div className='form-title'>Log In</div>
-          <Link to='/signup' className='sign-up-link'>Sign up</Link>
+    <div className='auth-form-container'>
+      <Flash />
+      <form ref={el => this.formEl = el} id='log-in-form' onSubmit={this.handleSubmit}>
+        <div className='form-line'>
+          <div className='form-line-component'>
+            <div className='form-title'>Log In</div>
+            <Link to='/signup' className='sign-up-link'>Sign up</Link>
+          </div>
         </div>
-      </div>
-      <AuthUserInput />
-      <div className='form-line'>
-        <div className='form-line-component'>
-          <button onClick={this.handleSubmit} id='submit-login' className='btn btn-primary auth-button'>Log In</button>
+        <AuthUserInput />
+        <div className='form-line'>
+          <div className='form-line-component'>
+            <button onClick={this.handleSubmit} id='submit-login' className='btn btn-primary auth-button'>Log In</button>
+          </div>
         </div>
-      </div>
-    </form>
+      </form>
+
+    </div>
     )
   }
 }

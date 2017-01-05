@@ -27,7 +27,8 @@ const defaultState = {
   user: null,
   logInError: false,
   makingAccount: false,
-  logOutError: false
+  logOutError: false,
+  flashMessages: []
 }
 
 export function configureStore(initialState = defaultState) {

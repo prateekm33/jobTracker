@@ -26,8 +26,8 @@ class JobsView extends React.Component {
     this.handleSortOptionClicked = this.handleSortOptionClicked.bind(this);
     this.handleDropDownClick = this.handleDropDownClick.bind(this);
     this.handleSortOrder = this.handleSortOrder.bind(this);
-
     window.addEventListener('resize', this.handleWindowResize);
+    this.captureRightClick = this.captureRightClick.bind(this);
   }
 
   componentDidMount() {
@@ -35,7 +35,8 @@ class JobsView extends React.Component {
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.handleWindowResize)
+    window.removeEventListener('resize', this.handleWindowResize);
+
   }
 
   componentDidUpdate() {
@@ -156,6 +157,14 @@ class JobsView extends React.Component {
     this.props.dispatch(actions.editJob(job, idx))
   }
 
+  captureRightClick(evt) {
+    evt.preventDefault();
+
+    console.log('TODO --- DISPATCH RIGHT CLICK EVENT FOR JOB -- DISPLAY DIV WITH JOB REQ')
+    console.log('OR JUST TOGGLE DISPLAY-NONE CLASS ON THAT DIV')
+    console.log('ALSO TODO -- CLICK HANDLER ON BODY SHOULD SET DISPLAY-NONE BACK ON ANY OF THESE VISIBLE DIVS')
+  }
+
   renderTableHeader(id) {
     return (
       <thead ref={el => this['tableHeader_'+id] = el} onClick={this.handleSortOptionClicked}>
@@ -212,7 +221,7 @@ class JobsView extends React.Component {
 
       for (let i = start; jobs[i] && i < start + 20; i++) {
         arr.push(
-          <Job job={jobs[i]} key={i} idx={i} clickHandler={this.handleJobClicked} view={'large'} />
+          <Job job={jobs[i]} key={i} idx={i} captureRightClick={this.captureRightClick}  clickHandler={this.handleJobClicked} view={'large'} />
         )
       }
 
@@ -238,7 +247,7 @@ class JobsView extends React.Component {
       const arr = [];
       for (let i = start; jobs[i] && i < start + 5; i++) {
         arr.push(
-          <Job job={jobs[i]} key={i} idx={i} clickHandler={this.handleJobClicked} view={'small'}/>
+          <Job job={jobs[i]} key={i} idx={i} captureRightClick={this.captureRightClick} clickHandler={this.handleJobClicked} view={'small'}/>
         )
       }
 

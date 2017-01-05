@@ -67,7 +67,7 @@ const jobActions = {
   addJob(job) {
     const actions = this;
     return function(dispatch, getState) {
-      dispatch(actions.saveJob(job));
+      dispatch(actions.saveNewJob(job));
       dispatch(actions.addToList(job));
     }
   },
@@ -79,7 +79,7 @@ const jobActions = {
     }
   },
 
-  saveJob(job) {
+  saveNewJob(job) {
     const actions = this;
     return function(dispatch, getState) {
       dispatch(actions.savingJobs([job]));
@@ -113,14 +113,14 @@ const jobActions = {
     }
   },
 
-  saveAllJobs(jobs) {
+  saveJobs(jobs) {
     const actions = this;
 
     return function(dispatch, getState) {
       dispatch(actions.savingJobs(jobs));
 
       const user = getState().user;
-      fetch('/accounts/jobs/' + user, {
+      return fetch('/accounts/jobs/' + user, {
         method: 'put',
         body: JSON.stringify({jobs}),
         headers: {
@@ -136,9 +136,11 @@ const jobActions = {
             console.log('error updating jobs...');
             dispatch(actions.errorSavingAllJobs(jobs, r));
           }
+          return r;
         })
         .catch(e => { 
           dispatch(actions.asyncErrorCaught(e));
+          return e;
         })
     }
   },

@@ -9,8 +9,9 @@ form#job-extended {
 
   label { 
     float: left;
-    padding-bottom: 3%;
+    padding-bottom: 1em;
     color: darkgrey;
+    font-size: 1.2em;
   }
 
   button.form-done {
@@ -26,12 +27,28 @@ form#job-extended {
     padding: 1.2em;
     font-size: 1.3em;
   }
-
-  label {
-    font-size: 1.2em;
-  }
 }
 
+
+
+.form-line-component#status-div {
+  width: 20%;
+  position: relative;
+
+  & button {
+    width: 100%;
+    height: 100%;
+    align-self: center;
+  }
+
+  .dropdown-menu {
+    left: -3em;
+
+    li {
+      margin: 1em;
+    }
+  }
+}
 
 .added-job {
   border: 1px solid darkgrey;

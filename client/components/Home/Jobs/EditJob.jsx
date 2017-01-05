@@ -10,6 +10,7 @@ class EditJob extends React.Component {
     this.returnSelf = this.returnSelf.bind(this);
     this.closeForm = this.closeForm.bind(this);
     this.handleFormComplete = this.handleFormComplete.bind(this);
+    this.listenForEscape = this.listenForEscape.bind(this)
   }
 
   returnSelf() {
@@ -32,10 +33,18 @@ class EditJob extends React.Component {
     this.props.dispatch(actions.closeEditJobForm());
   }
 
+  listenForEscape(evt) {
+    // 27 = escape
+    if (evt.keyCode === 27) this.closeForm();
+  }
+  componentDidMount() {
+    document.querySelector('#edit-job-container').focus();
+  }
+
   render() {
     const classStr = this.props.editJob ? 'form-container' : 'form-container display-none';
     return (
-      <div ref={this.props.refFn} id='edit-job-container' className={classStr}>
+      <div tabIndex="0" ref={this.props.refFn} id='edit-job-container' className={classStr} onKeyDown={this.listenForEscape}>
         <div id='edit-form-title' className='container-title'>EDIT JOB</div>
         <JobForm job={this.props.job}getParent={this.returnSelf}
           parentSubmitHandler={this.handleFormComplete}/>

@@ -46,7 +46,7 @@ function handleTransitionForHome(user, replace, done) {
 }
 
 function handleTransitionForAuthPages(user, replace, done) {
-  console.log('Authenticating LOGIN component');
+  console.log('Authenticating AUTH component');
 
   if (user) {
     replace('/home');

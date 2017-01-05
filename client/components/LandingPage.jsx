@@ -6,6 +6,10 @@ export default class LandingPage extends React.Component {
     super(props)
   }
 
+  componentDidMount() {
+    document.body.scrollTop = 0;
+  }
+
   render() {
     return (
       <div id='landing-page-container'>

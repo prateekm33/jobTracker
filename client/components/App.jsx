@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import actions from '../redux/actions';
 
 import Dashboard from './Dashboard'
 import Nav from './Nav/Nav';
@@ -12,6 +13,12 @@ class App extends React.Component {
     this.state = {
       dropDownEls: null
     }
+    this.dispatchSaveJobs = this.dispatchSaveJobs.bind(this);
+    window.onbeforeunload = this.dispatchSaveJobs;
+  }
+
+  dispatchSaveJobs() {
+    this.props.dispatch(actions.saveJobs(this.props.jobsList));
   }
 
   componentDidMount() {

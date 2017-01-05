@@ -227,9 +227,12 @@ $small-device-width: 450px;
 
     td {
       border-bottom: 2px solid rgba(0,0,0,0.3);
+      min-width: 1em;
     }
 
   }
+
+
 
   #jobs-list-table thead {
     display: none
@@ -243,6 +246,7 @@ $small-device-width: 450px;
     position: fixed;
     z-index: 100;
     background: white;
+    width: 80%;
   }
 
 

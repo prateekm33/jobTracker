@@ -14,24 +14,28 @@ const authActions = {
     return function(dispatch, getState) {
       dispatch(actions.loggingOut());
 
-      const user = getState().user;
-      return fetch('/auth/logout', {
-        method: 'POST',
-        body: JSON.stringify({email: user}),
-        headers: {
-          "Content-Type": "application/json"
-        },
-        credentials: 'include'
-      }).then(r => {
-        if (r.status === 200) {
-          dispatch(actions.userLoggedOut());
-          dispatch(replace('/'));
-        } else {
-          dispatch(actions.logOutError());
-        }
-      }).catch(e => {
-        dispatch(actions.asyncErrorCaught(e));
-      });
+      const jobs = getState().jobsList;
+      dispatch(actions.saveJobs(jobs))
+        .then(savedJobsResponse => {
+          const user = getState().user;
+          return fetch('/auth/logout', {
+            method: 'POST',
+            body: JSON.stringify({email: user}),
+            headers: {
+              "Content-Type": "application/json"
+            },
+            credentials: 'include'
+          }).then(r => {
+            if (r.status === 200) {
+              dispatch(actions.userLoggedOut());
+              dispatch(replace('/'));
+            } else {
+              dispatch(actions.logOutError());
+            }
+          }).catch(e => {
+            dispatch(actions.asyncErrorCaught(e));
+          });
+        })
     }
   },
 

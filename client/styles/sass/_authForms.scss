@@ -1,0 +1,97 @@
+// Auth forms - error styles
+.auth-input-error {
+  border: 1px dotted rgba(255,0,0,0.64);
+}
+// Flash msg styles
+#flash-messages-container {
+  font-size: 0.9em;
+  font-weight: bold;
+
+  & > div {
+    margin: 1.5em;
+    padding: 1em;
+  }
+
+  .error-flash {
+    border-radius: 0.4em;
+    background-color: rgba(255,0,0,0.34);
+  }
+
+  .success-flash {
+    border-radius: 0.4em;
+    background-color: rgba(0, 255, 92, 0.34);
+  }
+}
+
+#log-in-form, #sign-up-form {
+  display: flex;
+  left: 4em;
+  min-width: 400px;
+  top: 10em;
+  flex-flow: column nowrap;
+  color: black;
+  font-size: 0.8em;
+
+  .form-title {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+
+  & > * {
+    margin-bottom: 1em;
+  }
+
+  .auth-button {
+    align-self: flex-end;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  .form-line-component {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+  }
+}
+
+#auth-options-container {
+  font-size: 0.67em;
+  & > * {
+    margin-left: 1.5em;
+  }
+}
+
+#auth-user-input-container {
+  display: flex;
+  flex-flow: column nowrap;
+  & > * {
+    margin-bottom: 1em;
+  }
+}
+
+
+@media (max-device-width: $small-device-width) and (max-width: $max-width) {
+  .auth-form-container {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+}
+
+// large screen styles
+@media (min-device-width: $small-device-width + 1) and (min-width: $min-width) {
+  .auth-form-container {
+    display: flex;
+    flex-flow: row nowrap;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+  #flash-messages-container {
+    width: 45%;
+  }
+  #log-in-form, #sign-up-form {
+    max-width: 50%;
+  }
+}

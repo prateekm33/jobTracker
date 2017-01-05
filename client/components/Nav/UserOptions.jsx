@@ -28,12 +28,11 @@ class UserOptions extends React.Component {
   logout(evt) {
     evt.preventDefault();
     this.props.dispatch(actions.logOutUser());
-    this.props.dispatch(actions.saveJobs(this.props.jobs));
   }
 
   render() {
     return (
-      <ul id='profile-dropdown' onClick={this.toggleDropdown}> SETTINGS
+      <ul id='profile-dropdown' onClick={this.toggleDropdown}> {this.props.user.toLowerCase()}
         <div>
           <li><a href='/profile'>Profile</a></li>
           <li><a onClick={this.logout}>Logout</a></li>
@@ -44,7 +43,7 @@ class UserOptions extends React.Component {
 }
 
 function mapStateToProps(state) {
-  return {jobs: state.jobsList } ;
+  return {jobs: state.jobsList, user: state.user };
 }
 
 export default connect(mapStateToProps)(UserOptions);
