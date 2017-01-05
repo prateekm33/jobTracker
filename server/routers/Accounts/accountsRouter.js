@@ -2,10 +2,10 @@
 
 const accountsRouter = require('express').Router();
 const accountsController = require('./accountsController');
-const { validateRequest } = require('../Utils');
+const { validateRequest, hashPassword } = require('../Utils');
 
 accountsRouter.route('/')
-  .post(accountsController.addAccount);
+  .post(hashPassword, accountsController.addAccount);
 accountsRouter.route('/:user')
   .get(validateRequest, accountsController.getAccount)
   .put(validateRequest, accountsController.updateAccount)

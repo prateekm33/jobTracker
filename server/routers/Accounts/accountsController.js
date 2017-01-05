@@ -1,10 +1,12 @@
 const passport = require('../../config/passport.js');
 const { User } = require('../../config/schema.js');
 
+
 module.exports = {
   addAccount(req, res) {
-    const newUser = new User(req.body);
-    console.log('req.body: ', req.body)
+    const userCreds = req.body;
+    const newUser = new User(userCreds);
+    console.log('userCreds: ', userCreds)
     newUser.save().then(user => {
       res.status(201).json(user);
     }).catch(e => { res.status(400).send(e) });

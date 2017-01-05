@@ -49,7 +49,7 @@ class SignUp extends React.Component {
     this.props.dispatch(actions.removeFlash(pwMatchFlash))
 
     const user = {};
-    user.password = pw;
+    user.password = pw.value;
     user.email = this.formEl.querySelector('#user-email').value;
     this.props.dispatch(actions.makeAccount(user));
   }

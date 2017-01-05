@@ -109,6 +109,7 @@ const authActions = {
     const actions = this;
     return function(dispatch, getState) {
       dispatch(actions.makingAccount());
+      console.log('user: ', user);
 
       return fetch('/accounts', {
         method: 'POST', 

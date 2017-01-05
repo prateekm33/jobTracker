@@ -3,7 +3,7 @@
 const passport = require('../../config/passport.js');
 const authRouter = require('express').Router();
 const authController = require('./authController');
-const { validateRequest } = require('../Utils');
+const { validateRequest, hashPassword } = require('../Utils');
 
 authRouter.route('/login')
   .post(
