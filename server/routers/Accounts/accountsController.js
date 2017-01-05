@@ -4,6 +4,7 @@ const { User } = require('../../config/schema.js');
 module.exports = {
   addAccount(req, res) {
     const newUser = new User(req.body);
+    console.log('req.body: ', req.body)
     newUser.save().then(user => {
       res.status(201).json(user);
     }).catch(e => { res.status(400).send(e) });
@@ -72,11 +73,14 @@ module.exports = {
   },
 
   updateJobs(req, res) {
+    console.log('UPDATE JOBS??')
     if (req.user.email !== req.params.user) return res.status(401).end();
 
     const jobs = req.body.jobs;
+    console.log('JOBS TO UPDATE: ', jobs)
     User.update({email: req.user.email, password: req.user.password}, {jobs: jobs})
       .then((r,e) => {
+        console.log('RESULT? : ', r);
         !e && res.status(200).end();
         e && res.status(400).end();
       })
