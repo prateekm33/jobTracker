@@ -140,6 +140,54 @@ button:hover {
   margin-top: 2em;
 }
 
+#landing-page-container {
+  background-image: url(../assets/bg1.jpg);
+  background-size: cover;
+  position: absolute;
+  top: 3.4em;
+  left: 0;
+  right: 0;
+  min-height: 550px;
+}
+
+#sign-up-blurb {
+  background: white;
+  height: 90%;
+  min-width: 450px;
+  position: absolute;
+  right: 0;
+  top: 1em;
+  padding: 1em;
+  border-radius: 0.4em;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  
+  #flash-messages-container {
+    width: 100%;
+    font-size: 0.6em;
+  }
+  
+  .auth-form-container {
+    flex-flow: column nowrap;
+    flex-direction: column-reverse;
+  }
+
+  button#landing-sign-up {
+    position: absolute;
+    width: 70%;
+    height: 4em;
+    bottom: 3em
+  }
+
+  button#submit-login {
+    width: 100%;
+    margin-top: 2em;
+    height: 4em;
+  }
+}
+
+
 @import 'nav';
 @import 'authForms';
 

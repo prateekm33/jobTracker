@@ -12,6 +12,11 @@
     padding: 1em;
   }
 
+  #flash-help {
+    margin: 0.5em;
+    padding: 0;
+  }
+
   .error-flash {
     border-radius: 0.4em;
     background-color: rgba(255,0,0,0.34);
@@ -20,6 +25,10 @@
   .success-flash {
     border-radius: 0.4em;
     background-color: rgba(0, 255, 92, 0.34);
+  }
+
+  .flash-message:hover {
+    cursor: pointer;
   }
 }
 
