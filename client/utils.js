@@ -37,8 +37,9 @@ function handleTransitionForIndex(user, replace, done) {
 
 function handleTransitionForHome(user, replace, done) {
   console.log('Authenticating HOME component');
+  console.log('user? ', user);
   if (!user) {
-    replace('/login')
+    replace('/')
   } else {
     store.dispatch(actions.userLoggedIn(user));
   }

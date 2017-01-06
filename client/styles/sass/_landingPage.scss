@@ -20,9 +20,11 @@
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  background: #464150;
-  color: white;
+  background: rgba(19, 25, 31, 0.8);
+  color: #fff38e;
   font-weight: bold;
+  border-top-left-radius: 1.4em;
+  border-bottom-left-radius: 1.4em;
   
   #blurb-container {
     width: 100%;

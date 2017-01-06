@@ -7,8 +7,14 @@ module.exports = {
     const userCreds = req.body;
     const newUser = new User(userCreds);
     console.log('userCreds: ', userCreds)
-    newUser.save().then(user => {
-      res.status(201).json(user);
+    newUser.save().then((user,err) => {
+      if (err) res.status(400).json(null);
+      else {
+        req.login(user, (err) => {
+          if (err) res.status(400).json(null);
+          else res.status(201).json(user);
+        })
+      }
     }).catch(e => { res.status(400).send(e) });
   },
 

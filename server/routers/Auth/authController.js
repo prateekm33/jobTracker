@@ -8,7 +8,12 @@ module.exports = {
   },
 
   logInUser(req, res, next) {
-    if (req.user) return res.status(200).json(req.user.email);
+    if (req.user) {
+      req.login(req.user, (err) => {
+        if (err) res.status(401).json(null);
+        else res.status(200).json(req.user.email);
+      });
+    }
     else return res.status(401).json(null);
   },
 

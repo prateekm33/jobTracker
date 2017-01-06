@@ -458,43 +458,45 @@ button:hover {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  background: #464150;
-  color: white;
+  background: rgba(19, 25, 31, 0.8);
+  color: #fff38e;
   font-weight: bold;
+  border-top-left-radius: 1.4em;
+  border-bottom-left-radius: 1.4em;
 }
-/* line 27, ../sass/_landingPage.scss */
+/* line 29, ../sass/_landingPage.scss */
 #sign-up-blurb #blurb-container {
   width: 100%;
   height: 100%;
   position: relative;
 }
-/* line 32, ../sass/_landingPage.scss */
+/* line 34, ../sass/_landingPage.scss */
 #sign-up-blurb #blurb-container #intro-message {
   height: 70%;
   overflow: auto;
   padding: 1em;
 }
-/* line 39, ../sass/_landingPage.scss */
+/* line 41, ../sass/_landingPage.scss */
 #sign-up-blurb #flash-messages-container {
   width: 100%;
   font-size: 0.6em;
 }
-/* line 44, ../sass/_landingPage.scss */
+/* line 46, ../sass/_landingPage.scss */
 #sign-up-blurb .auth-form-container {
   flex-flow: column nowrap;
   flex-direction: column-reverse;
   color: white;
 }
-/* line 49, ../sass/_landingPage.scss */
+/* line 51, ../sass/_landingPage.scss */
 #sign-up-blurb .auth-form-container .form-title {
   color: white;
 }
-/* line 54, ../sass/_landingPage.scss */
+/* line 56, ../sass/_landingPage.scss */
 #sign-up-blurb button#go-back {
   margin-bottom: 2em;
   font-size: 0.6em;
 }
-/* line 59, ../sass/_landingPage.scss */
+/* line 61, ../sass/_landingPage.scss */
 #sign-up-blurb button#landing-sign-up {
   position: absolute;
   width: 100%;
@@ -502,7 +504,7 @@ button:hover {
   bottom: 0;
   font-size: 1em;
 }
-/* line 67, ../sass/_landingPage.scss */
+/* line 69, ../sass/_landingPage.scss */
 #sign-up-blurb button#submit-login {
   width: 100%;
   margin-top: 2em;
