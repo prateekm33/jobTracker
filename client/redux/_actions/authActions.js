@@ -124,9 +124,15 @@ const authActions = {
           dispatch(replace('/home'));
           dispatch(actions.userLoggedIn(user.email));
         } else {
-          dispatch(actions.errorMakingAccount(user));
+          return r.json();
         }
       })
+        .then(errCode => {
+          if (errCode === 11000) {
+            dispatch(actions.addFlash('There is an account with that email already.', true));
+          }
+          dispatch(actions.errorMakingAccount(user, errCode));
+        })
         .catch(e => { 
           console.log('ERROR: ', e);
           dispatch(actions.asyncErrorCaught(e));
@@ -134,9 +140,10 @@ const authActions = {
     }
   },
 
-  errorMakingAccount(user) {
+  errorMakingAccount(user, err) {
     return {
-      type: types.errorMakingAccount
+      type: types.errorMakingAccount,
+      err
     }
   },
 

@@ -81,6 +81,18 @@
   }
 }
 
+.auth-form-container {
+  background: rgba(19, 25, 31, 0.8);
+  border-radius: 1em;
+  padding: 1em;
+  color: white;
+  font-size: 0.87em;
+
+  .form-title {
+    color: white;
+  }
+}
+
 
 @media (max-device-width: $small-device-width) and (max-width: $max-width) {
   .auth-form-container {

@@ -407,8 +407,21 @@ button:hover {
   margin-bottom: 1em;
 }
 
+/* line 84, ../sass/_authForms.scss */
+.auth-form-container {
+  background: rgba(19, 25, 31, 0.8);
+  border-radius: 1em;
+  padding: 1em;
+  color: white;
+  font-size: 0.87em;
+}
+/* line 91, ../sass/_authForms.scss */
+.auth-form-container .form-title {
+  color: white;
+}
+
 @media (max-device-width: 450px) and (max-width: 749px) {
-  /* line 86, ../sass/_authForms.scss */
+  /* line 98, ../sass/_authForms.scss */
   .auth-form-container {
     display: flex;
     flex-flow: column nowrap;
@@ -416,7 +429,7 @@ button:hover {
   }
 }
 @media (min-device-width: 451px) and (min-width: 750px) {
-  /* line 95, ../sass/_authForms.scss */
+  /* line 107, ../sass/_authForms.scss */
   .auth-form-container {
     display: flex;
     flex-flow: row nowrap;
@@ -424,12 +437,12 @@ button:hover {
     justify-content: space-between;
   }
 
-  /* line 101, ../sass/_authForms.scss */
+  /* line 113, ../sass/_authForms.scss */
   #flash-messages-container {
     width: 45%;
   }
 
-  /* line 104, ../sass/_authForms.scss */
+  /* line 116, ../sass/_authForms.scss */
   #log-in-form, #sign-up-form {
     max-width: 50%;
   }
@@ -451,7 +464,7 @@ button:hover {
   height: 90%;
   max-width: 450px;
   position: absolute;
-  right: 0;
+  right: 0.5em;
   top: 1em;
   padding: 1em;
   border-radius: 0.4em;
@@ -462,7 +475,7 @@ button:hover {
   color: #fff38e;
   font-weight: bold;
   border-top-left-radius: 1.4em;
-  border-bottom-left-radius: 1.4em;
+  border-bottom-right-radius: 1.4em;
 }
 /* line 29, ../sass/_landingPage.scss */
 #sign-up-blurb #blurb-container {
