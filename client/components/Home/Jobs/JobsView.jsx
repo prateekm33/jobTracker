@@ -79,12 +79,13 @@ class JobsView extends React.Component {
     const tagName = target.tagName.toLowerCase();
 
     if ( tagName === 'div') {
-      // toggle
-      ul.classList.toggle('display-none');
-
+      const style = ul.style;
+      style.display = window.getComputedStyle(ul).display === 'none' ? 'flex' : 'none';
     } else if (tagName === 'li') {
       const option = target.innerText.split(' ').join('_').trim();
-      ul.classList.toggle('display-none');
+      // ul.classList.toggle('display-none');
+      const style = ul.style;
+      style.display = style.display === 'none' ? 'flex' : 'none';
       if (option === this.state.sortBy) return;
 
       this.smallViewAscSortIcon.classList.add('black');

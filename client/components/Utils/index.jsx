@@ -72,8 +72,8 @@ export const DropDown = (props) => {
 
   return (
     <div onClick={props.clickHandler} id={tagID} className='dropdown-component' ref={props.refFn}>
-      <div className='default-dropdown-option'>{props.defaultOption}</div>
-      <ul className='dropdown-list display-none'>
+      <div className='dropdown-toggle' id='selected-option'>{props.defaultOption}</div>
+      <ul className='dropdown-menu'>
         {
           items.map((item, idx) => {
             if (typeof item === 'string') item = item.toUpperCase();
@@ -85,5 +85,4 @@ export const DropDown = (props) => {
       </ul>
     </div>
   )
-
 }

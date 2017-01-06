@@ -25,9 +25,14 @@ export default class LandingPage extends React.Component {
 
   renderLandingBlurb() {
     return (
-      <button onClick={this.displaySignUpComponent} id='landing-sign-up' className='btn btn-primary'>
-        Sign Up!
-      </button>
+      <div id='blurb-container'>
+        <div id='intro-message'>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris interdum dolor a nibh efficitur sodales. Aliquam at odio justo. Vestibulum fringilla porta diam ullamcorper gravida. Vivamus tellus arcu, vehicula quis vehicula at, laoreet sit amet arcu. Praesent erat mi, luctus vulputate turpis id, luctus hendrerit erat. Fusce ullamcorper nec tortor id interdum. In fermentum, mauris in maximus congue, lectus erat sagittis erat, nec vestibulum lectus lectus et justo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse potenti. Cras viverra mauris placerat felis venenatis euismod. Aliquam erat volutpat. Nunc ut dui in neque iaculis congue. Mauris egestas erat lorem, nec mollis ex aliquet sit amet. Cras pretium leo at nulla tincidunt, quis suscipit augue lacinia. Vestibulum tincidunt quam sit amet risus sagittis, sed dapibus eros cursus. Nulla tortor mi, efficitur non vestibulum non, vehicula vitae quam.
+        </div>
+        <button onClick={this.displaySignUpComponent} id='landing-sign-up' className='btn btn-primary'>
+          Sign Up!
+        </button>
+      </div>
     )
   }
 

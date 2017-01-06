@@ -97,48 +97,39 @@ button:hover {
   background-color: #3e3d3d;
   color: white;
   width: 100%;
-  z-index: 200;
+  z-index: 1000;
   margin-top: 4em;
+  position: fixed;
+  bottom: 0;
 }
 
-/* line 36, ../sass/_default.scss */
+/* line 38, ../sass/_default.scss */
 #secondary-app-container {
   margin: 5% 10%;
   margin-top: 5em;
   min-height: 100vh;
 }
 
-/* line 43, ../sass/_default.scss */
+/* line 45, ../sass/_default.scss */
 .dropdown-component {
   position: relative;
 }
-/* line 46, ../sass/_default.scss */
+/* line 48, ../sass/_default.scss */
 .dropdown-component .default-dropdown-option:hover {
   cursor: pointer;
   font-weight: bold;
 }
-/* line 51, ../sass/_default.scss */
-.dropdown-component ul.dropdown-list {
-  position: absolute;
-  top: 0.5em;
-  right: -2em;
-  margin-top: 1em;
-  background-color: white;
-  border: 2px solid black;
+/* line 53, ../sass/_default.scss */
+.dropdown-component ul.dropdown-menu {
+  flex-flow: column nowrap;
 }
-/* line 59, ../sass/_default.scss */
-.dropdown-component ul.dropdown-list li {
-  text-align: end;
-  padding: 1em;
-  outline: 1px solid rgba(0, 0, 0, 0.5);
-}
-/* line 63, ../sass/_default.scss */
-.dropdown-component ul.dropdown-list li:hover {
-  cursor: pointer;
-  font-weight: bold;
+/* line 56, ../sass/_default.scss */
+.dropdown-component ul.dropdown-menu > li {
+  margin-bottom: 0.5em;
+  padding: 0.5em;
 }
 
-/* line 71, ../sass/_default.scss */
+/* line 63, ../sass/_default.scss */
 .form-container {
   position: fixed;
   max-width: 700px;
@@ -158,7 +149,7 @@ button:hover {
   margin-left: auto;
   margin-right: auto;
 }
-/* line 90, ../sass/_default.scss */
+/* line 82, ../sass/_default.scss */
 .form-container #done-button:hover {
   background-color: #337ab7;
   border-color: #2e6da4;
@@ -166,13 +157,13 @@ button:hover {
   font-weight: bold;
 }
 
-/* line 98, ../sass/_default.scss */
+/* line 90, ../sass/_default.scss */
 .form-line {
   display: flex;
   flex-flow: row nowrap;
 }
 
-/* line 103, ../sass/_default.scss */
+/* line 95, ../sass/_default.scss */
 .form-line-component {
   width: 100%;
   padding: 0 2%;
@@ -180,7 +171,7 @@ button:hover {
   flex-flow: column nowrap;
   align-items: flex-start;
 }
-/* line 110, ../sass/_default.scss */
+/* line 102, ../sass/_default.scss */
 .form-line-component #delete-done-button-container {
   margin-top: 2em;
   display: flex;
@@ -189,24 +180,24 @@ button:hover {
   width: 100%;
 }
 
-/* line 120, ../sass/_default.scss */
+/* line 112, ../sass/_default.scss */
 .container-title {
   font-size: 1.5em;
   align-self: center;
   font-weight: bold;
 }
 
-/* line 127, ../sass/_default.scss */
+/* line 119, ../sass/_default.scss */
 .display-none {
   display: none;
 }
 
-/* line 131, ../sass/_default.scss */
+/* line 123, ../sass/_default.scss */
 .visibility-hidden {
   visibility: hidden;
 }
 
-/* line 135, ../sass/_default.scss */
+/* line 127, ../sass/_default.scss */
 .buttons-container {
   display: flex;
   flex-flow: row nowrap;
@@ -215,7 +206,7 @@ button:hover {
   margin-top: 2em;
 }
 
-/* line 143, ../sass/_default.scss */
+/* line 135, ../sass/_default.scss */
 #landing-page-container {
   background-image: url(../assets/bg1.jpg);
   background-size: cover;
@@ -223,14 +214,14 @@ button:hover {
   top: 3.4em;
   left: 0;
   right: 0;
-  min-height: 550px;
+  min-height: 650px;
 }
 
-/* line 153, ../sass/_default.scss */
+/* line 145, ../sass/_default.scss */
 #sign-up-blurb {
   background: white;
   height: 90%;
-  min-width: 450px;
+  max-width: 450px;
   position: absolute;
   right: 0;
   top: 1em;
@@ -239,31 +230,51 @@ button:hover {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  background: #464150;
+  color: white;
+  font-weight: bold;
+}
+/* line 161, ../sass/_default.scss */
+#sign-up-blurb #blurb-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 /* line 166, ../sass/_default.scss */
+#sign-up-blurb #blurb-container #intro-message {
+  height: 70%;
+  overflow: auto;
+  padding: 1em;
+}
+/* line 173, ../sass/_default.scss */
 #sign-up-blurb #flash-messages-container {
   width: 100%;
   font-size: 0.6em;
 }
-/* line 171, ../sass/_default.scss */
+/* line 178, ../sass/_default.scss */
 #sign-up-blurb .auth-form-container {
   flex-flow: column nowrap;
   flex-direction: column-reverse;
+  color: white;
 }
-/* line 176, ../sass/_default.scss */
+/* line 183, ../sass/_default.scss */
+#sign-up-blurb .auth-form-container .form-title {
+  color: white;
+}
+/* line 188, ../sass/_default.scss */
 #sign-up-blurb button#go-back {
   margin-bottom: 2em;
   font-size: 0.6em;
 }
-/* line 181, ../sass/_default.scss */
+/* line 193, ../sass/_default.scss */
 #sign-up-blurb button#landing-sign-up {
   position: absolute;
-  width: 70%;
+  width: 100%;
   height: 3em;
-  bottom: 3em;
+  bottom: 0;
   font-size: 1em;
 }
-/* line 189, ../sass/_default.scss */
+/* line 201, ../sass/_default.scss */
 #sign-up-blurb button#submit-login {
   width: 100%;
   margin-top: 2em;

@@ -9,6 +9,11 @@ import { DropDown } from '../../Utils'
 class JobForm extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      defaultStatus: 'APPLIED'
+    }
+
     this.listenForEnter = this.listenForEnter.bind(this);
     this.handleFormCancel = this.handleFormCancel.bind(this);
     this.handleFormEnter = this.handleFormEnter.bind(this);
@@ -16,7 +21,6 @@ class JobForm extends React.Component {
     this.verifyDelete = this.verifyDelete.bind(this);
     this.handleDeleteCancel = this.handleDeleteCancel.bind(this);
     this.handleFormComplete = this.handleFormComplete.bind(this);
-    this.handleStatusDropDown = this.handleStatusDropDown.bind(this);
     this.handleStatusDropDownClick = this.handleStatusDropDownClick.bind(this);
   }
 
@@ -108,36 +112,33 @@ class JobForm extends React.Component {
 
     const role = this.roleNameInputDiv.querySelector('input').value;
     const contact = this.contactInput.value;
+    const status = this.statusDropDownDiv.querySelector('#selected-option').innerText;
 
-    // TODO --- add in option for status update in jobForm
     const job = {
       company,
       date_applied: date,
       role, 
       contact,
-      status: 'Applied'
+      status
     }
     console.log('form complete')
     this.props.parentSubmitHandler(job);
   }
 
-  handleStatusDropDown(evt) {
-    evt.preventDefault();
-
-    if (evt.target.tagName === 'BUTTON') {
-      this.statusDDMenu.classList.toggle('dropdown-menu');
-    }
-  }
-
   handleStatusDropDownClick(evt) {
-    evt.preventDefault();
-
     const target = evt.target;
-    const tag = target.tagName.toLowerCase();
-    if (tag === 'button') {
-      let display = window.getComputedStyle(this.statusDropDownDiv).display
-      display = display === 'none' ? 'block' : 'none';
-      this.statusDropDownDiv.style.display = display;
+    const tagName = target.tagName.toLowerCase();
+    const ul = this.statusDropDownDiv.querySelector('ul');
+
+    if ( tagName === 'div') {
+      const style = ul.style;
+      style.display = window.getComputedStyle(ul).display === 'none' ? 'flex' : 'none';
+    } else if (tagName === 'li') {
+      const option = target.innerText;
+      this.setState({defaultStatus: option});
+
+      const style = ul.style;
+      style.display = window.getComputedStyle(ul).display === 'none' ? 'flex' : 'none';
     }
   }
 
@@ -176,16 +177,10 @@ class JobForm extends React.Component {
             </div>
             <div className='form-line-component btn-group' id='status-div'>
               <label>Status</label>
-              <button onClick={this.handleStatusDropDownClick} type="button" className="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                {this.props.job.status}
-              </button>
-              <div ref={el => {this.statusDropDownDiv = el}} className="dropdown-menu">
-                {
-                  ['APPLIED', 'PHONE SCREEN', 'ON-SITE', 'OFFER', 'REJECTED'].map((o, idx) => (
-                    <li className='dropdown-item' key={idx}>{o}</li>
-                  ))
-                }
-              </div>
+              <DropDown clickHandler={this.handleStatusDropDownClick} tagID={'status-dropdown'} 
+                items={['APPLIED', 'PHONE SCREEN', 'ON-SITE', 'OFFER', 'REJECTED']} 
+                refFn={(el => this.statusDropDownDiv = el).bind(this)} 
+                defaultOption={this.props.job ? this.props.job.status : this.state.defaultStatus} />
             </div>
           </div>
           <div className='form-line'
