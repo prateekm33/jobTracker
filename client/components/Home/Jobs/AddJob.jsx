@@ -13,6 +13,11 @@ class AddJob extends React.Component {
     this.returnSelf = this.returnSelf.bind(this);
     this.handleFormComplete = this.handleFormComplete.bind(this);
     this.listenForEscape = this.listenForEscape.bind(this);
+    this.setFormRef = this.setFormRef.bind(this);
+  }
+
+  componentDidUpdate() {
+    // if (this.formEl) this.formEl.focus();
   }
 
   returnSelf() {
@@ -40,10 +45,10 @@ class AddJob extends React.Component {
     // 27 = escape
     if (evt.keyCode === 27) this.closeForm();
   }
-  componentDidUpdate() {
-    if (this.formEl) this.formEl.focus();
-  }
 
+  setFormRef(el) {
+    this.formEl = el;
+  }
 
   render() {
     return (
@@ -52,11 +57,12 @@ class AddJob extends React.Component {
   
         {
           this.props.addForm ? 
-            (<div tabIndex="0" onKeyDown={this.listenForEscape}
+            (<div tabIndex="1" onKeyDown={this.listenForEscape}
                 id='add-job-container' className='form-container' ref={el => this.formEl = el}>
               <div id='add-job-form-title' className='container-title'>ADD JOB</div>
               <JobForm job={null} 
                 getParent={this.returnSelf}
+                parentRef={this.setFormRef}
                 parentSubmitHandler={this.handleFormComplete} />
             </div>) :
             null

@@ -70,16 +70,16 @@ const authActions = {
         },
         credentials: 'include'
       }).then(r => {
-        if (r.status === 200) {
-          dispatch(actions.userLoggedIn(creds.email));
-          dispatch(replace('/home'))
-        } else if (r.status === 401) {
-          dispatch(actions.invalidCreds());
-        }
-      })
+          if (r.status === 200) {
+            dispatch(actions.userLoggedIn(creds.email));
+            dispatch(replace('/home'))
+          } else {
+            dispatch(actions.invalidCreds());
+          }
+        })
         .catch(e => { 
           console.log('error: ', e);
-          // dispatch(actions.asyncErrorCaught());
+          dispatch(actions.asyncErrorCaught());
         });
 
     }

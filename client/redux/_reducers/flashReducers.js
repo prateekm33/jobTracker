@@ -31,7 +31,7 @@ function addFlash(msgs, action) {
     }
   }
 
-  return msgs.map(i => i).concat({msg: action.msg, isError: action.isError});
+  return action.isError && msgs.map(i => i).concat({msg: action.msg, isError: action.isError}) || msgs;
 }
 
 function removeFlash(msgs, action) {

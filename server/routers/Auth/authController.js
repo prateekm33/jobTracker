@@ -8,8 +8,8 @@ module.exports = {
   },
 
   logInUser(req, res, next) {
-    if (req.user) res.status(200).end();
-    else res.status(401).end();
+    if (req.user) return res.status(200).json(req.user.email);
+    else return res.status(401).json(null);
   },
 
   logOutUser(req, res, next) {

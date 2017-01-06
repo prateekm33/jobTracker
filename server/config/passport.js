@@ -15,24 +15,24 @@ passport.deserializeUser(function(id, done) {
 
 
 passport.use(new LocalStrategy(
-  { usernameField: 'email' },
-  (email, password, done) => {
-    console.log('passport password: ', password);
+  { usernameField: 'email', passReqToCallback: true},
+  (req, email, password, done) => {
     User.findOne({email})
       .then(user => {
         if (!user) { 
-          console.log('cant auth user. no user found....')
+          console.log('USER DOES NOT EXIST');
           return done(null, false);
-        }
-        if (user) {
-          // todo -- match password
+        } if (user) {
           bcrypt.compare(password, user.password, (err, equal) => {
-            if (err || !equal) {
-              console.log('passwords do not match')
+            if (err) {
+              console.log('BCRYPT ERROR: ', err);
+              return done(null, false);
+            } else if (!equal) {
+              console.log('PASSWORDS DO NOT MATCH');
               return done(null, false);
             } 
             else {
-              console.log('found user in local database: ', user);
+              console.log('USER AUTHENTICATED: ', user);
               return done(null, user);
             }
           });

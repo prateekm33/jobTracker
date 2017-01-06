@@ -25,7 +25,7 @@ const defaultState = {
   signUpForm: false,
   logInForm: false,
   user: null,
-  logInError: false,
+  logInError: {error: false},
   makingAccount: false,
   logOutError: false,
   flashMessages: []

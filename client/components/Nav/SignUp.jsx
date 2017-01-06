@@ -18,6 +18,7 @@ class SignUp extends React.Component {
 
   componentDidMount() {
     document.body.scrollTop = 0;
+    this.formEl.querySelector('#user-email').focus()
   }
 
   componentWillUnmount() {

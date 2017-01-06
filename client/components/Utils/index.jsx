@@ -70,15 +70,26 @@ export const DropDown = (props) => {
   const items = props.items; 
   const tagID = props.tagID;
 
+  const statuses = {
+                    'APPLIED': 'applied',
+                    'PHONE-SCREEN': 'phone-screen',
+                    'ON-SITE': 'on-site',
+                    'OFFER' : 'offer',
+                    'REJECTED' : 'rejected' 
+                  }
+
+  const classStringDiv = statuses[props.defaultOption.split(' ').join('-')] || '';
+
   return (
     <div onClick={props.clickHandler} id={tagID} className='dropdown-component' ref={props.refFn}>
-      <div className='dropdown-toggle' id='selected-option'>{props.defaultOption}</div>
+      <div className={'dropdown-toggle btn btn-default ' + classStringDiv} id='selected-option'>{props.defaultOption}</div>
       <ul className='dropdown-menu'>
         {
           items.map((item, idx) => {
-            if (typeof item === 'string') item = item.toUpperCase();
+            item = item.toUpperCase();
+            const classStringLi = statuses[item.split(' ').join('-')] || '';
             return (
-              <li key={idx}> {item} </li>
+              <li className={classStringLi+'-dd'} key={idx}> {item} </li>
             )
           })
         }

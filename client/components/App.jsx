@@ -59,7 +59,7 @@ class App extends React.Component {
             this.props.children
           }
         </div>
-        <div id='footer'>FOOTER</div>
+        <div id='footer'></div>
       </div>
     )
   }

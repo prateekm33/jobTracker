@@ -17,10 +17,11 @@ class LogIn extends React.Component {
 
   componentDidMount() {
     document.body.scrollTop = 0;
+    this.formEl.querySelector('#user-email').focus()
   }
 
   componentDidUpdate() {
-    const invalid = this.props.invalidCreds;
+    const invalid = this.props.invalidCreds.error;
     if (invalid) {
       this.handleInvalidCreds();
     }
@@ -31,7 +32,9 @@ class LogIn extends React.Component {
   }
 
   handleInvalidCreds() {
-    console.log('TODO ---- UI FOR INVALID CREDENTIALS')
+    this.props.dispatch(actions.clearFlash());
+    const msg = 'Either the username or password is incorrect. Please check and try again.'
+    this.props.dispatch(actions.addFlash(msg, true));
   }
 
   handleSubmit(evt) {

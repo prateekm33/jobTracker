@@ -101,35 +101,65 @@ button:hover {
   margin-top: 4em;
   position: fixed;
   bottom: 0;
+  border-top: 2px solid #b7b5b5;
 }
 
-/* line 38, ../sass/_default.scss */
+/* line 39, ../sass/_default.scss */
 #secondary-app-container {
   margin: 5% 10%;
   margin-top: 5em;
   min-height: 100vh;
 }
 
-/* line 45, ../sass/_default.scss */
+/* line 46, ../sass/_default.scss */
 .dropdown-component {
   position: relative;
 }
-/* line 48, ../sass/_default.scss */
+/* line 49, ../sass/_default.scss */
 .dropdown-component .default-dropdown-option:hover {
   cursor: pointer;
   font-weight: bold;
 }
-/* line 53, ../sass/_default.scss */
+/* line 54, ../sass/_default.scss */
+.dropdown-component #selected-option:hover {
+  cursor: pointer;
+}
+/* line 58, ../sass/_default.scss */
 .dropdown-component ul.dropdown-menu {
   flex-flow: column nowrap;
 }
-/* line 56, ../sass/_default.scss */
+/* line 61, ../sass/_default.scss */
+.dropdown-component ul.dropdown-menu .applied-dd {
+  border-bottom: 3px solid rgba(220, 255, 230, 0.8);
+}
+/* line 64, ../sass/_default.scss */
+.dropdown-component ul.dropdown-menu .phone-screen-dd {
+  border-bottom: 3px solid #C9F7D4;
+}
+/* line 67, ../sass/_default.scss */
+.dropdown-component ul.dropdown-menu .on-site-dd {
+  border-bottom: 3px solid #85ED9F;
+}
+/* line 70, ../sass/_default.scss */
+.dropdown-component ul.dropdown-menu .offer-dd {
+  border-bottom: 3px solid #5DE77F;
+}
+/* line 73, ../sass/_default.scss */
+.dropdown-component ul.dropdown-menu .rejected-dd {
+  border-bottom: 3px solid rgba(253, 106, 106, 0.6);
+}
+/* line 79, ../sass/_default.scss */
 .dropdown-component ul.dropdown-menu > li {
   margin-bottom: 0.5em;
   padding: 0.5em;
 }
+/* line 83, ../sass/_default.scss */
+.dropdown-component ul.dropdown-menu > li:hover {
+  cursor: pointer;
+  font-weight: bold;
+}
 
-/* line 63, ../sass/_default.scss */
+/* line 91, ../sass/_default.scss */
 .form-container {
   position: fixed;
   max-width: 700px;
@@ -149,7 +179,7 @@ button:hover {
   margin-left: auto;
   margin-right: auto;
 }
-/* line 82, ../sass/_default.scss */
+/* line 110, ../sass/_default.scss */
 .form-container #done-button:hover {
   background-color: #337ab7;
   border-color: #2e6da4;
@@ -157,13 +187,13 @@ button:hover {
   font-weight: bold;
 }
 
-/* line 90, ../sass/_default.scss */
+/* line 118, ../sass/_default.scss */
 .form-line {
   display: flex;
   flex-flow: row nowrap;
 }
 
-/* line 95, ../sass/_default.scss */
+/* line 123, ../sass/_default.scss */
 .form-line-component {
   width: 100%;
   padding: 0 2%;
@@ -171,7 +201,7 @@ button:hover {
   flex-flow: column nowrap;
   align-items: flex-start;
 }
-/* line 102, ../sass/_default.scss */
+/* line 130, ../sass/_default.scss */
 .form-line-component #delete-done-button-container {
   margin-top: 2em;
   display: flex;
@@ -180,105 +210,30 @@ button:hover {
   width: 100%;
 }
 
-/* line 112, ../sass/_default.scss */
+/* line 140, ../sass/_default.scss */
 .container-title {
   font-size: 1.5em;
   align-self: center;
   font-weight: bold;
 }
 
-/* line 119, ../sass/_default.scss */
+/* line 147, ../sass/_default.scss */
 .display-none {
   display: none;
 }
 
-/* line 123, ../sass/_default.scss */
+/* line 151, ../sass/_default.scss */
 .visibility-hidden {
   visibility: hidden;
 }
 
-/* line 127, ../sass/_default.scss */
+/* line 155, ../sass/_default.scss */
 .buttons-container {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
   width: 100%;
   margin-top: 2em;
-}
-
-/* line 135, ../sass/_default.scss */
-#landing-page-container {
-  background-image: url(../assets/bg1.jpg);
-  background-size: cover;
-  position: absolute;
-  top: 3.4em;
-  left: 0;
-  right: 0;
-  min-height: 650px;
-}
-
-/* line 145, ../sass/_default.scss */
-#sign-up-blurb {
-  background: white;
-  height: 90%;
-  max-width: 450px;
-  position: absolute;
-  right: 0;
-  top: 1em;
-  padding: 1em;
-  border-radius: 0.4em;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  background: #464150;
-  color: white;
-  font-weight: bold;
-}
-/* line 161, ../sass/_default.scss */
-#sign-up-blurb #blurb-container {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-/* line 166, ../sass/_default.scss */
-#sign-up-blurb #blurb-container #intro-message {
-  height: 70%;
-  overflow: auto;
-  padding: 1em;
-}
-/* line 173, ../sass/_default.scss */
-#sign-up-blurb #flash-messages-container {
-  width: 100%;
-  font-size: 0.6em;
-}
-/* line 178, ../sass/_default.scss */
-#sign-up-blurb .auth-form-container {
-  flex-flow: column nowrap;
-  flex-direction: column-reverse;
-  color: white;
-}
-/* line 183, ../sass/_default.scss */
-#sign-up-blurb .auth-form-container .form-title {
-  color: white;
-}
-/* line 188, ../sass/_default.scss */
-#sign-up-blurb button#go-back {
-  margin-bottom: 2em;
-  font-size: 0.6em;
-}
-/* line 193, ../sass/_default.scss */
-#sign-up-blurb button#landing-sign-up {
-  position: absolute;
-  width: 100%;
-  height: 3em;
-  bottom: 0;
-  font-size: 1em;
-}
-/* line 201, ../sass/_default.scss */
-#sign-up-blurb button#submit-login {
-  width: 100%;
-  margin-top: 2em;
-  height: 4em;
 }
 
 /* line 2, ../sass/_nav.scss */
@@ -479,6 +434,81 @@ button:hover {
     max-width: 50%;
   }
 }
+/* line 1, ../sass/_landingPage.scss */
+#landing-page-container {
+  background-image: url(../assets/bg1.png);
+  background-size: cover;
+  position: absolute;
+  top: 3.4em;
+  left: 0;
+  right: 0;
+  min-height: 650px;
+}
+
+/* line 11, ../sass/_landingPage.scss */
+#sign-up-blurb {
+  background: white;
+  height: 90%;
+  max-width: 450px;
+  position: absolute;
+  right: 0;
+  top: 1em;
+  padding: 1em;
+  border-radius: 0.4em;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  background: #464150;
+  color: white;
+  font-weight: bold;
+}
+/* line 27, ../sass/_landingPage.scss */
+#sign-up-blurb #blurb-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+/* line 32, ../sass/_landingPage.scss */
+#sign-up-blurb #blurb-container #intro-message {
+  height: 70%;
+  overflow: auto;
+  padding: 1em;
+}
+/* line 39, ../sass/_landingPage.scss */
+#sign-up-blurb #flash-messages-container {
+  width: 100%;
+  font-size: 0.6em;
+}
+/* line 44, ../sass/_landingPage.scss */
+#sign-up-blurb .auth-form-container {
+  flex-flow: column nowrap;
+  flex-direction: column-reverse;
+  color: white;
+}
+/* line 49, ../sass/_landingPage.scss */
+#sign-up-blurb .auth-form-container .form-title {
+  color: white;
+}
+/* line 54, ../sass/_landingPage.scss */
+#sign-up-blurb button#go-back {
+  margin-bottom: 2em;
+  font-size: 0.6em;
+}
+/* line 59, ../sass/_landingPage.scss */
+#sign-up-blurb button#landing-sign-up {
+  position: absolute;
+  width: 100%;
+  height: 3em;
+  bottom: 0;
+  font-size: 1em;
+}
+/* line 67, ../sass/_landingPage.scss */
+#sign-up-blurb button#submit-login {
+  width: 100%;
+  margin-top: 2em;
+  height: 4em;
+}
+
 /* line 5, ../sass/_home.scss */
 #home-container {
   display: flex;
@@ -790,10 +820,20 @@ button:hover {
   /* line 240, ../sass/_jobsView.scss */
   #jobs-list-table {
     position: relative;
-    top: 50px;
+    top: 60px;
+  }
+  /* line 244, ../sass/_jobsView.scss */
+  #jobs-list-table tr td:first-child {
+    border-top-left-radius: 1em;
+    border-bottom-left-radius: 1em;
+  }
+  /* line 249, ../sass/_jobsView.scss */
+  #jobs-list-table tr td:last-child {
+    border-top-right-radius: 1em;
+    border-bottom-right-radius: 1em;
   }
 
-  /* line 245, ../sass/_jobsView.scss */
+  /* line 255, ../sass/_jobsView.scss */
   #copy-table {
     position: fixed;
     z-index: 100;
@@ -801,11 +841,11 @@ button:hover {
     width: 80%;
   }
 
-  /* line 253, ../sass/_jobsView.scss */
+  /* line 263, ../sass/_jobsView.scss */
   #jobs-view-container {
     margin-top: 2em;
   }
-  /* line 256, ../sass/_jobsView.scss */
+  /* line 266, ../sass/_jobsView.scss */
   #jobs-view-container #page-controls {
     position: fixed;
     top: 8.3em;
@@ -814,23 +854,23 @@ button:hover {
     z-index: 400;
   }
 }
-/* line 271, ../sass/_jobsView.scss */
+/* line 281, ../sass/_jobsView.scss */
 #jobs-view-container .applied, #jobs-view-container table tr.applied {
-  background-color: rgba(228, 251, 233, 0.1);
+  background-color: rgba(220, 255, 230, 0.8);
 }
-/* line 274, ../sass/_jobsView.scss */
+/* line 284, ../sass/_jobsView.scss */
 #jobs-view-container .phone-screen {
   background-color: #C9F7D4;
 }
-/* line 277, ../sass/_jobsView.scss */
+/* line 287, ../sass/_jobsView.scss */
 #jobs-view-container .on-site {
   background-color: #85ED9F;
 }
-/* line 280, ../sass/_jobsView.scss */
+/* line 290, ../sass/_jobsView.scss */
 #jobs-view-container .offer {
   background-color: #5DE77F;
 }
-/* line 283, ../sass/_jobsView.scss */
+/* line 293, ../sass/_jobsView.scss */
 #jobs-view-container .rejected {
   background-color: rgba(253, 106, 106, 0.6);
 }

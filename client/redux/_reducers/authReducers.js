@@ -41,10 +41,12 @@ const authReducers = {
     }
   },
 
-  logInError(error = false, action) {
+  logInError(error = {error: false}, action) {
     switch (action.type) {
       case types.invalidCreds:
-        return true;
+        return {error: true};
+      case types.userLoggedIn:
+        return {error: false};
       default:
         return error;
     }

@@ -2,7 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import actions from '../../../redux/actions';
 
-import { DropDown } from '../../Utils'
+import { DropDown } from '../../Utils';
+import AddJob from './AddJob';
+import EditJob from './EditJob';
 
 // TODO --- add in form for status input
 
@@ -11,7 +13,7 @@ class JobForm extends React.Component {
     super(props);
 
     this.state = {
-      defaultStatus: 'APPLIED'
+      defaultStatus: props.job ? props.job.status : 'APPLIED'
     }
 
     this.listenForEnter = this.listenForEnter.bind(this);
@@ -19,12 +21,15 @@ class JobForm extends React.Component {
     this.handleFormEnter = this.handleFormEnter.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.verifyDelete = this.verifyDelete.bind(this);
-    this.handleDeleteCancel = this.handleDeleteCancel.bind(this);
+    this.handleDeleteHide = this.handleDeleteHide.bind(this);
     this.handleFormComplete = this.handleFormComplete.bind(this);
     this.handleStatusDropDownClick = this.handleStatusDropDownClick.bind(this);
+    this.setFormRef = this.setFormRef.bind(this);
   }
 
   componentDidMount() {
+    this.companyNameInput.focus();
+
     const job = this.props.job;
 
     if (job) {
@@ -44,18 +49,26 @@ class JobForm extends React.Component {
   listenForEnter(evt) {
     const enter = 13;
     const escape = 27;
+    const _delete = 8;
+    console.log('KEY CODE: ', evt.keyCode)
 
     switch (evt.keyCode) {
       case enter: 
         return this.handleFormEnter(evt);
       case escape: 
         return this.handleFormCancel(evt);
+      case _delete:
+        const deleteBtn = this.formEl.querySelector('#delete-button');
+        const display = window.getComputedStyle(deleteBtn).display;
+        if (display === 'none') return;
+        return this.verifyDelete(evt);
       default:
         return;
     }
   }
 
   handleFormEnter(evt) {
+    evt.preventDefault();
     this.handleFormComplete(evt);
   }
 
@@ -81,7 +94,7 @@ class JobForm extends React.Component {
     this.handleFormCancel(evt);
   }
 
-  handleDeleteCancel(evt) {
+  handleDeleteHide(evt) {
     evt.preventDefault();
 
     const div = this.formEl.querySelector('#verify-delete');
@@ -142,15 +155,20 @@ class JobForm extends React.Component {
     }
   }
 
+  setFormRef(el) {
+    this.formEl = el;
+    this.props.parentRef(el);
+  }
+
   render() {
     return (
-      <form id='job-extended' ref={el => this.formEl = el}  onKeyDown={this.listenForEnter}>
+      <form id='job-extended' ref={this.setFormRef}  onKeyDown={this.listenForEnter}>
           
           <div id='verify-delete' className='display-none'>
             <div>Are you sure?</div>
             <div className='buttons-container'>
               <button onClick={this.handleDelete} className='form-done btn btn-danger' id='delete-button'>Delete</button>
-              <button onClick={this.handleDeleteCancel} className='form-done btn btn-default' id='cancel-button'>Cancel</button>
+              <button onClick={this.handleDeleteHide} className='form-done btn btn-default' id='cancel-button'>Cancel</button>
             </div>
           </div>
 
@@ -163,7 +181,7 @@ class JobForm extends React.Component {
           <div className='form-line'>
             <div className='form-line-component'>
               <label htmlFor='company-name'>Company Name</label>
-              <input ref={el => this.companyNameInput = el} id='company-name' className='form-control' type='text' placeholder='Company Name' required/>
+              <input tabIndex="0" ref={el => this.companyNameInput = el} id='company-name' className='form-control' type='text' placeholder='Company Name' required/>
             </div>
             <div className='form-line-component'>
               <label htmlFor='date-applied'>Date Applied</label>
@@ -180,7 +198,7 @@ class JobForm extends React.Component {
               <DropDown clickHandler={this.handleStatusDropDownClick} tagID={'status-dropdown'} 
                 items={['APPLIED', 'PHONE SCREEN', 'ON-SITE', 'OFFER', 'REJECTED']} 
                 refFn={(el => this.statusDropDownDiv = el).bind(this)} 
-                defaultOption={this.props.job ? this.props.job.status : this.state.defaultStatus} />
+                defaultOption={this.state.defaultStatus} />
             </div>
           </div>
           <div className='form-line'

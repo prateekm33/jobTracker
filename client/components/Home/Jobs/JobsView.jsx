@@ -31,7 +31,9 @@ class JobsView extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({displayNum: window.getComputedStyle(this.tableEl).displayNum === 'none' ? 5 : 20});
+    this.setState({displayNum: window.getComputedStyle(this.tableEl).display === 'none' ? 5 : 20});
+
+    this.mainContainer.querySelector('#selected-option').classList.remove('btn','btn-default');
   }
 
   componentWillUnmount() {
@@ -94,7 +96,7 @@ class JobsView extends React.Component {
       this.smallViewAscSortIcon.previousElementSibling.classList.remove('black');
 
       this.setState({
-        defaultDropDown: option,
+        defaultDropDown: option.split('_').join(' '),
         sortBy: option
       });
       let isDesc = false;
@@ -294,7 +296,9 @@ class JobsView extends React.Component {
 
           <div id='page-controls'>
             <div id='prev-page' className={'glyphicon glyphicon-chevron-left'} onClick={this.handlePageChange}></div>
-            <div id='page-num'>{Math.ceil(1 + this.state.startIdx / this.state.displayNum)} &nbsp; / {Math.ceil(this.props.jobsList.length / this.state.displayNum)}</div>
+            <div id='page-num'>
+              {Math.ceil(1 + this.state.startIdx / this.state.displayNum)} &nbsp; / &nbsp; {Math.floor(this.props.jobsList.length / this.state.displayNum) + 1}
+            </div>
             <div id='next-page' className={'glyphicon glyphicon-chevron-right'} onClick={this.handlePageChange}></div>
           </div>
 
