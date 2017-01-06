@@ -8,14 +8,16 @@ export default class LandingPage extends React.Component {
 
     this.state = { showSignUp: false }
 
-    this.renderSignUpComponent = this.renderSignUpComponent.bind(this);
+    this.displaySignUpComponent = this.displaySignUpComponent.bind(this);
+    this.handleGoToLanding = this.handleGoToLanding.bind(this);
+
   }
 
   componentDidMount() {
     document.body.scrollTop = 0;
   }
 
-  renderSignUpComponent(evt) {
+  displaySignUpComponent(evt) {
     evt.preventDefault();
     console.log('show signup...')
     this.setState({showSignUp: true});
@@ -23,10 +25,26 @@ export default class LandingPage extends React.Component {
 
   renderLandingBlurb() {
     return (
-      <button onClick={this.renderSignUpComponent} id='landing-sign-up' className='btn btn-primary'>
+      <button onClick={this.displaySignUpComponent} id='landing-sign-up' className='btn btn-primary'>
         Sign Up!
       </button>
     )
+  }
+
+  renderSignUp() {
+    return (
+      <div>
+        <button onClick={this.handleGoToLanding} id='go-back' className='btn btn-default'>
+          Go Back
+        </button>
+        <SignUp />
+      </div>
+    )
+  }
+
+  handleGoToLanding(evt) {
+    evt.preventDefault();
+    this.setState({showSignUp: false});
   }
 
   render() {
@@ -35,7 +53,7 @@ export default class LandingPage extends React.Component {
         <div id='sign-up-blurb'>
           {
             this.state.showSignUp ? 
-              <SignUp /> : this.renderLandingBlurb()
+              this.renderSignUp() : this.renderLandingBlurb()
           }
         </div>
       </div>

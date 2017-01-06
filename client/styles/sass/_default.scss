@@ -173,11 +173,17 @@ button:hover {
     flex-direction: column-reverse;
   }
 
+  button#go-back {
+    margin-bottom: 2em;
+    font-size: 0.6em;
+  }
+
   button#landing-sign-up {
     position: absolute;
     width: 70%;
-    height: 4em;
-    bottom: 3em
+    height: 3em;
+    bottom: 3em;
+    font-size: 1em;
   }
 
   button#submit-login {
