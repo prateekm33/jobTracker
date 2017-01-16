@@ -5,7 +5,7 @@ import { Route, IndexRoute, Redirect } from 'react-router';
 // import components
 import App from './components/App'
 import LandingPage from './components/LandingPage'
-import Home from './components/Home/home'
+import Home from './components/Home/Home'
 import SignUp from './components/Nav/SignUp'
 import LogIn from './components/Nav/LogIn'
 import DNE from './components/DNE'
