@@ -6,7 +6,7 @@ const path = require('path');
 
 module.exports = webpackMerge(commonConfig, {
   output: {
-    path: path.resolve(__dirname, '..', 'dist'),
+    path: path.resolve(__dirname, '..', 'client', 'dist'),
     filename: '[name].bundle.js'
   },
 

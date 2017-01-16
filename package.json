@@ -8,10 +8,10 @@
     "dev": "webpack-dev-server --config ./webpack/webpack.dev.js --content-base ./client --inline",
     "build": "webpack --config ./webpack/webpack.build.js --watch ./client --content-base ./client --inline",
     "prod": "webpack --config ./webpack/webpack.prod.js",
-    "clean": "rm -rf client/dist",
+    "clean": "rm -rf dist && rm -rf client/dist",
     "rebuild": "npm run clean && npm run build",
     "start": "node server/server.js",
-    "heroku-postbuild": "npm run prod"
+    "heroku-postbuild": "npm run clean && npm run prod"
   },
   "keywords": [],
   "author": "",
