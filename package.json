@@ -9,7 +9,8 @@
     "build": "webpack --config ./webpack/webpack.build.js --watch ./client --content-base ./client --inline",
     "prod": "webpack --config ./webpack/webpack.prod.js",
     "clean": "rm -rf client/dist",
-    "rebuild": "npm run clean && npm run build"
+    "rebuild": "npm run clean && npm run build",
+    "start": "node server/server.js"
   },
   "keywords": [],
   "author": "",
