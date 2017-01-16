@@ -9,15 +9,8 @@ export const authenticateUser = (nextState, replace, done) => {
     method: 'get',
     credentials: 'include'
   })
-    .then(r => {
-      console.log('RESPONSE: ', r);
-      const u = r.json();
-      console.log('USER? ', u);
-      return u;
-    }).then(user => { 
-      console.log('in next then: ', user);
-      handleNoUserFor(path, user, replace, done);
-    })
+    .then(r => r.json())
+    .then(user => { handleNoUserFor(path, user, replace, done); })
     .catch(err => {
       console.log('Error validating request: ', err);
     });
