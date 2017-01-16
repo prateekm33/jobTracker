@@ -109,12 +109,12 @@ class JobForm extends React.Component {
   handleFormComplete(evt) {
     evt.preventDefault();
 
-    let isValid = this.validateCompanyInput(this.companyNameInput);
-    if (!isValid) return;
+    let company = this.validateCompanyInput(this.companyNameInput);
+    if (!company) return;
 
     let date = this.validateDateInput(this.dateInput);
     if (!date) return;
-    
+
     if (date[2][0] === '0') {
       date[2] = date[2][1];
     }
@@ -146,7 +146,7 @@ class JobForm extends React.Component {
     } else {
       this.companyNameInput.style.border = '';
       this.props.dispatch(actions.removeFlash(companyReqMsg));
-      return true;
+      return company;
     }
   }
 
