@@ -14,6 +14,7 @@ app.use(session({
   secret: 'blah blah blah'
 }));
 
+console.log('DIR: ', __dirname);
 app.use(express.static(__dirname + '/../client'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
