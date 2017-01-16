@@ -23,6 +23,7 @@ class Home extends React.Component {
   }
 
   componentWillMount() {
+    console.log('home component mounting...')
     this.props.dispatch(actions.fetchJobs());
   }
 
