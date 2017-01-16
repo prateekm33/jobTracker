@@ -19,7 +19,7 @@ class Nav extends React.Component {
   render() {
     return (
       <nav id='main-nav'>
-        <li id='main-logo-li'><Link to='/'>JobFully</Link></li>
+        <li id='main-logo-li'><Link to='/'>JobTree</Link></li>
         {
           this.props.authenticated ? <UserOptions /> : <Auth logInForm={this.props.logInForm} signUpForm={this.props.signUpForm}/>
         }
