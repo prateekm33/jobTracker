@@ -3,7 +3,7 @@ const app = express();
 const session = require('express-session');
 const morganLogger = require('morgan');
 const bodyParser = require('body-parser');
-// const MongoStore = require('connect-mongo')(session);
+const MongoStore = require('connect-mongo')(session);
 const passport = require('./config/passport');
 
 // config db
@@ -11,7 +11,8 @@ const db = require('./config/database').db;
 app.use(session({ 
   resave: false,
   saveUninitialized: true,
-  secret: 'blah blah blah'
+  secret: 'blah blah blah',
+  store: new MongoStore({mongooseConnection: db})
 }));
 
 console.log('DIR: ', __dirname);
