@@ -14,7 +14,10 @@ export const authenticateUser = (nextState, replace, done) => {
       const u = r.json();
       console.log('USER? ', u);
       return u;
-    }).then(user => { handleNoUserFor(path, user, replace, done) })
+    }).then(user => { 
+      console.log('in next then: ', user);
+      handleNoUserFor(path, user, replace, done);
+    })
     .catch(err => {
       console.log('Error validating request: ', err);
     });
