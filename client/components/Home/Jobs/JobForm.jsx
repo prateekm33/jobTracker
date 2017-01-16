@@ -27,6 +27,7 @@ class JobForm extends React.Component {
     this.handleFormComplete = this.handleFormComplete.bind(this);
     this.handleStatusDropDownClick = this.handleStatusDropDownClick.bind(this);
     this.setFormRef = this.setFormRef.bind(this);
+    this.closeDropDown = this.closeDropDown.bind(this);
   }
 
   componentDidMount() {
@@ -162,9 +163,19 @@ class JobForm extends React.Component {
     this.props.parentRef(el);
   }
 
+  closeDropDown(evt) {
+    const target = evt.target; 
+
+    if (target !== this.statusDropDownDiv && !this.statusDropDownDiv.contains(target)) {
+      const ul = this.statusDropDownDiv.querySelector('ul');
+      ul.style.display = 'none';
+    }
+
+  }
+
   render() {
     return (
-      <form id='job-extended' ref={this.setFormRef}  onKeyDown={this.listenForEnter}>
+      <form id='job-extended' ref={this.setFormRef}  onKeyDown={this.listenForEnter} onClick={this.closeDropDown}>
           
           <div id='verify-delete' className='display-none'>
             <div>Are you sure?</div>
