@@ -3,12 +3,14 @@ import { applyMiddleware, compose, createStore } from 'redux';
 import { routerMiddleware } from 'react-router-redux';
 import { browserHistory } from 'react-router';
 import { reducer } from './reducers';
-import logger from 'redux-logger';
+// import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 const historyMiddleware = routerMiddleware(browserHistory)
 
+
+// logger()
 const finalCreateStore = compose(
-  applyMiddleware(logger(), thunk, historyMiddleware)
+  applyMiddleware(thunk, historyMiddleware)
 )(createStore);
 
 const defaultState = {
