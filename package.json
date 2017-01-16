@@ -10,7 +10,8 @@
     "prod": "webpack --config ./webpack/webpack.prod.js",
     "clean": "rm -rf client/dist",
     "rebuild": "npm run clean && npm run build",
-    "start": "node server/server.js"
+    "start": "node server/server.js",
+    "heroku-postbuild": "npm run prod"
   },
   "keywords": [],
   "author": "",
