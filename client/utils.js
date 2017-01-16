@@ -54,7 +54,7 @@ function handleTransitionForHome(user, replace, done) {
   } else {
     store.dispatch(actions.userLoggedIn(user));
   }
-  done(user);
+  done();
 }
 
 function handleTransitionForAuthPages(user, replace, done) {
@@ -64,5 +64,5 @@ function handleTransitionForAuthPages(user, replace, done) {
     replace('/home');
     store.dispatch(actions.userLoggedIn(user));
   }
-  done(user);
+  done();
 }
