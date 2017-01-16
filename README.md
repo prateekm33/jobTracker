@@ -1,2 +1,2 @@
-# jobTracker
+# JobTree
 An easy way to keep track of your job search
