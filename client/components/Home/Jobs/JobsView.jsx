@@ -1,3 +1,5 @@
+
+
 import React from 'react'
 import { connect } from 'react-redux';
 import actions from '../../../redux/actions';
@@ -28,6 +30,7 @@ class JobsView extends React.Component {
     this.handleSortOrder = this.handleSortOrder.bind(this);
     window.addEventListener('resize', this.handleWindowResize);
     this.captureRightClick = this.captureRightClick.bind(this);
+    this.forceUpdate = _.debounce(this.forceUpdate.bind(this));
   }
 
   componentDidMount() {
@@ -58,6 +61,25 @@ class JobsView extends React.Component {
         const width = window.getComputedStyle(col).width;
         copy_ths[idx].width = width;
       })
+    }
+
+
+    const prevPage = document.getElementById('prev-page');
+    const nextPage = document.getElementById('next-page')
+    if (prevPage) {
+      if (!this.props.jobsList[this.state.startIdx - 1]) {
+        prevPage.style.color = 'lightgrey';
+      } else {
+        prevPage.style.color = 'black';
+      }
+    }
+
+    if (nextPage) {
+      if (!this.props.jobsList[this.state.startIdx + this.state.displayNum]) {
+        nextPage.style.color = 'lightgrey';
+      } else {
+        nextPage.style.color = 'black';
+      }
     }
   }
 
@@ -275,6 +297,8 @@ class JobsView extends React.Component {
   }
 
   render() {
+
+
     return (
       <div ref={el => this.mainContainer = el } id='jobs-view-container'>
           { this.renderCopyTable() }
@@ -293,14 +317,15 @@ class JobsView extends React.Component {
               clickHandler={this.handleDropDownClick}
               refFn={el => {this.dropDownEl = el }}/>
           </div>
+          {
+            this.props.jobsList.length ? 
+               <div id='page-controls'>
+                <div id='prev-page' className={'glyphicon glyphicon-chevron-left'} onClick={this.handlePageChange}></div>
+                <div id='next-page' className={'glyphicon glyphicon-chevron-right'} onClick={this.handlePageChange}></div>
+              </div>
 
-          <div id='page-controls'>
-            <div id='prev-page' className={'glyphicon glyphicon-chevron-left'} onClick={this.handlePageChange}></div>
-            <div id='page-num'>
-              {Math.ceil(1 + this.state.startIdx / this.state.displayNum)} &nbsp; / &nbsp; {Math.floor(this.props.jobsList.length / this.state.displayNum) + 1}
-            </div>
-            <div id='next-page' className={'glyphicon glyphicon-chevron-right'} onClick={this.handlePageChange}></div>
-          </div>
+              : null
+          }
 
           {
             this.props.editJob ? 
@@ -311,6 +336,9 @@ class JobsView extends React.Component {
     )
   }
 }
+                // <div id='page-num'>
+                //   {Math.ceil(1 + this.state.startIdx / this.state.displayNum)} &nbsp; / &nbsp; { (Math.floor((this.props.jobsList.length - 1) / this.state.displayNum) + 1) || 1}
+                // </div>
 
 function mapStateToProps(state) {
   return { jobsList: state.jobsList, editJob: state.editJob }

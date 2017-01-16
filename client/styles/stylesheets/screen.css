@@ -94,72 +94,72 @@ button:hover {
 #footer {
   text-align: center;
   height: 2.3em;
-  background-color: #3e3d3d;
   color: white;
   width: 100%;
   z-index: 1000;
   margin-top: 4em;
   position: fixed;
   bottom: 0;
-  border-top: 2px solid #b7b5b5;
+  background-color: #483030;
+  border-bottom: 5px solid #94e294;
 }
 
-/* line 39, ../sass/_default.scss */
+/* line 41, ../sass/_default.scss */
 #secondary-app-container {
   margin: 5% 10%;
   margin-top: 5em;
   min-height: 100vh;
 }
 
-/* line 46, ../sass/_default.scss */
+/* line 48, ../sass/_default.scss */
 .dropdown-component {
   position: relative;
 }
-/* line 49, ../sass/_default.scss */
+/* line 51, ../sass/_default.scss */
 .dropdown-component .default-dropdown-option:hover {
   cursor: pointer;
   font-weight: bold;
 }
-/* line 54, ../sass/_default.scss */
+/* line 56, ../sass/_default.scss */
 .dropdown-component #selected-option:hover {
   cursor: pointer;
 }
-/* line 58, ../sass/_default.scss */
+/* line 60, ../sass/_default.scss */
 .dropdown-component ul.dropdown-menu {
   flex-flow: column nowrap;
 }
-/* line 61, ../sass/_default.scss */
+/* line 63, ../sass/_default.scss */
 .dropdown-component ul.dropdown-menu .applied-dd {
   border-bottom: 3px solid rgba(220, 255, 230, 0.8);
 }
-/* line 64, ../sass/_default.scss */
+/* line 66, ../sass/_default.scss */
 .dropdown-component ul.dropdown-menu .phone-screen-dd {
   border-bottom: 3px solid #C9F7D4;
 }
-/* line 67, ../sass/_default.scss */
+/* line 69, ../sass/_default.scss */
 .dropdown-component ul.dropdown-menu .on-site-dd {
   border-bottom: 3px solid #85ED9F;
 }
-/* line 70, ../sass/_default.scss */
+/* line 72, ../sass/_default.scss */
 .dropdown-component ul.dropdown-menu .offer-dd {
   border-bottom: 3px solid #5DE77F;
 }
-/* line 73, ../sass/_default.scss */
+/* line 75, ../sass/_default.scss */
 .dropdown-component ul.dropdown-menu .rejected-dd {
   border-bottom: 3px solid rgba(253, 106, 106, 0.6);
 }
-/* line 79, ../sass/_default.scss */
+/* line 81, ../sass/_default.scss */
 .dropdown-component ul.dropdown-menu > li {
   margin-bottom: 0.5em;
   padding: 0.5em;
 }
-/* line 83, ../sass/_default.scss */
+/* line 85, ../sass/_default.scss */
 .dropdown-component ul.dropdown-menu > li:hover {
   cursor: pointer;
   font-weight: bold;
 }
 
-/* line 91, ../sass/_default.scss */
+/* line 93, ../sass/_default.scss */
 .form-container {
   position: fixed;
   max-width: 700px;
@@ -171,7 +171,7 @@ button:hover {
   display: flex;
   flex-flow: column nowrap;
   overflow: auto;
-  top: 25%;
+  top: 16em;
   bottom: 10%;
   z-index: 500;
   left: 0;
@@ -179,7 +179,7 @@ button:hover {
   margin-left: auto;
   margin-right: auto;
 }
-/* line 110, ../sass/_default.scss */
+/* line 112, ../sass/_default.scss */
 .form-container #done-button:hover {
   background-color: #337ab7;
   border-color: #2e6da4;
@@ -187,13 +187,13 @@ button:hover {
   font-weight: bold;
 }
 
-/* line 118, ../sass/_default.scss */
+/* line 120, ../sass/_default.scss */
 .form-line {
   display: flex;
   flex-flow: row nowrap;
 }
 
-/* line 123, ../sass/_default.scss */
+/* line 125, ../sass/_default.scss */
 .form-line-component {
   width: 100%;
   padding: 0 2%;
@@ -201,7 +201,7 @@ button:hover {
   flex-flow: column nowrap;
   align-items: flex-start;
 }
-/* line 130, ../sass/_default.scss */
+/* line 132, ../sass/_default.scss */
 .form-line-component #delete-done-button-container {
   margin-top: 2em;
   display: flex;
@@ -210,24 +210,24 @@ button:hover {
   width: 100%;
 }
 
-/* line 140, ../sass/_default.scss */
+/* line 142, ../sass/_default.scss */
 .container-title {
   font-size: 1.5em;
   align-self: center;
   font-weight: bold;
 }
 
-/* line 147, ../sass/_default.scss */
+/* line 149, ../sass/_default.scss */
 .display-none {
   display: none;
 }
 
-/* line 151, ../sass/_default.scss */
+/* line 153, ../sass/_default.scss */
 .visibility-hidden {
   visibility: hidden;
 }
 
-/* line 155, ../sass/_default.scss */
+/* line 157, ../sass/_default.scss */
 .buttons-container {
   display: flex;
   flex-flow: row nowrap;
@@ -236,16 +236,28 @@ button:hover {
   margin-top: 2em;
 }
 
+/* line 165, ../sass/_default.scss */
+.btn-primary {
+  background-color: #72cc6c;
+  border-color: #72cc6c;
+}
+/* line 168, ../sass/_default.scss */
+.btn-primary:hover, .btn-primary:active, .btn-primary:active:hover {
+  background-color: #3da945;
+  border-color: #3da945;
+}
+
 /* line 2, ../sass/_nav.scss */
 #main-nav {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-  background-color: #3e3d3d;
+  background-color: #483030;
+  border-top: 5px solid #94e294;
   color: white;
   width: 100%;
   height: 2.3em;
-  font-size: 1.5em;
+  font-size: 1.2em;
   padding: 0.6em;
   position: fixed;
   top: 0;
@@ -253,23 +265,30 @@ button:hover {
   min-width: 490px;
   /* TODO -- bottom box-shadow */
 }
-/* line 17, ../sass/_nav.scss */
+/* line 19, ../sass/_nav.scss */
 #main-nav .sign-up-link {
   color: white;
 }
-/* line 21, ../sass/_nav.scss */
+/* line 23, ../sass/_nav.scss */
 #main-nav a {
   text-decoration: none;
 }
-/* line 23, ../sass/_nav.scss */
+/* line 25, ../sass/_nav.scss */
 #main-nav a:hover {
-  color: white;
+  color: #d04c4c;
+  cursor: pointer;
 }
-/* line 31, ../sass/_nav.scss */
+/* line 33, ../sass/_nav.scss */
+#main-nav ul#profile-dropdown {
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+}
+/* line 38, ../sass/_nav.scss */
 #main-nav ul#profile-dropdown:hover {
   cursor: pointer;
 }
-/* line 35, ../sass/_nav.scss */
+/* line 42, ../sass/_nav.scss */
 #main-nav ul#profile-dropdown div {
   background: white;
   border-right: 2px solid #d32d27;
@@ -279,41 +298,45 @@ button:hover {
   border-top: 5px solid #d32d27;
   margin-top: 0.2em;
   border-radius: 0.5em;
+  position: relative;
+  top: 0px;
+  min-width: 5em;
+  font-size: 1em;
 }
-/* line 46, ../sass/_nav.scss */
+/* line 57, ../sass/_nav.scss */
 #main-nav ul#profile-dropdown > * {
   display: none;
   color: white;
 }
-/* line 51, ../sass/_nav.scss */
+/* line 62, ../sass/_nav.scss */
 #main-nav ul#profile-dropdown li {
   font-size: 0.7em;
   padding: 0.5em;
 }
-/* line 55, ../sass/_nav.scss */
+/* line 66, ../sass/_nav.scss */
 #main-nav ul#profile-dropdown li:hover {
   font-size: 0.74em;
   cursor: pointer;
 }
 
-/* line 65, ../sass/_nav.scss */
+/* line 76, ../sass/_nav.scss */
 #main-logo-li {
   display: flex;
   font-weight: bolder;
   font-size: 1.5em;
 }
-/* line 70, ../sass/_nav.scss */
+/* line 81, ../sass/_nav.scss */
 #main-logo-li a {
-  color: white;
+  color: #a2f989;
   align-self: center;
 }
 
-/* line 76, ../sass/_nav.scss */
+/* line 87, ../sass/_nav.scss */
 .sign-up-link {
   font-weight: bold;
 }
 
-/* line 79, ../sass/_nav.scss */
+/* line 90, ../sass/_nav.scss */
 .log-in-link {
   font-weight: bold;
 }
@@ -409,19 +432,19 @@ button:hover {
 
 /* line 84, ../sass/_authForms.scss */
 .auth-form-container {
-  background: rgba(19, 25, 31, 0.8);
+  background: rgba(72, 48, 48, 0.99);
   border-radius: 1em;
   padding: 1em;
   color: white;
   font-size: 0.87em;
 }
-/* line 91, ../sass/_authForms.scss */
+/* line 92, ../sass/_authForms.scss */
 .auth-form-container .form-title {
   color: white;
 }
 
 @media (max-device-width: 450px) and (max-width: 749px) {
-  /* line 98, ../sass/_authForms.scss */
+  /* line 99, ../sass/_authForms.scss */
   .auth-form-container {
     display: flex;
     flex-flow: column nowrap;
@@ -429,7 +452,7 @@ button:hover {
   }
 }
 @media (min-device-width: 451px) and (min-width: 750px) {
-  /* line 107, ../sass/_authForms.scss */
+  /* line 108, ../sass/_authForms.scss */
   .auth-form-container {
     display: flex;
     flex-flow: row nowrap;
@@ -437,12 +460,12 @@ button:hover {
     justify-content: space-between;
   }
 
-  /* line 113, ../sass/_authForms.scss */
+  /* line 114, ../sass/_authForms.scss */
   #flash-messages-container {
     width: 45%;
   }
 
-  /* line 116, ../sass/_authForms.scss */
+  /* line 117, ../sass/_authForms.scss */
   #log-in-form, #sign-up-form {
     max-width: 50%;
   }
@@ -452,13 +475,17 @@ button:hover {
   background-image: url(../assets/bg1.png);
   background-size: cover;
   position: absolute;
-  top: 3.4em;
+  top: 2.4em;
   left: 0;
   right: 0;
   min-height: 650px;
 }
+/* line 10, ../sass/_landingPage.scss */
+#landing-page-container .auth-form-container {
+  background: 0;
+}
 
-/* line 11, ../sass/_landingPage.scss */
+/* line 15, ../sass/_landingPage.scss */
 #sign-up-blurb {
   background: white;
   height: 90%;
@@ -472,44 +499,44 @@ button:hover {
   flex-flow: column nowrap;
   align-items: center;
   background: rgba(19, 25, 31, 0.8);
-  color: #fff38e;
+  color: #ffffff;
   font-weight: bold;
   border-top-left-radius: 1.4em;
   border-bottom-right-radius: 1.4em;
 }
-/* line 29, ../sass/_landingPage.scss */
+/* line 33, ../sass/_landingPage.scss */
 #sign-up-blurb #blurb-container {
   width: 100%;
   height: 100%;
   position: relative;
 }
-/* line 34, ../sass/_landingPage.scss */
+/* line 38, ../sass/_landingPage.scss */
 #sign-up-blurb #blurb-container #intro-message {
   height: 70%;
   overflow: auto;
   padding: 1em;
 }
-/* line 41, ../sass/_landingPage.scss */
+/* line 45, ../sass/_landingPage.scss */
 #sign-up-blurb #flash-messages-container {
   width: 100%;
   font-size: 0.6em;
 }
-/* line 46, ../sass/_landingPage.scss */
+/* line 50, ../sass/_landingPage.scss */
 #sign-up-blurb .auth-form-container {
   flex-flow: column nowrap;
   flex-direction: column-reverse;
   color: white;
 }
-/* line 51, ../sass/_landingPage.scss */
+/* line 55, ../sass/_landingPage.scss */
 #sign-up-blurb .auth-form-container .form-title {
   color: white;
 }
-/* line 56, ../sass/_landingPage.scss */
+/* line 60, ../sass/_landingPage.scss */
 #sign-up-blurb button#go-back {
   margin-bottom: 2em;
   font-size: 0.6em;
 }
-/* line 61, ../sass/_landingPage.scss */
+/* line 65, ../sass/_landingPage.scss */
 #sign-up-blurb button#landing-sign-up {
   position: absolute;
   width: 100%;
@@ -517,7 +544,7 @@ button:hover {
   bottom: 0;
   font-size: 1em;
 }
-/* line 69, ../sass/_landingPage.scss */
+/* line 73, ../sass/_landingPage.scss */
 #sign-up-blurb button#submit-login {
   width: 100%;
   margin-top: 2em;
@@ -547,22 +574,22 @@ button:hover {
   cursor: pointer;
 }
 
-@media (min-width: 750px) {
-  /* line 29, ../sass/_home.scss */
-  #list-title-container {
-    position: fixed;
-    z-index: 400;
-    width: 100%;
-    text-align: center;
-    background: white;
-    padding: 1.15em;
-    top: 3.3em;
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-  }
+/* line 27, ../sass/_home.scss */
+#list-title-container {
+  z-index: 600;
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  background: white;
+  padding: 1.5em;
+  top: 2.4em;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
 
-  /* line 42, ../sass/_home.scss */
+@media (min-width: 750px) and (min-device-width: 451px) {
+  /* line 43, ../sass/_home.scss */
   #table-header-copy {
     position: fixed;
     top: 10em;
@@ -570,65 +597,69 @@ button:hover {
     width: 79%;
     left: 6.5em;
   }
-  /* line 49, ../sass/_home.scss */
+  /* line 50, ../sass/_home.scss */
   #table-header-copy .company-data-cell {
     width: 121px;
   }
-  /* line 52, ../sass/_home.scss */
+  /* line 53, ../sass/_home.scss */
   #table-header-copy .role-data-cell {
     width: 139px;
   }
-  /* line 55, ../sass/_home.scss */
+  /* line 56, ../sass/_home.scss */
   #table-header-copy .contact-data-cell {
     width: 224px;
   }
-  /* line 58, ../sass/_home.scss */
+  /* line 59, ../sass/_home.scss */
   #table-header-copy .status-data-cell {
     width: 157px;
   }
-  /* line 61, ../sass/_home.scss */
+  /* line 62, ../sass/_home.scss */
   #table-header-copy .date-data-cell {
     width: 133px;
   }
 }
-/* line 6, ../sass/_jobsView.scss */
+/* line 7, ../sass/_jobsView.scss */
 #jobs-view-container {
-  width: 100%;
   font-size: 0.86em;
   display: flex;
   flex-flow: column nowrap;
   min-width: 400px;
-  position: relative;
+  overflow: auto;
+  position: fixed;
+  width: 80%;
+  bottom: 2%;
+  top: 6em;
+  z-index: 600;
 }
 
-/* line 15, ../sass/_jobsView.scss */
+/* line 32, ../sass/_jobsView.scss */
 .job-container, .table-job-container {
   transition: all .3s ease-in-out;
 }
-/* line 18, ../sass/_jobsView.scss */
+/* line 35, ../sass/_jobsView.scss */
 .job-container:hover, .table-job-container:hover {
   cursor: pointer;
   transform: scale(1.03);
 }
 
-/* line 24, ../sass/_jobsView.scss */
+/* line 41, ../sass/_jobsView.scss */
 #page-controls {
   display: flex;
   justify-content: space-around;
   font-weight: bold;
   position: relative;
 }
-/* line 30, ../sass/_jobsView.scss */
+/* line 47, ../sass/_jobsView.scss */
 #page-controls * {
   padding: 0 1em;
 }
-/* line 34, ../sass/_jobsView.scss */
+/* line 51, ../sass/_jobsView.scss */
 #page-controls > .glyphicon:hover {
   cursor: pointer;
   transform: scale(1.4);
 }
 
-/* line 40, ../sass/_jobsView.scss */
+/* line 57, ../sass/_jobsView.scss */
 #page-controls:before {
   content: "";
   position: absolute;
@@ -640,78 +671,81 @@ button:hover {
 }
 
 @media (min-device-width: 451px) {
-  /* line 53, ../sass/_jobsView.scss */
+  /* line 70, ../sass/_jobsView.scss */
   #sort-desc.icon-active:hover, #sort-asc.icon-active:hover {
     color: black;
     cursor: pointer;
   }
 }
 @media (max-width: 749px), (max-device-width: 450px) {
-  /* line 61, ../sass/_jobsView.scss */
+  /* line 78, ../sass/_jobsView.scss */
   #small-screen-order-direction {
     display: flex;
     flex-flow: row nowrap;
-    position: absolute;
-    left: 0;
-    top: -1.5em;
+    position: fixed;
+    left: 4em;
+    top: 7em;
     justify-content: space-around;
   }
-  /* line 69, ../sass/_jobsView.scss */
+  /* line 86, ../sass/_jobsView.scss */
   #small-screen-order-direction #sort-desc, #small-screen-order-direction #sort-asc {
     color: darkgrey;
   }
-  /* line 72, ../sass/_jobsView.scss */
+  /* line 89, ../sass/_jobsView.scss */
   #small-screen-order-direction #sort-desc.black, #small-screen-order-direction #sort-asc.black {
     color: black;
   }
 
-  /* line 79, ../sass/_jobsView.scss */
+  /* line 96, ../sass/_jobsView.scss */
   #small-screen-sort-by-options {
     display: flex;
     flex-flow: row nowrap;
     font-size: 0.7em;
-    position: absolute;
-    right: 0;
-    top: -1.5em;
+    position: fixed;
+    right: 5.5em;
+    top: 10em;
   }
-  /* line 87, ../sass/_jobsView.scss */
+  /* line 104, ../sass/_jobsView.scss */
   #small-screen-sort-by-options * {
     margin-left: 0.4em;
   }
-  /* line 91, ../sass/_jobsView.scss */
+  /* line 108, ../sass/_jobsView.scss */
   #small-screen-sort-by-options .dropdown-component {
     z-index: 200;
   }
-  /* line 94, ../sass/_jobsView.scss */
+  /* line 111, ../sass/_jobsView.scss */
   #small-screen-sort-by-options .dropdown-component ul.dropdown-list {
     width: 200px;
   }
 
-  /* line 100, ../sass/_jobsView.scss */
+  /* line 117, ../sass/_jobsView.scss */
   #page-controls {
     width: 80%;
     font-size: 1.6em;
+    bottom: 0em;
+    padding-bottom: 3em;
   }
 
-  /* line 105, ../sass/_jobsView.scss */
+  /* line 124, ../sass/_jobsView.scss */
   #jobs-view-container {
     align-items: center;
   }
-  /* line 108, ../sass/_jobsView.scss */
+  /* line 127, ../sass/_jobsView.scss */
   #jobs-view-container table {
     display: none;
   }
-  /* line 112, ../sass/_jobsView.scss */
+  /* line 131, ../sass/_jobsView.scss */
   #jobs-view-container #components-view {
     width: 100%;
+    position: relative;
   }
 
-  /* line 117, ../sass/_jobsView.scss */
+  /* line 137, ../sass/_jobsView.scss */
   #list-legend {
     display: none;
   }
 
-  /* line 121, ../sass/_jobsView.scss */
+  /* line 141, ../sass/_jobsView.scss */
   .job-container {
     flex-flow: column nowrap;
     position: relative;
@@ -723,71 +757,71 @@ button:hover {
     border-radius: 10px;
     border: 2px dotted rgba(0, 0, 0, 0.3);
   }
-  /* line 132, ../sass/_jobsView.scss */
+  /* line 152, ../sass/_jobsView.scss */
   .job-container .company-detail {
     margin: 3%;
     font-size: 1.5em;
     font-weight: bold;
   }
-  /* line 138, ../sass/_jobsView.scss */
+  /* line 158, ../sass/_jobsView.scss */
   .job-container .role-detail {
     margin: 3%;
     margin-bottom: 5%;
     font-size: 1.3em;
     font-weight: bold;
   }
-  /* line 145, ../sass/_jobsView.scss */
+  /* line 165, ../sass/_jobsView.scss */
   .job-container .date-detail {
     top: 10%;
     right: 5%;
     position: absolute;
     font-size: 0.95em;
   }
-  /* line 152, ../sass/_jobsView.scss */
+  /* line 172, ../sass/_jobsView.scss */
   .job-container .status-detail {
     font-size: 0.95em;
     font-weight: bold;
   }
-  /* line 157, ../sass/_jobsView.scss */
+  /* line 177, ../sass/_jobsView.scss */
   .job-container .contact-detail {
     display: none;
   }
 }
 @media (max-device-width: 450px) {
-  /* line 164, ../sass/_jobsView.scss */
+  /* line 184, ../sass/_jobsView.scss */
   #jobs-view-container {
-    top: 4em;
+    top: 8.5em;
   }
 }
 @media (min-width: 750px) and (min-device-width: 451px) {
-  /* line 172, ../sass/_jobsView.scss */
+  /* line 192, ../sass/_jobsView.scss */
   #small-screen-sort-by-options, #small-screen-order-direction {
     display: none;
   }
 
-  /* line 175, ../sass/_jobsView.scss */
+  /* line 195, ../sass/_jobsView.scss */
   #components-view {
     display: none;
   }
 
-  /* line 179, ../sass/_jobsView.scss */
+  /* line 199, ../sass/_jobsView.scss */
   th {
     border-bottom: 2px solid rgba(0, 0, 0, 0.8);
     font-weight: bolder;
     position: relative;
   }
-  /* line 184, ../sass/_jobsView.scss */
+  /* line 204, ../sass/_jobsView.scss */
   th .outside-table-header-container {
     display: flex;
     justify-content: space-around;
   }
-  /* line 189, ../sass/_jobsView.scss */
+  /* line 209, ../sass/_jobsView.scss */
   th .table-header-container {
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
   }
-  /* line 194, ../sass/_jobsView.scss */
+  /* line 214, ../sass/_jobsView.scss */
   th .sort-icon-container {
     display: flex;
     flex-flow: column nowrap;
@@ -795,97 +829,98 @@ button:hover {
     margin-left: 5px;
     color: darkgrey;
   }
-  /* line 200, ../sass/_jobsView.scss */
+  /* line 220, ../sass/_jobsView.scss */
   th .sort-icon-container * {
     z-index: -100;
   }
-  /* line 204, ../sass/_jobsView.scss */
+  /* line 224, ../sass/_jobsView.scss */
   th .sort-icon-container:hover {
     color: black;
     cursor: pointer;
   }
 
-  /* line 212, ../sass/_jobsView.scss */
+  /* line 232, ../sass/_jobsView.scss */
   table {
     width: 99%;
     border-collapse: initial;
     border-spacing: 0 0.5em;
     font-size: 0.85em;
   }
-  /* line 219, ../sass/_jobsView.scss */
+  /* line 239, ../sass/_jobsView.scss */
   table tr {
     height: 50px;
   }
-  /* line 223, ../sass/_jobsView.scss */
+  /* line 243, ../sass/_jobsView.scss */
   table td, table th {
     text-align: center;
     font-weight: bold;
   }
-  /* line 228, ../sass/_jobsView.scss */
+  /* line 248, ../sass/_jobsView.scss */
   table td {
     border-bottom: 2px solid rgba(0, 0, 0, 0.3);
     min-width: 1em;
   }
 
-  /* line 237, ../sass/_jobsView.scss */
+  /* line 257, ../sass/_jobsView.scss */
   #jobs-list-table thead {
     display: none;
   }
 
-  /* line 240, ../sass/_jobsView.scss */
+  /* line 260, ../sass/_jobsView.scss */
   #jobs-list-table {
     position: relative;
-    top: 60px;
+    top: 4em;
   }
-  /* line 244, ../sass/_jobsView.scss */
+  /* line 264, ../sass/_jobsView.scss */
   #jobs-list-table tr td:first-child {
     border-top-left-radius: 1em;
     border-bottom-left-radius: 1em;
   }
-  /* line 249, ../sass/_jobsView.scss */
+  /* line 269, ../sass/_jobsView.scss */
   #jobs-list-table tr td:last-child {
     border-top-right-radius: 1em;
     border-bottom-right-radius: 1em;
   }
 
-  /* line 255, ../sass/_jobsView.scss */
+  /* line 275, ../sass/_jobsView.scss */
   #copy-table {
     position: fixed;
     z-index: 100;
     background: white;
     width: 80%;
+    top: 9em;
   }
 
-  /* line 263, ../sass/_jobsView.scss */
+  /* line 284, ../sass/_jobsView.scss */
   #jobs-view-container {
     margin-top: 2em;
   }
-  /* line 266, ../sass/_jobsView.scss */
-  #jobs-view-container #page-controls {
+
+  /* line 288, ../sass/_jobsView.scss */
+  #page-controls {
     position: fixed;
-    top: 8.3em;
+    top: 8em;
     right: 10.5%;
     font-size: 0.8em;
-    z-index: 400;
   }
 }
-/* line 281, ../sass/_jobsView.scss */
+/* line 306, ../sass/_jobsView.scss */
 #jobs-view-container .applied, #jobs-view-container table tr.applied {
   background-color: rgba(220, 255, 230, 0.8);
 }
-/* line 284, ../sass/_jobsView.scss */
+/* line 309, ../sass/_jobsView.scss */
 #jobs-view-container .phone-screen {
   background-color: #C9F7D4;
 }
-/* line 287, ../sass/_jobsView.scss */
+/* line 312, ../sass/_jobsView.scss */
 #jobs-view-container .on-site {
   background-color: #85ED9F;
 }
-/* line 290, ../sass/_jobsView.scss */
+/* line 315, ../sass/_jobsView.scss */
 #jobs-view-container .offer {
   background-color: #5DE77F;
 }
-/* line 293, ../sass/_jobsView.scss */
+/* line 318, ../sass/_jobsView.scss */
 #jobs-view-container .rejected {
   background-color: rgba(253, 106, 106, 0.6);
 }
@@ -911,29 +946,26 @@ button:hover {
 /* line 5, ../sass/_addJob.scss */
 #add-job-component {
   position: fixed;
-  top: 6.3em;
+  top: 5.3em;
   left: 10.5%;
   font-size: 0.8em;
-  z-index: 400;
+  z-index: 700;
+  margin-bottom: 0;
 }
-/* line 12, ../sass/_addJob.scss */
+/* line 13, ../sass/_addJob.scss */
 #add-job-component button#delete-button {
   display: none;
 }
+/* line 17, ../sass/_addJob.scss */
+#add-job-component #delete-tips {
+  display: none;
+}
 
-/* line 16, ../sass/_addJob.scss */
+/* line 21, ../sass/_addJob.scss */
 #add-job-container {
   outline: 3px solid black;
 }
 
-@media (max-width: 749px), (max-device-width: 450px) {
-  /* line 21, ../sass/_addJob.scss */
-  #add-job-component {
-    position: absolute;
-    top: -0.6em;
-    left: 0;
-  }
-}
 /* line 1, ../sass/_jobForm.scss */
 form#job-extended {
   min-width: 400px;
@@ -969,6 +1001,11 @@ form#job-extended input {
 }
 
 /* line 32, ../sass/_jobForm.scss */
+.shortcut-tips {
+  color: #777575;
+}
+
+/* line 36, ../sass/_jobForm.scss */
 #verify-delete {
   position: fixed;
   background-color: white;
@@ -986,32 +1023,32 @@ form#job-extended input {
   border-radius: 1em;
   background: #fad7d7;
 }
-/* line 48, ../sass/_jobForm.scss */
+/* line 52, ../sass/_jobForm.scss */
 #verify-delete > * {
   margin-bottom: 2em;
 }
 
-/* line 54, ../sass/_jobForm.scss */
+/* line 58, ../sass/_jobForm.scss */
 .form-line-component#status-div {
   width: 20%;
   position: relative;
 }
-/* line 58, ../sass/_jobForm.scss */
+/* line 62, ../sass/_jobForm.scss */
 .form-line-component#status-div button {
   width: 100%;
   height: 100%;
   align-self: center;
 }
-/* line 64, ../sass/_jobForm.scss */
+/* line 68, ../sass/_jobForm.scss */
 .form-line-component#status-div .dropdown-menu {
   left: -3em;
 }
-/* line 67, ../sass/_jobForm.scss */
+/* line 71, ../sass/_jobForm.scss */
 .form-line-component#status-div .dropdown-menu li {
   margin: 1em;
 }
 
-/* line 73, ../sass/_jobForm.scss */
+/* line 77, ../sass/_jobForm.scss */
 .added-job {
   border: 1px solid darkgrey;
   box-shadow: 0 1px 8px 0 rgba(197, 141, 141, 0.2), 0 6px 10px -2px rgba(0, 0, 0, 0.19);
@@ -1022,7 +1059,7 @@ form#job-extended input {
   position: relative;
   margin-bottom: 5%;
 }
-/* line 83, ../sass/_jobForm.scss */
+/* line 87, ../sass/_jobForm.scss */
 .added-job span.remove-added-job {
   visibility: hidden;
   position: absolute;
@@ -1031,23 +1068,23 @@ form#job-extended input {
   font-size: 1.5em;
   background-color: white;
 }
-/* line 92, ../sass/_jobForm.scss */
+/* line 96, ../sass/_jobForm.scss */
 .added-job a:hover {
   font-size: 1.05em;
   font-weight: bold;
 }
-/* line 97, ../sass/_jobForm.scss */
+/* line 101, ../sass/_jobForm.scss */
 .added-job:hover {
   box-shadow: 0 1px 8px 0 #2e2ce8, 0 6px 10px -2px rgba(0, 134, 253, 0.19);
   cursor: pointer;
 }
-/* line 102, ../sass/_jobForm.scss */
+/* line 106, ../sass/_jobForm.scss */
 .added-job .job-status {
   display: flex;
   flex-flow: row nowrap;
   position: relative;
 }
-/* line 106, ../sass/_jobForm.scss */
+/* line 110, ../sass/_jobForm.scss */
 .added-job .job-status span.glyphicon-menu-down {
   font-size: 0.75em;
   color: rgba(99, 99, 99, 0.7);
@@ -1055,20 +1092,20 @@ form#job-extended input {
   top: -20%;
   font-weight: bold;
 }
-/* line 113, ../sass/_jobForm.scss */
+/* line 117, ../sass/_jobForm.scss */
 .added-job .job-status span.glyphicon-menu-down:hover {
   color: rgba(14, 118, 142, 0.88);
   transform: scale(1.3);
 }
 
 @media (max-width: 749px) {
-  /* line 124, ../sass/_jobForm.scss */
+  /* line 128, ../sass/_jobForm.scss */
   .form-line {
     display: flex;
     flex-flow: row nowrap;
   }
 
-  /* line 129, ../sass/_jobForm.scss */
+  /* line 133, ../sass/_jobForm.scss */
   .form-line-component {
     padding: 0 1%;
   }

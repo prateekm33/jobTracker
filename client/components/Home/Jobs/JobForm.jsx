@@ -1,3 +1,5 @@
+
+
 import React from 'react';
 import { connect } from 'react-redux';
 import actions from '../../../redux/actions';
@@ -38,7 +40,6 @@ class JobForm extends React.Component {
       if (typeof date === 'object') {
         date = date.toISOString();
       }
-      console.log('date: ', date)
       this.dateInput.value = date.split('T')[0];
       this.roleNameInputDiv.querySelector('input').value = job.role;
       this.contactInput.value = job.contact;
@@ -47,21 +48,22 @@ class JobForm extends React.Component {
   }
 
   listenForEnter(evt) {
+
     const enter = 13;
     const escape = 27;
     const _delete = 8;
-    console.log('KEY CODE: ', evt.keyCode)
+    if (evt.keyCode === escape) return this.handleFormCancel(evt);
+
+    if (evt.target.tagName === 'INPUT') return;
 
     switch (evt.keyCode) {
       case enter: 
         return this.handleFormEnter(evt);
-      case escape: 
-        return this.handleFormCancel(evt);
       case _delete:
         const deleteBtn = this.formEl.querySelector('#delete-button');
         const display = window.getComputedStyle(deleteBtn).display;
         if (display === 'none') return;
-        return this.verifyDelete(evt);
+        else return this.verifyDelete(evt);
       default:
         return;
     }
@@ -170,11 +172,13 @@ class JobForm extends React.Component {
               <button onClick={this.handleDelete} className='form-done btn btn-danger' id='delete-button'>Delete</button>
               <button onClick={this.handleDeleteHide} className='form-done btn btn-default' id='cancel-button'>Cancel</button>
             </div>
+            <div className='shortcut-tips' style={{"fontWeight": 100, "color": '#928f8f', "fontSize": "0.7em", "alignSelf": "flex-start"}}>Use Del/BckSpc to delete</div>
           </div>
 
 
           <div className='form-line'>
             <div className='form-line-component'>
+              <div className='shortcut-tips' style={{"alignSelf": "flex-end", "color": "#777575"}}>Press Esc. to cancel</div>
               <button onClick={this.handleFormCancel} className='form-done btn btn-default' id='cancel-button'>Cancel</button>
             </div>
           </div>
@@ -221,6 +225,7 @@ class JobForm extends React.Component {
                 <button onClick={this.handleFormComplete} className='form-done btn btn-primary' id='done-button'>Done</button>
                 <button onClick={this.verifyDelete} className='form-done btn btn-danger' id='delete-button'>Delete</button>
               </div>
+              <div className='shortcut-tips' id="delete-tips">Use Del/BckSpc to delete</div>
             </div>
           </div>
         </form>

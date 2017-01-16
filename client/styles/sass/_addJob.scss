@@ -4,23 +4,20 @@ $small-device-width: 450px;
 
 #add-job-component {
   position: fixed;
-  top: 6.3em;
+  top: 5.3em;
   left: 10.5%;
   font-size: 0.8em;
-  z-index: 400;
+  z-index: 700;
+  margin-bottom: 0;
 
   button#delete-button {
+    display: none;
+  }
+
+  #delete-tips {
     display: none;
   }
 }
 #add-job-container {
   outline: 3px solid black;
-}
-
-@media (max-width: $max-width), (max-device-width: $small-device-width) {
-  #add-job-component {
-    position: absolute;
-    top: -0.6em;
-    left: 0;
-  }
 }

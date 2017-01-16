@@ -24,20 +24,21 @@ $small-device-width: 450px;
   }
 }
 
+#list-title-container {
+  z-index: 600;
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  background: white;
+  padding: 1.5em;
+  top: 2.4em;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
 // large screen styles
-@media (min-width: $min-width) {
-  #list-title-container {
-    position: fixed;
-    z-index: 400;
-    width: 100%;
-    text-align: center;
-    background: white;
-    padding: 1.15em;
-    top: 3.3em;
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-  }
+@media(min-width: $min-width) and (min-device-width: $small-device-width + 1) {
 
   #table-header-copy {
     position: fixed;

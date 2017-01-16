@@ -1,3 +1,4 @@
+
 const types = {
   sortBy: 'SORT_BY',
   editJob: 'EDIT_JOB',

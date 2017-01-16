@@ -1,3 +1,5 @@
+
+
 import React from 'react';
 import { connect } from 'react-redux';
 import actions from '../../redux/actions';
@@ -10,8 +12,8 @@ class UserOptions extends React.Component {
   }
 
   toggleDropdown(evt) {
-    console.log('toggling dropdown...');
     const target = evt.target;
+    console.log('toggling dropdown...', target);
     if (target.id === 'profile-dropdown') {
       const children = Array.prototype.slice.call(target.children)
       children.forEach(child => {
@@ -33,7 +35,7 @@ class UserOptions extends React.Component {
   render() {
     return (
       <ul id='profile-dropdown' onClick={this.toggleDropdown}> {this.props.user.toLowerCase()}
-        <div>
+        <div className="dropdown-menu">
           <li><a href='/profile'>Profile</a></li>
           <li><a onClick={this.logout}>Logout</a></li>
         </div>

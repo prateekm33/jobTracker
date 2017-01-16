@@ -1,3 +1,5 @@
+
+
 import React from 'react';
 import { connect } from 'react-redux';
 import actions from '../redux/actions';
@@ -41,7 +43,7 @@ class App extends React.Component {
 
     const profileDropdown = document.querySelector('ul#profile-dropdown');
     const children = profileDropdown && Array.prototype.slice.call(profileDropdown.children) || [];
-    if (target.id !== 'profile-dropdown') {
+    if (target.id !== 'profile-dropdown' && profileDropdown && !profileDropdown.contains(target)) {
       children.forEach(child => { child.style.display = 'none' });
     }
   }

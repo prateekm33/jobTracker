@@ -1,3 +1,5 @@
+
+
 import React from 'react';
 
 import { validateEmail, validatePassword } from '../Utils';
@@ -9,7 +11,7 @@ function AuthUserInput(props) {
       <div className='form-line'>
         <div className='form-line-component'>
           <label htmlFor='user-email' className='hidden'> Email </label>
-          <input className='form-control' onBlur={(evt) => {validateEmail(evt.target)}} id='user-email' type='email' name='email' placeholder='Email'/>
+          <input className='form-control' onBlur={(evt) => {validateEmail(evt.target)}} id='user-email' type='email' name='email' placeholder='Email' noValidate/>
         </div>
       </div>
       <div className='form-line'>

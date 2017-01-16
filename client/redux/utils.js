@@ -1,3 +1,5 @@
+
+
 export const deleteJob = (jobs, action) => {
   const job = action.job;
   const idx = action.idx;

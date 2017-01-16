@@ -1,3 +1,5 @@
+
+
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
@@ -11,8 +13,8 @@ export default function Auth (props) {
   console.log('TODO --- GOOGLE LOGIN / FB LOGIN')
   return (
     <div id='auth-options-container'>
-      <div className='btn btn-primary'><Link to='/signup' className='sign-up-link'>Sign Up</Link></div>
-      <div className='btn btn-default'><Link to='/login' className='log-in-link'>Log In</Link></div>
+      <Link to='/signup' className='sign-up-link'><div className='btn btn-primary'>Sign Up</div></Link>
+      <Link to='/login' className='log-in-link'><div className='btn btn-default'>Log In</div></Link>
 
       {
         props.logInForm && <LogIn />

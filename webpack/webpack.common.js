@@ -30,7 +30,6 @@ module.exports = {
   // ],
 
 
-  // this may have been deprecated and so may not be necessary anymore, or we find an alternative devtool
-  devtool: 'source-map'
+  devtool: 'eval'
 
 }

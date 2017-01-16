@@ -1,3 +1,5 @@
+
+
 import types from './actionTypes';
 
 const flashActions = {

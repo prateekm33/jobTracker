@@ -12,7 +12,6 @@ import {store} from './redux/store';
 const history = syncHistoryWithStore(browserHistory, store);
 import routes from './routes';
 
-
 render(
   <Provider store={ store }>
     <Router routes={routes} history={history} />

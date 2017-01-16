@@ -1,3 +1,5 @@
+
+
 import React from 'react';
 import { connect } from 'react-redux'
 import actions from '../../../redux/actions';
@@ -36,11 +38,15 @@ class EditJob extends React.Component {
 
   listenForKeyStroke(evt) {
     // 27 = escape
-    if (evt.keyCode === 27) this.closeForm();
+    const escape = 27;
+    const _delete = 8;
+    if (evt.keyCode === escape) this.closeForm();
+    if (evt.target.tagName === 'INPUT') return;
 
-    else if (evt.keyCode === 8) {
+    else if (evt.keyCode === _delete) {
       const div = this.formEl.querySelector('#verify-delete');
       const display = window.getComputedStyle(div).display;
+      console.log('verify-delete display: ', display);
       if (display === 'none') div.style.display = 'flex';
       else {
         this.props.dispatch(actions.deleteJob(this.props.job, this.props.editIdx));

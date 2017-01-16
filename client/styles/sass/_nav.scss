@@ -3,11 +3,13 @@
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-  background-color: #3e3d3d;
+  // background-color: #3e3d3d;
+  background-color: #483030;
+  border-top: 5px solid #94e294;
   color: white;
   width: 100%;
   height: 2.3em;
-  font-size: 1.5em;
+  font-size: 1.2em;
   padding: 0.6em;
   position: fixed;
   top: 0;
@@ -21,13 +23,18 @@
   a {
     text-decoration: none;
     &:hover {
-      color: white;
+      color: #d04c4c;
+      cursor: pointer;
     }
   }
 
   /* TODO -- bottom box-shadow */
 
   ul#profile-dropdown {
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+
     &:hover {
       cursor: pointer;
     }
@@ -41,6 +48,10 @@
       border-top: 5px solid rgb(211, 45, 39);
       margin-top: 0.2em;
       border-radius: 0.5em;
+      position: relative;
+      top: 0px;
+      min-width: 5em;
+      font-size: 1em;
     }
     
     & > * {
@@ -68,7 +79,7 @@
   font-size: 1.5em;
 
   & a {
-    color: white;
+    color: #a2f989;
     align-self: center;
   }
 }

@@ -1,3 +1,5 @@
+
+
 import React from 'react';
 import { connect } from 'react-redux';
 
@@ -17,7 +19,7 @@ class Nav extends React.Component {
   render() {
     return (
       <nav id='main-nav'>
-        <li id='main-logo-li'><Link to='/'>JobTracker</Link></li>
+        <li id='main-logo-li'><Link to='/'>JobFully</Link></li>
         {
           this.props.authenticated ? <UserOptions /> : <Auth logInForm={this.props.logInForm} signUpForm={this.props.signUpForm}/>
         }

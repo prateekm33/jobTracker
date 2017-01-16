@@ -2,10 +2,14 @@
   background-image: url(../assets/bg1.png);
   background-size: cover;
   position: absolute;
-  top: 3.4em;
+  top: 2.4em;
   left: 0;
   right: 0;
   min-height: 650px;
+
+  .auth-form-container {
+    background: 0;
+  }
 }
 
 #sign-up-blurb {
@@ -21,7 +25,7 @@
   flex-flow: column nowrap;
   align-items: center;
   background: rgba(19, 25, 31, 0.8);
-  color: #fff38e;
+  color: #ffffff;
   font-weight: bold;
   border-top-left-radius: 1.4em;
   border-bottom-right-radius: 1.4em;

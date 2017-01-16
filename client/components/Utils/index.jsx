@@ -1,10 +1,12 @@
+
+
 import React from 'react';
 import actions from '../../redux/actions';
 import { store } from '../../redux/store';
 
 export const validateEmail = (target) => {
-    const value = target.value;  
-    const isValid = value.match(/((\w(\.)?)*\w)@((([a-zA-Z0-9]-*)*)([a-zA-Z0-9])\.)+[a-zA-Z0-9]{2,64}/g);
+    const value = target.value;
+    const isValid = !!value.match(/((\w(\.)?)*\w)@((([a-zA-Z0-9]-*)*)([a-zA-Z0-9])\.)+[a-zA-Z0-9]{2,64}/g);
 
     const flashErrorMsg = 'Please enter a valid email address';
     const flashSuccessMsg = 'Email Valid!'
@@ -23,7 +25,6 @@ export const validateEmail = (target) => {
 
 export const validatePassword = (target) => {
     const value = target.value;
-
     const flashErrorMsg = 'Your password must be at least 6 characters long.'
     const flashSuccessMsg = 'Password Valid!'
     let isError = true;
@@ -44,9 +45,9 @@ export const validateAuthForm = (form) => {
   const inputs = Array.prototype.slice.call(form.querySelectorAll('input'));
 
   for (let i = 0; i < inputs.length; i++) {
-    if (i.type === 'password') {
+    if (inputs[i].type === 'password') {
       if (!validatePassword(inputs[i])) return {formValid: false, error: 'short password'};
-    } else if (i.type === 'email') {
+    } else if (inputs[i].type === 'email') {
       if (!validateEmail(inputs[i])) return {formValid: false, error: 'invalid email'};
     }
   }
