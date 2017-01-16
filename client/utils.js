@@ -9,7 +9,11 @@ export const authenticateUser = (nextState, replace, done) => {
     method: 'get',
     credentials: 'include'
   })
-    .then(r => r.json() )
+    .then(r => {
+      console.log('RESPONSE: ', r);
+      const u = r.json();
+      console.log('USER? ', u);
+    })
     .then(user => { handleNoUserFor(path, user, replace, done) })
     .catch(err => {
       console.log('Error validating request: ', err);
