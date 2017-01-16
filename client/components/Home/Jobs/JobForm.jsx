@@ -112,9 +112,9 @@ class JobForm extends React.Component {
     let isValid = this.validateCompanyInput(this.companyNameInput);
     if (!isValid) return;
 
-    isValid = this.validateDateInput(this.dateInput);
-    if (!isValid) return;
-
+    let date = this.validateDateInput(this.dateInput);
+    if (!date) return;
+    
     if (date[2][0] === '0') {
       date[2] = date[2][1];
     }
@@ -160,7 +160,7 @@ class JobForm extends React.Component {
     } else {
       this.dateInput.style.border = '';
       this.props.dispatch(actions.removeFlash(dateReqMsg))
-      return true;
+      return date;
     }
   }
 
