@@ -41,6 +41,7 @@ class AddJob extends React.Component {
   closeForm() {
     this.props.dispatch(actions.addForm(false));
     this.buttonEl.disabled = false;
+    this.props.dispatch(actions.clearFlash())
   }
 
   listenForEscape(evt) {

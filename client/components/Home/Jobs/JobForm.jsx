@@ -7,6 +7,7 @@ import actions from '../../../redux/actions';
 import { DropDown } from '../../Utils';
 import AddJob from './AddJob';
 import EditJob from './EditJob';
+import Flash from '../../Flash';
 
 // TODO --- add in form for status input
 
@@ -28,6 +29,8 @@ class JobForm extends React.Component {
     this.handleStatusDropDownClick = this.handleStatusDropDownClick.bind(this);
     this.setFormRef = this.setFormRef.bind(this);
     this.closeDropDown = this.closeDropDown.bind(this);
+    this.validateCompanyInput = this.validateCompanyInput.bind(this);
+    this.validateDateInput = this.validateDateInput.bind(this);
   }
 
   componentDidMount() {
@@ -53,20 +56,18 @@ class JobForm extends React.Component {
     const enter = 13;
     const escape = 27;
     const _delete = 8;
+
     if (evt.keyCode === escape) return this.handleFormCancel(evt);
+
+    if (evt.keyCode === enter) return this.handleFormEnter(evt);
 
     if (evt.target.tagName === 'INPUT') return;
 
-    switch (evt.keyCode) {
-      case enter: 
-        return this.handleFormEnter(evt);
-      case _delete:
-        const deleteBtn = this.formEl.querySelector('#delete-button');
-        const display = window.getComputedStyle(deleteBtn).display;
-        if (display === 'none') return;
-        else return this.verifyDelete(evt);
-      default:
-        return;
+    if (evt.keyCode === _delete) {
+      const deleteBtn = this.formEl.querySelector('#delete-button');
+      const display = window.getComputedStyle(deleteBtn).display;
+      if (display === 'none') return;
+      else return this.verifyDelete(evt);
     }
   }
 
@@ -108,17 +109,11 @@ class JobForm extends React.Component {
   handleFormComplete(evt) {
     evt.preventDefault();
 
-    const company = this.companyNameInput.value;
-    if (!company.trim()) {
-      console.log('invalid company name --- TODO')
-      return;
-    }
+    let isValid = this.validateCompanyInput(this.companyNameInput);
+    if (!isValid) return;
 
-    let date = this.dateInput.value.split('-');
-    if (date.length <= 2) {
-      console.log('invalid date ---> TODO')
-      return;
-    }
+    isValid = this.validateDateInput(this.dateInput);
+    if (!isValid) return;
 
     if (date[2][0] === '0') {
       date[2] = date[2][1];
@@ -139,6 +134,34 @@ class JobForm extends React.Component {
     }
     console.log('form complete')
     this.props.parentSubmitHandler(job);
+  }
+
+  validateCompanyInput(target) {
+    const companyReqMsg = 'Company Name is required';
+    const company = target.value;
+    if (!company.trim()) {
+      this.companyNameInput.style.border = '2px dotted red';
+      this.props.dispatch(actions.addFlash(companyReqMsg, true))
+      return false;
+    } else {
+      this.companyNameInput.style.border = '';
+      this.props.dispatch(actions.removeFlash(companyReqMsg));
+      return true;
+    }
+  }
+
+  validateDateInput(target) {
+    let date = target.value.split('-');
+    const dateReqMsg = 'Date Applied is required';
+    if (date.length <= 2) {
+      this.dateInput.style.border = '2px dotted red';
+      this.props.dispatch(actions.addFlash(dateReqMsg, true))
+      return false;
+    } else {
+      this.dateInput.style.border = '';
+      this.props.dispatch(actions.removeFlash(dateReqMsg))
+      return true;
+    }
   }
 
   handleStatusDropDownClick(evt) {
@@ -191,16 +214,17 @@ class JobForm extends React.Component {
             <div className='form-line-component'>
               <div className='shortcut-tips' style={{"alignSelf": "flex-end", "color": "#777575"}}>Press Esc. to cancel</div>
               <button onClick={this.handleFormCancel} className='form-done btn btn-default' id='cancel-button'>Cancel</button>
+              <Flash />
             </div>
           </div>
           <div className='form-line'>
             <div className='form-line-component'>
-              <label htmlFor='company-name'>Company Name</label>
-              <input tabIndex="0" ref={el => this.companyNameInput = el} id='company-name' className='form-control' type='text' placeholder='Company Name' required/>
+              <label htmlFor='company-name'>Company Name*</label>
+              <input tabIndex="0" ref={el => this.companyNameInput = el} id='company-name' className='form-control' type='text' placeholder='Company Name' onBlur={evt => this.validateCompanyInput(evt.target)} required/>
             </div>
             <div className='form-line-component'>
-              <label htmlFor='date-applied'>Date Applied</label>
-              <input id='date-applied' className='form-control' type='date' ref={el => this.dateInput = el} required/>
+              <label htmlFor='date-applied'>Date Applied*</label>
+              <input id='date-applied' className='form-control' type='date' ref={el => this.dateInput = el} required onBlur={evt => this.validateDateInput(evt.target)}/>
             </div>
           </div>
           <div className='form-line'>

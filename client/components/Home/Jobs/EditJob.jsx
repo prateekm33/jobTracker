@@ -34,6 +34,7 @@ class EditJob extends React.Component {
 
   closeForm() {
     this.props.dispatch(actions.closeEditJobForm());
+    this.props.dispatch(actions.clearFlash())
   }
 
   listenForKeyStroke(evt) {

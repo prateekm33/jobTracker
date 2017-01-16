@@ -1000,12 +1000,12 @@ form#job-extended input {
   font-size: 1.3em;
 }
 
-/* line 32, ../sass/_jobForm.scss */
+/* line 34, ../sass/_jobForm.scss */
 .shortcut-tips {
   color: #777575;
 }
 
-/* line 36, ../sass/_jobForm.scss */
+/* line 38, ../sass/_jobForm.scss */
 #verify-delete {
   position: fixed;
   background-color: white;
@@ -1023,32 +1023,32 @@ form#job-extended input {
   border-radius: 1em;
   background: #fad7d7;
 }
-/* line 52, ../sass/_jobForm.scss */
+/* line 54, ../sass/_jobForm.scss */
 #verify-delete > * {
   margin-bottom: 2em;
 }
 
-/* line 58, ../sass/_jobForm.scss */
+/* line 60, ../sass/_jobForm.scss */
 .form-line-component#status-div {
   width: 20%;
   position: relative;
 }
-/* line 62, ../sass/_jobForm.scss */
+/* line 64, ../sass/_jobForm.scss */
 .form-line-component#status-div button {
   width: 100%;
   height: 100%;
   align-self: center;
 }
-/* line 68, ../sass/_jobForm.scss */
+/* line 70, ../sass/_jobForm.scss */
 .form-line-component#status-div .dropdown-menu {
   left: -3em;
 }
-/* line 71, ../sass/_jobForm.scss */
+/* line 73, ../sass/_jobForm.scss */
 .form-line-component#status-div .dropdown-menu li {
   margin: 1em;
 }
 
-/* line 77, ../sass/_jobForm.scss */
+/* line 79, ../sass/_jobForm.scss */
 .added-job {
   border: 1px solid darkgrey;
   box-shadow: 0 1px 8px 0 rgba(197, 141, 141, 0.2), 0 6px 10px -2px rgba(0, 0, 0, 0.19);
@@ -1059,7 +1059,7 @@ form#job-extended input {
   position: relative;
   margin-bottom: 5%;
 }
-/* line 87, ../sass/_jobForm.scss */
+/* line 89, ../sass/_jobForm.scss */
 .added-job span.remove-added-job {
   visibility: hidden;
   position: absolute;
@@ -1068,23 +1068,23 @@ form#job-extended input {
   font-size: 1.5em;
   background-color: white;
 }
-/* line 96, ../sass/_jobForm.scss */
+/* line 98, ../sass/_jobForm.scss */
 .added-job a:hover {
   font-size: 1.05em;
   font-weight: bold;
 }
-/* line 101, ../sass/_jobForm.scss */
+/* line 103, ../sass/_jobForm.scss */
 .added-job:hover {
   box-shadow: 0 1px 8px 0 #2e2ce8, 0 6px 10px -2px rgba(0, 134, 253, 0.19);
   cursor: pointer;
 }
-/* line 106, ../sass/_jobForm.scss */
+/* line 108, ../sass/_jobForm.scss */
 .added-job .job-status {
   display: flex;
   flex-flow: row nowrap;
   position: relative;
 }
-/* line 110, ../sass/_jobForm.scss */
+/* line 112, ../sass/_jobForm.scss */
 .added-job .job-status span.glyphicon-menu-down {
   font-size: 0.75em;
   color: rgba(99, 99, 99, 0.7);
@@ -1092,20 +1092,20 @@ form#job-extended input {
   top: -20%;
   font-weight: bold;
 }
-/* line 117, ../sass/_jobForm.scss */
+/* line 119, ../sass/_jobForm.scss */
 .added-job .job-status span.glyphicon-menu-down:hover {
   color: rgba(14, 118, 142, 0.88);
   transform: scale(1.3);
 }
 
 @media (max-width: 749px) {
-  /* line 128, ../sass/_jobForm.scss */
+  /* line 130, ../sass/_jobForm.scss */
   .form-line {
     display: flex;
     flex-flow: row nowrap;
   }
 
-  /* line 133, ../sass/_jobForm.scss */
+  /* line 135, ../sass/_jobForm.scss */
   .form-line-component {
     padding: 0 1%;
   }
