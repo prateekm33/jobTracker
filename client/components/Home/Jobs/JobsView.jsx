@@ -304,18 +304,20 @@ class JobsView extends React.Component {
           { this.renderCopyTable() }
           { this.renderTable() }
           { this.renderComponentsView() }
-          <div id='small-screen-order-direction' onClick={this.handleSortOrder}>
-            <div id='sort-desc' className='glyphicon glyphicon-triangle-bottom'></div>
-            <div id='sort-asc' ref={el => this.smallViewAscSortIcon = el} className='glyphicon glyphicon-triangle-top'></div>
-          </div>
-          <div id='small-screen-sort-by-options'>
-          Sort By: 
-            <DropDown 
-              defaultOption={this.state.defaultDropDown} 
-              items={this.state.sortByOptions} 
-              tagID={'sort-by-dropdown'} 
-              clickHandler={this.handleDropDownClick}
-              refFn={el => {this.dropDownEl = el }}/>
+          <div id='view-options-container'>
+            <div id='small-screen-order-direction' onClick={this.handleSortOrder}>
+              <div id='sort-desc' className='glyphicon glyphicon-triangle-bottom'></div>
+              <div id='sort-asc' ref={el => this.smallViewAscSortIcon = el} className='glyphicon glyphicon-triangle-top'></div>
+            </div>
+            <div id='small-screen-sort-by-options'>
+            Sort By: 
+              <DropDown 
+                defaultOption={this.state.defaultDropDown} 
+                items={this.state.sortByOptions} 
+                tagID={'sort-by-dropdown'} 
+                clickHandler={this.handleDropDownClick}
+                refFn={el => {this.dropDownEl = el }}/>
+            </div>
           </div>
           {
             this.props.jobsList.length ? 
