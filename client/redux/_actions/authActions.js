@@ -79,7 +79,6 @@ const authActions = {
           }
         })
         .catch(e => { 
-          console.log('error: ', e);
           dispatch(actions.asyncErrorCaught());
         });
 
@@ -133,7 +132,6 @@ const authActions = {
           dispatch(actions.errorMakingAccount(user, errCode));
         })
         .catch(e => { 
-          console.log('ERROR: ', e);
           dispatch(actions.asyncErrorCaught(e));
         });
     }

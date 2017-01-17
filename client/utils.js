@@ -16,7 +16,7 @@ export const authenticateUser = (nextState, replace, done) => {
       .then(r => r.json())
       .then(email => { handleNoUserFor(path, email, replace, done); })
       .catch(err => {
-        console.log('Error validating request: ', err);
+        store.dispatch(actions.asyncErrorCaught(err));
       });
   }
 }
