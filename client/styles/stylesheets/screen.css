@@ -909,23 +909,27 @@ button:hover {
   }
 }
 /* line 310, ../sass/_jobsView.scss */
-#jobs-view-container .applied, #jobs-view-container table tr.applied {
+.applied, table tr.applied {
   background-color: rgba(220, 255, 230, 0.8);
 }
+
 /* line 313, ../sass/_jobsView.scss */
-#jobs-view-container .phone-screen {
+.phone-screen {
   background-color: #C9F7D4;
 }
+
 /* line 316, ../sass/_jobsView.scss */
-#jobs-view-container .on-site {
+.on-site {
   background-color: #85ED9F;
 }
+
 /* line 319, ../sass/_jobsView.scss */
-#jobs-view-container .offer {
+.offer {
   background-color: #5DE77F;
 }
+
 /* line 322, ../sass/_jobsView.scss */
-#jobs-view-container .rejected {
+.rejected {
   background-color: rgba(253, 106, 106, 0.6);
 }
 
