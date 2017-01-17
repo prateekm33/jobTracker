@@ -291,8 +291,6 @@ button:hover {
 /* line 42, ../sass/_nav.scss */
 #main-nav ul#profile-dropdown div {
   background: white;
-  border-right: 2px solid #d32d27;
-  border-left: 2px solid #d32d27;
   border-bottom: 5px solid #d32d27;
   padding: 0.3em;
   border-top: 5px solid #d32d27;
@@ -303,40 +301,40 @@ button:hover {
   min-width: 5em;
   font-size: 1em;
 }
-/* line 57, ../sass/_nav.scss */
+/* line 55, ../sass/_nav.scss */
 #main-nav ul#profile-dropdown > * {
   display: none;
   color: white;
 }
-/* line 62, ../sass/_nav.scss */
+/* line 60, ../sass/_nav.scss */
 #main-nav ul#profile-dropdown li {
   font-size: 0.7em;
   padding: 0.5em;
 }
-/* line 66, ../sass/_nav.scss */
+/* line 64, ../sass/_nav.scss */
 #main-nav ul#profile-dropdown li:hover {
   font-size: 0.74em;
   cursor: pointer;
 }
 
-/* line 76, ../sass/_nav.scss */
+/* line 74, ../sass/_nav.scss */
 #main-logo-li {
   display: flex;
   font-weight: bolder;
   font-size: 1.5em;
 }
-/* line 81, ../sass/_nav.scss */
+/* line 79, ../sass/_nav.scss */
 #main-logo-li a {
   color: #a2f989;
   align-self: center;
 }
 
-/* line 87, ../sass/_nav.scss */
+/* line 85, ../sass/_nav.scss */
 .sign-up-link {
   font-weight: bold;
 }
 
-/* line 90, ../sass/_nav.scss */
+/* line 88, ../sass/_nav.scss */
 .log-in-link {
   font-weight: bold;
 }
