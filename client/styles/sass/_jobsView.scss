@@ -180,7 +180,7 @@ $small-device-width: 450px;
   }
 }
 
-@media (max-device-width: $small-device-width) {
+@media (max-device-width: $small-device-width) and (max-width: $min-width - 1) {
   #jobs-view-container {
     top: 8.5em;
   }
