@@ -141,13 +141,16 @@ $small-device-width: 450px;
   .job-container {
     flex-flow: column nowrap;
     position: relative;
-    margin-bottom: 10%;
+    /* margin-bottom: 10%; */
     display: flex;
     text-align: center;
-    width: 100%;
+    width: 80%;
     padding: 5%;
     border-radius: 10px;
-    border: 2px dotted rgba(0,0,0,0.3);
+    border: 2px dotted rgba(0, 0, 0, 0.3);
+    margin: auto;
+    margin-bottom: 10%;
+    height: 10em;
 
     & .company-detail {
       margin: 3%;
