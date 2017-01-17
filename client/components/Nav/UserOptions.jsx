@@ -13,7 +13,7 @@ class UserOptions extends React.Component {
 
   toggleDropdown(evt) {
     const target = evt.target;
-    console.log('toggling dropdown...', target);
+    // console.log('toggling dropdown...', target);
     if (target.id === 'profile-dropdown') {
       const children = Array.prototype.slice.call(target.children)
       children.forEach(child => {

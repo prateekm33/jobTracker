@@ -10,7 +10,7 @@ import LogIn from './LogIn';
 import SignUp from './SignUp';
 
 export default function Auth (props) {
-  console.log('TODO --- GOOGLE LOGIN / FB LOGIN')
+  // console.log('TODO --- GOOGLE LOGIN / FB LOGIN')
   return (
     <div id='auth-options-container'>
       <Link to='/signup' className='sign-up-link'><div className='btn btn-primary'>Sign Up</div></Link>

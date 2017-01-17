@@ -132,7 +132,7 @@ class JobForm extends React.Component {
       contact,
       status
     }
-    console.log('form complete')
+    // console.log('form complete')
     this.props.parentSubmitHandler(job);
   }
 

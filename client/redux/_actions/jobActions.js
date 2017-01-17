@@ -5,7 +5,6 @@ const jobActions = {
   fetchJobs() {
     const actions = this;
     return function(dispatch, getState) {
-      console.log('fetching jobs...')
       dispatch(actions.fetchingJobs());
 
       const user = getState().user;
@@ -134,7 +133,6 @@ const jobActions = {
             dispatch(actions.savedJobs(jobs));
           }
           else {
-            console.log('error updating jobs...');
             dispatch(actions.errorSavingAllJobs(jobs, r));
           }
           return r;

@@ -41,7 +41,7 @@ class LogIn extends React.Component {
 
   handleSubmit(evt) {
     evt.preventDefault();
-    console.log('TODO---submitting..');
+    // console.log('TODO---submitting..');
 
     const { formValid, error } = validateAuthForm(this.formEl);
 

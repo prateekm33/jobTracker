@@ -100,7 +100,7 @@ const authActions = {
   },
 
   validatingUser() {
-    console.log('TODO --- VALIDATING USER ----')
+    // console.log('TODO --- VALIDATING USER ----')
     return {
       type: types.validatingUser
     }
@@ -110,7 +110,6 @@ const authActions = {
     const actions = this;
     return function(dispatch, getState) {
       dispatch(actions.makingAccount());
-      console.log('user: ', user);
 
       return fetch('/accounts', {
         method: 'POST', 
@@ -120,7 +119,6 @@ const authActions = {
         },
         credentials: 'include'
       }).then(r => {
-        console.log('RESPONSE FROM /POST ACCOUNTS: ', r);
         if (r.status === 201) {
           dispatch(replace('/home'));
           dispatch(actions.userLoggedIn(user.email));

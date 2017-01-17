@@ -39,14 +39,14 @@ function handleNoUserFor(path, user, replace, done) {
 }
 
 function handleTransitionForIndex(user, replace, done) {
-  console.log('Authenticating INDEX route')
+  // console.log('Authenticating INDEX route')
   if (user) replace('/home');
   done();
 }
 
 function handleTransitionForHome(user, replace, done) {
-  console.log('Authenticating HOME component');
-  console.log('user? ', user);
+  // console.log('Authenticating HOME component');
+  // console.log('user? ', user);
   if (!user) {
     replace('/')
   } else {
@@ -56,7 +56,7 @@ function handleTransitionForHome(user, replace, done) {
 }
 
 function handleTransitionForAuthPages(user, replace, done) {
-  console.log('Authenticating AUTH component');
+  // console.log('Authenticating AUTH component');
 
   if (user) {
     replace('/home');

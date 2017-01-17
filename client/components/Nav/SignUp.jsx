@@ -33,7 +33,7 @@ class SignUp extends React.Component {
     const { formValid, error } = validateAuthForm(this.formEl);
 
     if (!formValid) {
-      console.log('TODO --- HANDLE UI INVALID FORM');
+      // console.log('TODO --- HANDLE UI INVALID FORM');
       return;
     }
 
@@ -42,7 +42,7 @@ class SignUp extends React.Component {
 
     const pwMatchFlash = 'Passwords do not match';
     if (pwCopy.value !== pw.value) { 
-      console.log('TODO --- HANDLE UI-- PASSWORDS DONT MATCH');
+      // console.log('TODO --- HANDLE UI-- PASSWORDS DONT MATCH');
       pwCopy.classList.add('auth-input-error')
       pw.classList.add('auth-input-error')
       const isError = true;

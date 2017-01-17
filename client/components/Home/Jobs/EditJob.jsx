@@ -47,7 +47,6 @@ class EditJob extends React.Component {
     else if (evt.keyCode === _delete) {
       const div = this.formEl.querySelector('#verify-delete');
       const display = window.getComputedStyle(div).display;
-      console.log('verify-delete display: ', display);
       if (display === 'none') div.style.display = 'flex';
       else {
         this.props.dispatch(actions.deleteJob(this.props.job, this.props.editIdx));

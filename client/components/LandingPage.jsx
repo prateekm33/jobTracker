@@ -21,7 +21,6 @@ export default class LandingPage extends React.Component {
 
   displaySignUpComponent(evt) {
     evt.preventDefault();
-    console.log('show signup...')
     this.setState({showSignUp: true});
   }
 
