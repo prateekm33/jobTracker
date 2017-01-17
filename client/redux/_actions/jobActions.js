@@ -120,6 +120,8 @@ const jobActions = {
       dispatch(actions.savingJobs(jobs));
 
       const user = getState().user;
+      if (!user) return;
+      
       return fetch('/accounts/jobs/' + user, {
         method: 'put',
         body: JSON.stringify({jobs}),
