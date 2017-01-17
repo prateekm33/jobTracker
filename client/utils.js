@@ -5,15 +5,18 @@ import actions from './redux/actions';
 export const authenticateUser = (nextState, replace, done) => {
   const path = nextState.location.pathname;
 
-  fetch('/auth/validate', {
-    method: 'get',
-    credentials: 'include'
-  })
-    .then(r => r.json())
-    .then(user => { handleNoUserFor(path, user, replace, done); })
-    .catch(err => {
-      console.log('Error validating request: ', err);
-    });
+  if (store.getState().user) done();
+  else {
+    fetch('/auth/validate', {
+      method: 'get',
+      credentials: 'include'
+    })
+      .then(r => r.json())
+      .then(user => { handleNoUserFor(path, user, replace, done); })
+      .catch(err => {
+        console.log('Error validating request: ', err);
+      });
+  }
 }
 
 function handleNoUserFor(path, user, replace, done) {
@@ -29,7 +32,7 @@ function handleNoUserFor(path, user, replace, done) {
 
       
     default:
-      done(user);
+      done();
   }
 }
 
