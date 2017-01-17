@@ -787,7 +787,7 @@ button:hover {
     display: none;
   }
 }
-@media (max-device-width: 450px) and (max-width: 749px) {
+@media (max-device-width: 450px), (max-width: 749px) {
   /* line 184, ../sass/_jobsView.scss */
   #jobs-view-container {
     top: 8.5em;
