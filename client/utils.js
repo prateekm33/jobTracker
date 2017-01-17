@@ -4,15 +4,17 @@ import actions from './redux/actions';
 
 export const authenticateUser = (nextState, replace, done) => {
   const path = nextState.location.pathname;
+  const user = store.getState().user;
 
-  if (store.getState().user) done();
+  if (path === '/home' && user) done();
+  else if (user) replace('/home');
   else {
     fetch('/auth/validate', {
       method: 'get',
       credentials: 'include'
     })
       .then(r => r.json())
-      .then(user => { handleNoUserFor(path, user, replace, done); })
+      .then(email => { handleNoUserFor(path, email, replace, done); })
       .catch(err => {
         console.log('Error validating request: ', err);
       });
